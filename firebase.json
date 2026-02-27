@@ -1,0 +1,28 @@
+{
+  "hosting": {
+    "site": "mikeroussell",
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      ".firebaserc",
+      ".gitignore",
+      "README.md",
+      "node_modules",
+      ".git"
+    ],
+    "headers": [
+      {
+        "source": "**/*.html",
+        "headers": [
+          { "key": "Cache-Control", "value": "no-cache" }
+        ]
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/score",
+        "destination": "/score/index.html"
+      }
+    ]
+  }
+}

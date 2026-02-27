@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mike Roussell, PhD | Uncommonly Practical Nutrition Guidance</title>
+    <!-- Primary Meta Tags -->
+    <meta name="description" content="Get evidence-based nutrition strategies from Dr. Mike Roussell, PhD. No confusion, just actionable steps for busy people who want to lead a strong, fit, and healthy life.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mikeroussell.com/">
+    <meta property="og:title" content="Mike Roussell, PhD | Uncommonly Practical Nutrition Guidance">
+    <meta property="og:description" content="Get evidence-based nutrition strategies from Dr. Mike Roussell, PhD. No confusion, just actionable steps for busy people who want to lead a strong, fit, and healthy life.">
+    <meta property="og:image" content="https://mikeroussell.com/images/drmike-hero.webp">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://mikeroussell.com/">
+    <meta name="twitter:title" content="Mike Roussell, PhD | Uncommonly Practical Nutrition Guidance">
+    <meta name="twitter:description" content="Get evidence-based nutrition strategies from Dr. Mike Roussell, PhD. No confusion, just actionable steps for busy people who want to lead a strong, fit, and healthy life.">
+    <meta name="twitter:image" content="https://mikeroussell.com/images/drmike-hero.webp">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+    <!-- Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<script>
+tailwind.config = {
+theme: {
+extend: {
+fontFamily: {
+sans: ['Inter', 'sans-serif'],
+},
+colors: {
+brand: {
+black: '#111111',
+dark: '#1a1a1a',
+gray: '#F3F4F6',
+accent: '#2563EB', // Strong electric blue
+accentHover: '#1D4ED8',
+}
+}
+}
+}
+}
+</script>
+<style>
+/* Custom scrollbar for a polished feel */
+::-webkit-scrollbar {
+width: 8px;
+}
+::-webkit-scrollbar-track {
+background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+background: #cbd5e1;
+border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+background: #94a3b8;
+}
+/* Image positioning for hero - no fade */
+/* Dropdown transition */
+.group:hover .group-hover\:block {
+display: block;
+animation: fadeIn 0.2s ease-out;
+}
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(-10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body class="font-sans text-brand-dark antialiased bg-white selection:bg-brand-accent selection:text-white">
+<!-- Navigation -->
+<nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-all duration-300" id="navbar">
+<div class="max-w-7xl mx-auto px-6 lg:px-8">
+<div class="flex justify-between items-center h-20">
+<!-- Logo -->
+<a href="index.html" class="flex-shrink-0 flex items-center cursor-pointer">
+<span class="text-2xl font-extrabold tracking-tight text-brand-black">
+DR. MIKE <span class="text-brand-accent">ROUSSELL</span>
+</span>
+</a>
+<!-- Desktop Menu -->
+<div class="hidden md:flex space-x-10 items-center">
+<a href="index.html" class="text-sm font-semibold text-gray-900 border-b-2 border-brand-accent">Home</a>
+<!-- Courses Dropdown -->
+<div class="relative group h-full flex items-center">
+<button class="flex items-center text-sm font-semibold text-gray-600 hover:text-brand-accent transition-colors focus:outline-none py-2">
+Courses
+<i data-lucide="chevron-down" class="ml-1 w-4 h-4 transition-transform group-hover:rotate-180"></i>
+</button>
+<!-- Dropdown Menu -->
+<div class="absolute right-0 top-full pt-2 w-56 hidden group-hover:block z-50">
+<div class="bg-white border border-gray-100 rounded-xl shadow-xl overflow-hidden">
+<div class="py-1">
+<a href="courses/built/" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-brand-accent transition-colors border-b border-gray-50">
+<span class="font-bold block">Built to Handle It</span>
+<span class="text-xs text-gray-400 font-normal">Stress Inoculation for Dads</span>
+</a>
+<a href="courses/habit/" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-brand-accent transition-colors border-b border-gray-50">
+<span class="font-bold block">Habit Accelerator</span>
+<span class="text-xs text-gray-400 font-normal">56-Day System</span>
+</a>
+<a href="courses/processed-food/" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-brand-accent transition-colors">
+<span class="font-bold block">MPF Challenge</span>
+<span class="text-xs text-gray-400 font-normal">30-Day Nutrition Reset</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<a href="about/" class="text-sm font-semibold text-gray-600 hover:text-brand-accent transition-colors">About</a>
+<a href="https://instagram.com/mikeroussell" target="_blank" rel="noopener" class="text-gray-600 hover:text-pink-500 transition-colors" aria-label="Instagram">
+<i data-lucide="instagram" class="w-5 h-5"></i>
+</a>
+</div>
+<!-- Mobile menu button -->
+<div class="md:hidden flex items-center">
+<button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-black focus:outline-none">
+<i data-lucide="menu" class="h-6 w-6"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Mobile Menu Panel -->
+<div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full h-screen z-50">
+<div class="px-6 pt-4 pb-8 space-y-6 shadow-xl h-full flex flex-col">
+<a href="index.html" class="block text-xl font-bold text-brand-black hover:text-brand-accent">Home</a>
+<!-- Mobile Courses (Expanded) -->
+<div>
+<span class="block text-xl font-bold text-brand-black mb-3">Courses</span>
+<div class="pl-4 space-y-3 border-l-2 border-gray-100">
+<a href="courses/built/" class="block text-lg font-medium text-gray-600 hover:text-brand-accent">Built to Handle It</a>
+<a href="courses/habit/" class="block text-lg font-medium text-gray-600 hover:text-brand-accent">Habit Accelerator</a>
+<a href="courses/processed-food/" class="block text-lg font-medium text-gray-600 hover:text-brand-accent">MPF Challenge</a>
+</div>
+</div>
+<a href="about/" class="block text-xl font-bold text-brand-black hover:text-brand-accent">About</a>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header id="hero" class="relative pt-32 pb-10 lg:pt-0 lg:pb-0 overflow-hidden">
+<!-- Hero Image - Full Right Half Edge to Edge (Desktop) -->
+<div class="hidden lg:block absolute inset-y-0 right-0 w-1/2">
+<img src="images/drmike-studio.webp" alt="Dr. Mike Roussell" class="w-full h-full object-contain object-right-top">
+</div>
+<div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+<div class="lg:w-1/2 lg:pr-12">
+<!-- Text Content -->
+<div class="lg:pt-40 pb-8 lg:pb-20">
+<p class="inline-block px-3 py-1 mb-6 text-xs font-bold tracking-wider text-brand-accent uppercase bg-blue-50 rounded-full">
+Nutrition Without The Noise
+</p>
+<h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-brand-black leading-[1.1] mb-8">
+Thinking Beyond <br class="hidden md:block" />
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-black to-gray-500">Calories.</span>
+</h1>
+<p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl leading-relaxed">
+You are probably busy and don't have time to waste on nutrition hacks that don't make an impact. Let me save you time.
+</p>
+</div>
+</div>
+<!-- Mobile Hero Image -->
+<div class="lg:hidden flex justify-center">
+<img src="images/drmike-studio.webp" alt="Dr. Mike Roussell" class="w-64 h-auto object-contain">
+</div>
+</div>
+<!-- Abstract Background Element -->
+<div class="absolute top-0 right-0 -z-20 w-1/2 h-full opacity-5 pointer-events-none">
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+<path fill="#000000" d="M42.7,-73.4C55.9,-66.3,67.6,-57.1,76.6,-45.8C85.6,-34.5,91.9,-21.1,90.4,-8.1C88.9,4.9,79.6,17.5,70.1,28.8C60.6,40.1,50.9,50.1,39.8,58.3C28.7,66.5,16.2,72.9,2.8,68.1C-10.6,63.3,-24.9,47.3,-38.3,34.8C-51.7,22.3,-64.2,13.3,-69.8,0.7C-75.4,-11.9,-74.1,-28.1,-65.4,-41.6C-56.7,-55.1,-40.6,-65.9,-25.6,-71.8C-10.6,-77.7,3.3,-78.7,16.2,-74.3C29.1,-69.9,41,-60.1,42.7,-73.4Z" transform="translate(200 200)" />
+</svg>
+</div>
+</header>
+<!-- Lead Magnet Box - Full Width (Outside Hero) -->
+<section class="bg-gradient-to-br from-blue-50 to-white p-6 md:p-8 border-t border-b border-blue-100">
+<div class="max-w-3xl mx-auto">
+<p class="text-sm font-bold text-brand-accent uppercase tracking-wide mb-2">Free Guide</p>
+<h3 class="text-xl md:text-2xl font-extrabold text-brand-black leading-tight mb-4">3 "Healthy" Habits That Don't Make a Difference</h3>
+<p class="text-gray-600 mb-5 text-sm">Stop wasting time on nutrition advice that doesn't work. Get my free guide on what to do instead.</p>
+<!-- ConvertKit Form -->
+<script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+<form action="https://app.kit.com/forms/7663150/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="7663150" data-uid="a498cd0b08" data-format="inline" data-version="5" data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"Success! Now check your email to confirm your subscription.","redirect_url":""},"analytics":{"google":null,"fathom":null,"facebook":null,"segment":null,"pinterest":null,"sparkloop":null,"googletagmanager":null},"modal":{"trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"powered_by":{"show":false,"url":"https://kit.com/features/forms?utm_campaign=poweredby&utm_content=form&utm_medium=referral&utm_source=dynamic"},"recaptcha":{"enabled":false},"return_visitor":{"action":"show","custom_content":""},"slide_in":{"display_in":"bottom_right","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"sticky_bar":{"display_in":"top","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15}},"version":"5"}'>
+<div class="flex flex-col md:flex-row gap-3">
+<input class="flex-1 px-5 py-4 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-accent focus:border-brand-accent transition-all outline-none" name="email_address" aria-label="Email Address" placeholder="Enter your email address..." required type="email">
+<button data-element="submit" class="px-8 py-4 bg-brand-accent text-white font-bold rounded-xl hover:bg-brand-accentHover transition-colors flex items-center justify-center gap-2 whitespace-nowrap">
+<span>Send it to Me</span>
+<i data-lucide="arrow-right" class="w-4 h-4"></i>
+</button>
+</div>
+<ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
+</form>
+<p class="mt-4 text-xs text-gray-500 text-center md:text-left">Join 10,000+ readers. Unsubscribe anytime.</p>
+</div>
+</section>
+<!-- Courses Section -->
+<section class="py-24 bg-brand-gray border-y border-gray-200" id="courses">
+<div class="max-w-7xl mx-auto px-6 lg:px-8">
+<!-- Mobile: Header + Image first, then content -->
+<div class="md:hidden text-center mb-8">
+<span class="text-brand-accent font-bold tracking-widest uppercase text-sm mb-2 block">Education</span>
+<h2 class="text-3xl font-bold mb-6 text-brand-black">Uncommonly Practical Courses</h2>
+<div class="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] group">
+<div class="absolute inset-0 bg-brand-dark/10 group-hover:bg-brand-dark/5 transition-colors duration-500"></div>
+<img src="images/nutrition-courses.png" alt="Nutrition Courses" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700">
+<div class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-md px-5 py-3 rounded-xl shadow-lg">
+<span class="text-sm font-bold text-brand-black">Online Courses Available</span>
+</div>
+</div>
+</div>
+<!-- Desktop: Two-column layout -->
+<div class="hidden md:grid md:grid-cols-2 gap-16 items-center">
+<div>
+<div class="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] group">
+<div class="absolute inset-0 bg-brand-dark/10 group-hover:bg-brand-dark/5 transition-colors duration-500"></div>
+<img src="images/nutrition-courses.png" alt="Nutrition Courses" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700">
+<div class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-md px-5 py-3 rounded-xl shadow-lg">
+<span class="text-sm font-bold text-brand-black">Online Courses Available</span>
+</div>
+</div>
+</div>
+<div>
+<span class="text-brand-accent font-bold tracking-widest uppercase text-sm mb-2 block">Education</span>
+<h2 class="text-4xl font-bold mb-6 text-brand-black">Uncommonly Practical Courses</h2>
+<p class="text-lg text-gray-600 mb-8 leading-relaxed">
+Start leveraging more than just the calories in food to unleash the true power of what you eat. My courses are your cheat code to sustainable health.
+</p>
+<ul class="space-y-4 mb-10">
+<li class="flex items-start">
+<div class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-accent/10 flex items-center justify-center mt-1">
+<i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+</div>
+<span class="ml-4 text-gray-700 font-medium">Evidence-based strategies tailored to real life</span>
+</li>
+<li class="flex items-start">
+<div class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-accent/10 flex items-center justify-center mt-1">
+<i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+</div>
+<span class="ml-4 text-gray-700 font-medium">No confusion, just actionable steps</span>
+</li>
+</ul>
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="courses/built/" class="inline-flex items-center text-brand-accent font-bold hover:text-brand-accentHover transition-colors border-b-2 border-transparent hover:border-brand-accent pb-1">
+Built to Handle It <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+</a>
+<a href="courses/habit/" class="inline-flex items-center text-brand-accent font-bold hover:text-brand-accentHover transition-colors border-b-2 border-transparent hover:border-brand-accent pb-1">
+56-Day Habit Accelerator <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+</a>
+<a href="courses/processed-food/" class="inline-flex items-center text-brand-accent font-bold hover:text-brand-accentHover transition-colors border-b-2 border-transparent hover:border-brand-accent pb-1">
+MPF Challenge <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+</a>
+</div>
+</div>
+</div>
+<!-- Mobile: Rest of content -->
+<div class="md:hidden mt-8">
+<p class="text-lg text-gray-600 mb-8 leading-relaxed text-center">
+Start leveraging more than just the calories in food to unleash the true power of what you eat. My courses are your cheat code to sustainable health.
+</p>
+<ul class="space-y-4 mb-10">
+<li class="flex items-start">
+<div class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-accent/10 flex items-center justify-center mt-1">
+<i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+</div>
+<span class="ml-4 text-gray-700 font-medium">Evidence-based strategies tailored to real life</span>
+</li>
+<li class="flex items-start">
+<div class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-accent/10 flex items-center justify-center mt-1">
+<i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+</div>
+<span class="ml-4 text-gray-700 font-medium">No confusion, just actionable steps</span>
+</li>
+</ul>
+<div class="flex flex-col gap-4">
+<a href="courses/built/" class="inline-flex items-center justify-center text-brand-accent font-bold hover:text-brand-accentHover transition-colors border-b-2 border-transparent hover:border-brand-accent pb-1">
+Built to Handle It <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+</a>
+<a href="courses/habit/" class="inline-flex items-center justify-center text-brand-accent font-bold hover:text-brand-accentHover transition-colors border-b-2 border-transparent hover:border-brand-accent pb-1">
+56-Day Habit Accelerator <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+</a>
+<a href="courses/processed-food/" class="inline-flex items-center justify-center text-brand-accent font-bold hover:text-brand-accentHover transition-colors border-b-2 border-transparent hover:border-brand-accent pb-1">
+MPF Challenge <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Dad Bod Rebuilt Callout -->
+<section class="py-24 bg-brand-black text-white overflow-hidden">
+<div class="max-w-7xl mx-auto px-6 lg:px-8">
+<!-- Changed lg:grid-cols-2 to md:grid-cols-2 for earlier side-by-side transition -->
+<div class="grid md:grid-cols-2 gap-12 items-center">
+<!-- Image Side (Left) -->
+<div class="relative">
+<div class="absolute inset-0 bg-gradient-to-tr from-brand-accent to-purple-600 rounded-3xl transform rotate-3 scale-105 opacity-30 blur-2xl"></div>
+<div class="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+<!-- Dr. Mike in Black Shirt -->
+<img src="images/drmike-blackshirt.webp" alt="Dr. Mike Roussell" class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700">
+</div>
+</div>
+<!-- Content Side (Right) -->
+<div class="lg:pl-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-xs font-bold uppercase tracking-wider mb-6 border border-orange-500/30">
+<i data-lucide="flame" class="w-3 h-3"></i> Substack
+</div>
+<h2 class="text-4xl md:text-5xl font-extrabold mb-6 font-sans tracking-tight leading-tight">
+Dad Bod <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Rebuilt.</span>
+</h2>
+<p class="text-gray-300 text-lg leading-relaxed mb-8">
+Join the community focused on rebuilding your body and health, specifically designed for busy dads. This isn't about quick fixes; it's about practical advice that fits into your chaotic life, delivered straight to your inbox.
+</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<!-- Made buttons slightly smaller text and medium weight instead of bold to fit better -->
+<a href="https://dadbodrebuilt.substack.com/" target="_blank" class="inline-flex items-center justify-center px-6 py-3 bg-brand-accent text-white font-medium text-base rounded-xl hover:bg-brand-accentHover transition-all shadow-xl hover:shadow-brand-accent/20 whitespace-nowrap">
+Subscribe Now <i data-lucide="external-link" class="ml-2 w-4 h-4"></i>
+</a>
+<a href="https://dadbodrebuilt.substack.com/archive" target="_blank" class="inline-flex items-center justify-center px-6 py-3 bg-transparent border border-white/20 text-white font-medium text-base rounded-xl hover:bg-white/10 transition-all whitespace-nowrap">
+View Archive
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About Teaser Section -->
+<section class="py-24 bg-white" id="about-teaser">
+<div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+<h2 class="text-4xl font-bold mb-8 text-brand-black">Meet Dr. Mike</h2>
+<div class="max-w-3xl mx-auto mb-12 text-lg text-gray-600 space-y-6 leading-relaxed text-left">
+<p>
+I've had a +20 year career in Nutrition (and counting) and I love it.
+</p>
+<p>
+I started consulting athletes in sports performance in college while earning a degree in biochemistry (and a minor in dance). After that I headed to medical school before re-directing my path to earn a PhD in Nutrition. Throughout my academic career, I've always maintained 1-on-1 and group nutrition clients. My focus for those years was primarily helping clients unlock new levels of fat loss.
+</p>
+<p>
+However, after leaving graduate school, I worked with a wide range of people from NBA athletes to elite Silicon Valley tech executives to business men/women to Olympic medalists. The commonality amongst this wide range of clients was that they wanted to use nutrition to power their best life. This meant fat loss, gaining more energy to be with their family, fueling athletic/fitness pursuits, and achieving a new level of performance in their life.
+</p>
+<p>
+I found that my true passion was accelerating the results of people that wanted help harnessing the true power of nutrition with simple evidence-based strategies molded to their lives that helped them lead a strong, fit, and healthy life.
+</p>
+<p>
+As a father of four and active entrepreneur - I understand busy. But I also understand the power of nutrition to support a level of vitality, happiness, and health that most don't think possible.
+</p>
+</div>
+<div class="flex justify-center gap-8 mb-12">
+<div class="flex flex-col items-center">
+<span class="text-3xl font-bold text-brand-accent">20+</span>
+<span class="text-sm text-gray-500 font-medium">Years Experience</span>
+</div>
+<div class="w-px h-12 bg-gray-200"></div>
+<div class="flex flex-col items-center">
+<span class="text-3xl font-bold text-brand-accent">PhD</span>
+<span class="text-sm text-gray-500 font-medium">In Nutrition</span>
+</div>
+<div class="w-px h-12 bg-gray-200"></div>
+<div class="flex flex-col items-center">
+<span class="text-3xl font-bold text-brand-accent">600+</span>
+<span class="text-sm text-gray-500 font-medium">Articles Published</span>
+</div>
+</div>
+<a href="about/" class="inline-block px-8 py-3 border-2 border-brand-black text-brand-black font-bold rounded-full hover:bg-brand-black hover:text-white transition-all duration-300">
+Read Full Bio
+</a>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-white border-t border-gray-100 py-12">
+<div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="text-brand-black font-bold text-lg">
+DR. MIKE ROUSSELL
+</div>
+<div class="flex flex-wrap justify-center gap-8 text-sm font-medium text-gray-500">
+<a href="legal/medical/" class="hover:text-brand-black transition-colors">Medical Disclaimer</a>
+<a href="legal/terms/" class="hover:text-brand-black transition-colors">Terms of Service</a>
+<a href="legal/privacy/" class="hover:text-brand-black transition-colors">Privacy Policy</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<a href="https://instagram.com/mikeroussell" target="_blank" rel="noopener" class="text-gray-400 hover:text-pink-500 transition-colors" aria-label="Instagram">
+<i data-lucide="instagram" class="w-5 h-5"></i>
+</a>
+<a href="https://twitter.com/mikeroussell" target="_blank" rel="noopener" class="text-gray-400 hover:text-brand-black transition-colors" aria-label="Twitter">
+<i data-lucide="twitter" class="w-5 h-5"></i>
+</a>
+<a href="https://facebook.com/nutritionphd" target="_blank" rel="noopener" class="text-gray-400 hover:text-blue-600 transition-colors" aria-label="Facebook">
+<i data-lucide="facebook" class="w-5 h-5"></i>
+</a>
+</div>
+<div class="text-sm text-gray-400">
+© <span id="year"></span> Janus Nutrition, LLC
+</div>
+</div>
+</div>
+</footer>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+const btn = document.getElementById('mobile-menu-btn');
+const menu = document.getElementById('mobile-menu');
+btn.addEventListener('click', () => {
+menu.classList.toggle('hidden');
+});
+lucide.createIcons();
+</script>
+</body>
+</html>

@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 56-Day Habit Accelerator | Dad Bod Rebuilt</title>
+    <!-- Primary Meta Tags -->
+    <meta name="description" content="Transform your nutrition habits in 56 days with Dr. Mike Roussell's proven system. Build lasting change with evidence-based strategies.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mikeroussell.com/courses/habit/">
+    <meta property="og:title" content="56-Day Habit Accelerator | Dr. Mike Roussell">
+    <meta property="og:description" content="Transform your nutrition habits in 56 days with Dr. Mike Roussell's proven system. Build lasting change with evidence-based strategies.">
+    <meta property="og:image" content="https://mikeroussell.com/images/drmike-blackshirt.webp">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://mikeroussell.com/courses/habit/">
+    <meta name="twitter:title" content="56-Day Habit Accelerator | Dr. Mike Roussell">
+    <meta name="twitter:description" content="Transform your nutrition habits in 56 days with Dr. Mike Roussell's proven system. Build lasting change with evidence-based strategies.">
+    <meta name="twitter:image" content="https://mikeroussell.com/images/drmike-blackshirt.webp">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+    <!-- Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<script>
+tailwind.config = {
+theme: {
+extend: {
+fontFamily: {
+sans: ['Inter', 'sans-serif'],
+},
+colors: {
+brand: {
+black: '#111111',
+dark: '#1a1a1a',
+gray: '#F3F4F6',
+accent: '#2563EB', // Electric Blue
+accentHover: '#1D4ED8',
+}
+}
+}
+}
+}
+</script>
+<style>
+/* Custom scrollbar */
+::-webkit-scrollbar {
+width: 8px;
+}
+::-webkit-scrollbar-track {
+background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+background: #cbd5e1;
+border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+background: #94a3b8;
+}
+/* Accordion Transitions */
+.accordion-content {
+transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+max-height: 0;
+opacity: 0;
+overflow: hidden;
+}
+.accordion-content.active {
+max-height: 600px;
+opacity: 1;
+}
+.accordion-icon {
+transition: transform 0.3s ease;
+}
+.accordion-btn[aria-expanded="true"] .accordion-icon {
+transform: rotate(180deg);
+}
+</style>
+</head>
+<body class="font-sans text-brand-dark antialiased bg-white selection:bg-brand-accent selection:text-white">
+<!-- Navigation (Changed fixed to absolute) -->
+<nav class="absolute w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
+<div class="max-w-7xl mx-auto px-6 lg:px-8">
+<div class="flex justify-between items-center h-20">
+<!-- Branding -->
+<a href="../index.html" class="flex-shrink-0 flex items-center cursor-pointer group">
+<span class="text-xl font-extrabold tracking-tight text-brand-black uppercase">
+56-Day <span class="text-brand-accent group-hover:text-brand-black transition-colors">Habit Accelerator</span>
+</span>
+<span class="ml-3 px-2 py-0.5 rounded text-xs font-bold bg-gray-100 text-gray-500 uppercase tracking-wider">Course</span>
+</a>
+<!-- Desktop Menu -->
+<div class="hidden md:flex space-x-10 items-center">
+<a href="../index.html" class="text-sm font-semibold text-gray-600 hover:text-brand-accent transition-colors">Home</a>
+<!-- Courses Dropdown -->
+<div class="relative group h-full flex items-center">
+<button class="flex items-center text-sm font-semibold text-gray-900 hover:text-brand-accent transition-colors focus:outline-none py-2 border-b-2 border-brand-accent">
+Courses
+<i data-lucide="chevron-down" class="ml-1 w-4 h-4 transition-transform group-hover:rotate-180"></i>
+</button>
+<!-- Dropdown Menu -->
+<div class="absolute right-0 top-full pt-2 w-56 hidden group-hover:block z-50">
+<div class="bg-white border border-gray-100 rounded-xl shadow-xl overflow-hidden">
+<div class="py-1">
+<a href="../built/" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-brand-accent transition-colors border-b border-gray-50">
+<span class="font-bold block">Built to Handle It</span>
+<span class="text-xs text-gray-400 font-normal">Stress Inoculation for Dads</span>
+</a>
+<a href="./" class="block px-4 py-3 text-sm text-brand-accent bg-gray-50 transition-colors border-b border-gray-50">
+<span class="font-bold block">Habit Accelerator</span>
+<span class="text-xs text-gray-500 font-normal">56-Day System</span>
+</a>
+<a href="../processed-food/" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-brand-accent transition-colors">
+<span class="font-bold block">MPF Challenge</span>
+<span class="text-xs text-gray-400 font-normal">30-Day Nutrition Reset</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<a href="https://instagram.com/mikeroussell" target="_blank" rel="noopener" class="text-gray-600 hover:text-pink-500 transition-colors" aria-label="Instagram">
+<i data-lucide="instagram" class="w-5 h-5"></i>
+</a>
+<a href="#pricing" class="px-5 py-2.5 bg-brand-black text-white text-sm font-semibold rounded-full hover:bg-brand-accent transition-colors duration-300 shadow-lg shadow-brand-accent/20">
+Get Access
+</a>
+</div>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-white">
+<div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+<p class="inline-block px-3 py-1 mb-6 text-xs font-bold tracking-wider text-brand-accent uppercase bg-blue-50 rounded-full">
+New System
+</p>
+<h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-brand-black leading-[1.1] mb-8">
+Stop Starting Over<br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-blue-800">Every Monday.</span>
+</h1>
+<p class="text-xl md:text-2xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+The step-by-step system that helps busy dads lock in routines that actually move the needle—even with zero spare time.
+</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<a href="#pricing" class="px-8 py-4 bg-brand-accent text-white font-bold rounded-xl hover:bg-brand-accentHover transition-colors flex items-center justify-center gap-2 group shadow-xl shadow-blue-500/20">
+Start Your 56 Days
+<i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+</a>
+</div>
+<p class="mt-6 text-sm text-gray-400">
+A structured 8-week accelerator to design, test, and lock in your habits.
+</p>
+</div>
+<!-- Background Abstract -->
+<div class="absolute top-0 right-0 -z-10 w-full h-full opacity-5 pointer-events-none">
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+<path fill="#000000" d="M42.7,-73.4C55.9,-66.3,67.6,-57.1,76.6,-45.8C85.6,-34.5,91.9,-21.1,90.4,-8.1C88.9,4.9,79.6,17.5,70.1,28.8C60.6,40.1,50.9,50.1,39.8,58.3C28.7,66.5,16.2,72.9,2.8,68.1C-10.6,63.3,-24.9,47.3,-38.3,34.8C-51.7,22.3,-64.2,13.3,-69.8,0.7C-75.4,-11.9,-74.1,-28.1,-65.4,-41.6C-56.7,-55.1,-40.6,-65.9,-25.6,-71.8C-10.6,-77.7,3.3,-78.7,16.2,-74.3C29.1,-69.9,41,-60.1,42.7,-73.4Z" transform="translate(200 200)" />
+</svg>
+</div>
+</header>
+<!-- The Problem (Letter Format) -->
+<section class="py-24 px-6 bg-white border-t border-gray-100">
+<div class="max-w-2xl mx-auto prose prose-lg prose-slate">
+<h3 class="text-3xl font-bold uppercase text-brand-black mb-10 border-l-4 border-brand-accent pl-6">
+Dear Dad,
+</h3>
+<p class="text-gray-600 text-xl font-medium mb-10">You know the cycle. It's painful because you've lived it a dozen times.</p>
+<p class="text-gray-600 mb-4">You get motivated.</p>
+<p class="text-gray-600 mb-4">You buy the gear.</p>
+<p class="text-gray-600 mb-4">You promise yourself "this time is different."</p>
+<p class="text-gray-600 mb-12">You crush it for 10 days. You feel strong.</p>
+<p class="font-bold text-brand-black text-2xl mb-8">Then... life happens.</p>
+<p class="text-gray-600 mb-4">A sick kid. A late meeting. A bad night of sleep.</p>
+<p class="text-gray-600 mb-12">You miss one day. Then two.</p>
+<p class="text-gray-600 mb-12">Suddenly, the gear is gathering dust, and you're back on the couch, exhausted by 8 PM, wondering why you can't just stick to the plan.</p>
+<div class="bg-brand-gray p-10 rounded-3xl border border-gray-200 my-12 shadow-sm">
+<p class="font-extrabold text-brand-black mb-8 uppercase tracking-widest text-sm">The "Starting Over" Trap:</p>
+<ul class="list-none pl-0 space-y-6">
+<li class="flex items-start gap-4">
+<i data-lucide="x-circle" class="w-5 h-5 text-red-500 mt-1 flex-shrink-0"></i>
+<span class="text-gray-700 leading-relaxed">You start too big (trying to overhaul everything at once).</span>
+</li>
+<li class="flex items-start gap-4">
+<i data-lucide="x-circle" class="w-5 h-5 text-red-500 mt-1 flex-shrink-0"></i>
+<span class="text-gray-700 leading-relaxed">You rely on motivation (which disappears when you're tired).</span>
+</li>
+<li class="flex items-start gap-4">
+<i data-lucide="x-circle" class="w-5 h-5 text-red-500 mt-1 flex-shrink-0"></i>
+<span class="text-gray-700 leading-relaxed">You have no plan for disruption (so one slip becomes a collapse).</span>
+</li>
+</ul>
+</div>
+<p class="text-gray-600">Here is the shift: <strong class="text-brand-black">You don't need more motivation. You need a better system.</strong></p>
+<p class="text-gray-600">You need a way to build habits that fit into the messy, chaotic, sleep-deprived life you actually have—not the perfect life you wish you had.</p>
+<p class="text-2xl font-extrabold text-brand-black mt-8">It's time to stop trying and start building.</p>
+</div>
+</section>
+<!-- The Solution -->
+<section class="py-24 px-6 bg-brand-black text-white">
+<div class="max-w-4xl mx-auto text-center">
+<span class="text-brand-accent font-bold uppercase tracking-widest text-sm">Introducing</span>
+<h2 class="text-5xl md:text-6xl font-extrabold mt-4 mb-8">THE 56-DAY HABIT ACCELERATOR</h2>
+<div class="w-24 h-1 bg-brand-accent mx-auto mb-12"></div>
+<p class="text-2xl text-gray-300 mb-16 max-w-2xl mx-auto">
+Design, test, and lock in the routines that define your new identity.
+</p>
+<div class="grid md:grid-cols-2 gap-8 text-left">
+<!-- Action From Day 1 Card -->
+<div class="bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition-colors">
+<div class="w-12 h-12 bg-brand-accent/20 rounded-xl flex items-center justify-center mb-6">
+<i data-lucide="zap" class="w-6 h-6 text-brand-accent"></i>
+</div>
+<h3 class="text-2xl font-bold mb-4">Action From Day 1</h3>
+<p class="text-gray-400 leading-relaxed">
+No endless theory. All thinking and planning happens in the Pre-Work. When Day 1 hits, you are executing. We focus on minimum viable habits that you can do on your worst days.
+</p>
+</div>
+<!-- Flexible Framework Card (Updated with Benefits) -->
+<div class="bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition-colors relative overflow-hidden group">
+<!-- Gradient accent -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-brand-accent/10 blur-2xl rounded-full group-hover:bg-brand-accent/20 transition-all"></div>
+<div class="w-12 h-12 bg-brand-accent/20 rounded-xl flex items-center justify-center mb-6 relative z-10">
+<i data-lucide="layout-template" class="w-6 h-6 text-brand-accent"></i>
+</div>
+<h3 class="text-2xl font-bold mb-4 relative z-10">The "Power Practices"</h3>
+<p class="text-gray-400 leading-relaxed mb-6 relative z-10">
+Build your own routine or use our proven menu of habits to unlock immediate energy:
+</p>
+<ul class="space-y-3 relative z-10">
+<li class="flex items-center gap-3 text-sm text-gray-300">
+<i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+<span>7-9 Hours of High-Performance Sleep</span>
+</li>
+<li class="flex items-center gap-3 text-sm text-gray-300">
+<i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+<span>Reclaim Your Calm (12 mins/day)</span>
+</li>
+<li class="flex items-center gap-3 text-sm text-gray-300">
+<i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+<span>All-Day Energy (Protein + Veg Strategy)</span>
+</li>
+<li class="flex items-center gap-3 text-sm text-gray-300">
+<i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+<span>Daily Movement (10k Steps)</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="mt-16">
+<p class="text-xl font-bold text-white uppercase tracking-wide">From "I'm trying to get healthy" to "I am the standard of strength for my family."</p>
+</div>
+</div>
+</section>
+<!-- Methodology / 3 Pillars -->
+<section class="py-24 px-6 bg-brand-gray">
+<div class="max-w-6xl mx-auto">
+<h2 class="text-4xl font-extrabold text-brand-black mb-16 text-center">How We Lock It In</h2>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Pillar 1 -->
+<div class="bg-white p-8 rounded-3xl shadow-xl shadow-gray-200 border border-gray-100">
+<div class="bg-brand-accent/10 p-4 rounded-2xl text-brand-accent w-fit mb-6">
+<i data-lucide="fingerprint" class="w-8 h-8"></i>
+</div>
+<h3 class="text-xl font-bold text-brand-black mb-3">Identity First</h3>
+<p class="text-gray-600 leading-relaxed">
+Most people try to change results first. We change identity first. When you shift from "I want this" to "I am this," behavior follows belief. We build evidence of your new identity every single day.
+</p>
+</div>
+<!-- Pillar 2 -->
+<div class="bg-white p-8 rounded-3xl shadow-xl shadow-gray-200 border border-gray-100">
+<div class="bg-brand-accent/10 p-4 rounded-2xl text-brand-accent w-fit mb-6">
+<i data-lucide="minimize-2" class="w-8 h-8"></i>
+</div>
+<h3 class="text-xl font-bold text-brand-black mb-3">Start Ridiculously Small</h3>
+<p class="text-gray-600 leading-relaxed">
+Ambition is the enemy of consistency. We shrink the change until it is impossible to fail. You will build the "showing up muscle" before you ever worry about intensity or performance.
+</p>
+</div>
+<!-- Pillar 3 -->
+<div class="bg-white p-8 rounded-3xl shadow-xl shadow-gray-200 border border-gray-100">
+<div class="bg-brand-accent/10 p-4 rounded-2xl text-brand-accent w-fit mb-6">
+<i data-lucide="shield-alert" class="w-8 h-8"></i>
+</div>
+<h3 class="text-xl font-bold text-brand-black mb-3">Survive the Slips</h3>
+<p class="text-gray-600 leading-relaxed">
+Success isn't perfection; it's recovery speed. We pre-plan for your "habit killers" (travel, sick kids, work stress) so you have a contingency plan ready before the chaos hits.
+</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Curriculum Accordion -->
+<section class="py-24 px-6 bg-white">
+<div class="max-w-4xl mx-auto">
+<h2 class="text-4xl font-extrabold text-center text-brand-black mb-6">The 8-Week Execution Arc</h2>
+<p class="text-center text-gray-600 mb-16 max-w-2xl mx-auto">20-25 minutes per week of education. Daily execution. A system built for speed.</p>
+<div class="space-y-4">
+<!-- Pre-Work -->
+<div class="border border-brand-accent rounded-2xl overflow-hidden bg-brand-accent/5">
+<div class="w-full px-8 py-6 flex justify-between items-center text-left">
+<div>
+<span class="text-xs font-bold uppercase tracking-widest text-brand-accent block mb-1">Before You Start</span>
+<span class="font-bold text-lg text-brand-black">Pre-Work: The Launch Pad</span>
+</div>
+<i data-lucide="rocket" class="w-5 h-5 text-brand-accent"></i>
+</div>
+<div class="px-8 pb-6 text-gray-600">
+<p class="text-sm">All thinking happens here. You will map your habit loop, define your identity statement, and choose your "Keystone Habit" so Day 1 is pure execution.</p>
+</div>
+</div>
+<!-- Module 1 -->
+<div class="border border-gray-200 rounded-2xl overflow-hidden hover:border-brand-accent/50 transition-colors">
+<button class="accordion-btn w-full px-8 py-6 bg-gray-50 hover:bg-white hover:text-brand-accent flex justify-between items-center text-left transition-all" aria-expanded="false" onclick="toggleAccordion(this)">
+<span class="font-bold text-lg text-brand-black">Week 1: Launch Small</span>
+<i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-gray-400"></i>
+</button>
+<div class="accordion-content bg-white">
+<div class="p-8 text-gray-600 pt-0">
+<ul class="list-disc pl-5 space-y-2">
+<li><strong>Target:</strong> Execute your habit in its minimum viable form (2 minutes or less).</li>
+<li><strong>The Shift:</strong> From "I'll start when conditions are perfect" to "I start now, imperfectly."</li>
+<li><strong>Key Concept:</strong> The 2-Minute Rule.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Module 2 -->
+<div class="border border-gray-200 rounded-2xl overflow-hidden hover:border-brand-accent/50 transition-colors">
+<button class="accordion-btn w-full px-8 py-6 bg-gray-50 hover:bg-white hover:text-brand-accent flex justify-between items-center text-left transition-all" aria-expanded="false" onclick="toggleAccordion(this)">
+<span class="font-bold text-lg text-brand-black">Week 2: Redesign Your World</span>
+<i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-gray-400"></i>
+</button>
+<div class="accordion-content bg-white">
+<div class="p-8 text-gray-600 pt-0">
+<ul class="list-disc pl-5 space-y-2">
+<li><strong>Target:</strong> Make 3 specific environment changes to reduce friction.</li>
+<li><strong>The Shift:</strong> Stop relying on willpower. Make the good choice obvious and the bad choice invisible.</li>
+<li><strong>Key Concept:</strong> Environment Design vs. Discipline.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Module 3 -->
+<div class="border border-gray-200 rounded-2xl overflow-hidden hover:border-brand-accent/50 transition-colors">
+<button class="accordion-btn w-full px-8 py-6 bg-gray-50 hover:bg-white hover:text-brand-accent flex justify-between items-center text-left transition-all" aria-expanded="false" onclick="toggleAccordion(this)">
+<span class="font-bold text-lg text-brand-black">Week 3: Build the Chain</span>
+<i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-gray-400"></i>
+</button>
+<div class="accordion-content bg-white">
+<div class="p-8 text-gray-600 pt-0">
+<ul class="list-disc pl-5 space-y-2">
+<li><strong>Target:</strong> Create a habit stack linking new behaviors to existing routines.</li>
+<li><strong>The Shift:</strong> Don't find new time—hijack existing time.</li>
+<li><strong>Key Concept:</strong> "After I [Anchor], I will [New Habit]."</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Module 4 -->
+<div class="border border-gray-200 rounded-2xl overflow-hidden hover:border-brand-accent/50 transition-colors">
+<button class="accordion-btn w-full px-8 py-6 bg-gray-50 hover:bg-white hover:text-brand-accent flex justify-between items-center text-left transition-all" aria-expanded="false" onclick="toggleAccordion(this)">
+<span class="font-bold text-lg text-brand-black">Week 4: Make It Visible</span>
+<i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-gray-400"></i>
+</button>
+<div class="accordion-content bg-white">
+<div class="p-8 text-gray-600 pt-0">
+<ul class="list-disc pl-5 space-y-2">
+<li><strong>Target:</strong> Implement a tracking system and conduct your first Weekly Review.</li>
+<li><strong>The Shift:</strong> What gets measured gets managed. What gets visible gets motivation.</li>
+<li><strong>Key Concept:</strong> The "Seinfeld Strategy" (Don't Break the Chain).</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Module 5 -->
+<div class="border border-gray-200 rounded-2xl overflow-hidden hover:border-brand-accent/50 transition-colors">
+<button class="accordion-btn w-full px-8 py-6 bg-gray-50 hover:bg-white hover:text-brand-accent flex justify-between items-center text-left transition-all" aria-expanded="false" onclick="toggleAccordion(this)">
+<span class="font-bold text-lg text-brand-black">Week 5: Stress Test</span>
+<i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-gray-400"></i>
+</button>
+<div class="accordion-content bg-white">
+<div class="p-8 text-gray-600 pt-0">
+<ul class="list-disc pl-5 space-y-2">
+<li><strong>Target:</strong> Create "If-Then" contingency plans for your top 3 habit killers.</li>
+<li><strong>The Shift:</strong> Missing once is an accident. Missing twice is a new habit.</li>
+<li><strong>Key Concept:</strong> The "Never Miss Twice" Rule.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Module 6 -->
+<div class="border border-gray-200 rounded-2xl overflow-hidden hover:border-brand-accent/50 transition-colors">
+<button class="accordion-btn w-full px-8 py-6 bg-gray-50 hover:bg-white hover:text-brand-accent flex justify-between items-center text-left transition-all" aria-expanded="false" onclick="toggleAccordion(this)">
+<span class="font-bold text-lg text-brand-black">Week 6: Expand the System</span>
+<i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-gray-400"></i>
+</button>
+<div class="accordion-content bg-white">
+<div class="p-8 text-gray-600 pt-0">
+<ul class="list-disc pl-5 space-y-2">
+<li><strong>Target:</strong> Strategically add a second habit or expand the intensity of your keystone.</li>
+<li><strong>The Shift:</strong> One habit is a behavior. Multiple connected habits are a lifestyle.</li>
+<li><strong>Key Concept:</strong> Strategic Expansion (avoiding the "Too Much" trap).</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Module 7 -->
+<div class="border border-gray-200 rounded-2xl overflow-hidden hover:border-brand-accent/50 transition-colors">
+<button class="accordion-btn w-full px-8 py-6 bg-gray-50 hover:bg-white hover:text-brand-accent flex justify-between items-center text-left transition-all" aria-expanded="false" onclick="toggleAccordion(this)">
+<span class="font-bold text-lg text-brand-black">Week 7: Refine and Recover</span>
+<i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-gray-400"></i>
+</button>
+<div class="accordion-content bg-white">
+<div class="p-8 text-gray-600 pt-0">
+<ul class="list-disc pl-5 space-y-2">
+<li><strong>Target:</strong> Audit what's struggling and adjust the trigger, timing, or environment.</li>
+<li><strong>The Shift:</strong> Struggling habits aren't failures; they are data. Adapt instead of quit.</li>
+<li><strong>Key Concept:</strong> The Habit Audit.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Module 8 -->
+<div class="border border-gray-200 rounded-2xl overflow-hidden hover:border-brand-accent/50 transition-colors">
+<button class="accordion-btn w-full px-8 py-6 bg-gray-50 hover:bg-white hover:text-brand-accent flex justify-between items-center text-left transition-all" aria-expanded="false" onclick="toggleAccordion(this)">
+<span class="font-bold text-lg text-brand-black">Week 8: Lock It In</span>
+<i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-gray-400"></i>
+</button>
+<div class="accordion-content bg-white">
+<div class="p-8 text-gray-600 pt-0">
+<ul class="list-disc pl-5 space-y-2">
+<li><strong>Target:</strong> Create your 90-Day Maintenance Mode plan.</li>
+<li><strong>The Shift:</strong> From "building" to "being." Identity and behavior have merged.</li>
+<li><strong>Key Concept:</strong> Maintenance Mode.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Meet Your Coach (New Authority Section) -->
+<section class="py-24 px-6 bg-white border-t border-gray-100">
+<div class="max-w-6xl mx-auto">
+<div class="grid md:grid-cols-2 gap-12 items-center">
+<div class="relative">
+<div class="absolute inset-0 bg-brand-accent/10 rounded-3xl transform rotate-3"></div>
+<img src="../../images/drmike-blackshirt.webp" alt="Dr. Mike Roussell" class="relative rounded-3xl shadow-2xl w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-500">
+</div>
+<div>
+<span class="text-brand-accent font-bold uppercase tracking-widest text-sm">Your Guide</span>
+<h2 class="text-4xl font-extrabold text-brand-black mt-2 mb-6">Hi, I'm Dr. Mike.</h2>
+<div class="prose prose-lg text-gray-600 space-y-6">
+<p>
+I hold a PhD in Nutrition. I've spent 20+ years consulting for NBA athletes, Olympic medalists, and Silicon Valley executives.
+</p>
+<p>
+But more importantly? <strong>I'm a dad of four.</strong>
+</p>
+<p>
+I know what it's like to have your "perfect plan" destroyed by a toddler's tantrum or a work emergency. I built the 56-Day Habit Accelerator because the standard advice—"just wake up earlier," "just try harder"—doesn't work when you have real responsibilities.
+</p>
+<p>
+This course isn't theory. It's the exact system I use to stay strong, fit, and present for my own family.
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing & Bonuses (Aligned) -->
+<section id="pricing" class="py-24 px-6 bg-brand-black text-white">
+<div class="max-w-6xl mx-auto">
+<h2 class="text-4xl font-extrabold text-center mb-6">Secure Your Spot</h2>
+<p class="text-center text-gray-400 mb-16 max-w-2xl mx-auto">The earlier you commit, the more you save. Don't wait to pay more for the same result.</p>
+<div class="grid md:grid-cols-3 gap-6 relative z-10">
+<!-- Option 1: Pre-Order (Active) -->
+<div class="bg-white/10 rounded-2xl p-8 border-2 border-brand-accent shadow-2xl relative overflow-hidden transform hover:-translate-y-1 transition-all duration-300 flex flex-col">
+<div class="absolute top-0 right-0 bg-brand-accent text-white text-xs font-bold px-3 py-1 uppercase tracking-widest rounded-bl-lg">
+Best Value
+</div>
+<!-- Fixed height for title alignment -->
+<h3 class="text-xl font-bold text-white mb-2 h-[3.5rem] flex items-end">Pre-Order</h3>
+<!-- Fixed height for description alignment -->
+<p class="text-sm text-gray-300 mb-6 h-[2.5rem]">Commit before the rush.</p>
+<div class="text-5xl font-extrabold text-white mb-2">$97</div>
+<p class="text-xs text-brand-accent font-bold mb-8 uppercase tracking-wide">Course Delivery Dec 29th</p>
+<ul class="space-y-4 mb-8 text-sm text-gray-300 flex-grow">
+<li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-accent"></i> 8-Week Course</li>
+<li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-accent"></i> Lifetime Access</li>
+<li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-accent"></i> Full Bonus Toolkit</li>
+</ul>
+<a href="https://start.mikeroussell.com/products/copy-of-built-to-handle-it?step=checkout" class="block w-full bg-brand-accent hover:bg-brand-accentHover text-white font-bold py-4 rounded-xl transition-colors shadow-lg shadow-blue-600/20 mb-3 text-center">
+Pre-Order Now
+</a>
+<!-- Simple Red Text Below Button -->
+<p class="text-xs text-red-400 font-bold uppercase tracking-wide text-center">
+Price Increases After Dec 29
+</p>
+</div>
+<!-- Option 2: Quitters Day (Disabled) -->
+<div class="bg-brand-black rounded-2xl p-8 border border-white/10 relative opacity-70 flex flex-col">
+<!-- Fixed height for title alignment -->
+<h3 class="text-xl font-bold text-gray-400 mb-2 h-[3.5rem] flex items-end">The "Quitters Day" Price</h3>
+<!-- Fixed height for description alignment -->
+<p class="text-sm text-gray-500 mb-6 h-[2.5rem]">Before Jan 9th when most quit their resolutions.</p>
+<div class="text-5xl font-extrabold text-gray-500 mb-2">$147</div>
+<p class="text-xs text-gray-600 font-bold mb-8 uppercase tracking-wide">Save $50 vs Full Price</p>
+<ul class="space-y-4 mb-8 text-sm text-gray-600 flex-grow">
+<li class="flex gap-2"><i data-lucide="check" class="w-4 h-4"></i> 8-Week Course</li>
+<li class="flex gap-2"><i data-lucide="check" class="w-4 h-4"></i> Lifetime Access</li>
+<li class="flex gap-2"><i data-lucide="check" class="w-4 h-4"></i> Full Bonus Toolkit</li>
+</ul>
+<button class="w-full bg-white/5 text-gray-500 font-bold py-4 rounded-xl cursor-not-allowed border border-white/5 mb-3" disabled>
+Order Now
+</button>
+<!-- Invisible spacer to keep alignment perfect with card 1 -->
+<p class="text-xs text-transparent font-bold uppercase tracking-wide text-center select-none">
+Spacer
+</p>
+</div>
+<!-- Option 3: Full Price (Disabled) -->
+<div class="bg-brand-black rounded-2xl p-8 border border-white/5 relative opacity-50 flex flex-col">
+<!-- Fixed height for title alignment -->
+<h3 class="text-xl font-bold text-gray-500 mb-2 h-[3.5rem] flex items-end">Standard Access</h3>
+<!-- Fixed height for description alignment -->
+<p class="text-sm text-gray-600 mb-6 h-[2.5rem]">After Jan 9th.</p>
+<div class="text-5xl font-extrabold text-gray-600 mb-2">$197</div>
+<p class="text-xs text-gray-700 font-bold mb-8 uppercase tracking-wide">Full Retail Price</p>
+<ul class="space-y-4 mb-8 text-sm text-gray-700 flex-grow">
+<li class="flex gap-2"><i data-lucide="check" class="w-4 h-4"></i> 8-Week Course</li>
+<li class="flex gap-2"><i data-lucide="check" class="w-4 h-4"></i> Lifetime Access</li>
+<li class="flex gap-2"><i data-lucide="check" class="w-4 h-4"></i> Full Bonus Toolkit</li>
+</ul>
+<button class="w-full bg-transparent text-gray-700 font-bold py-4 rounded-xl cursor-not-allowed border border-white/5 mb-3" disabled>
+Order Now
+</button>
+<!-- Invisible spacer to keep alignment perfect with card 1 -->
+<p class="text-xs text-transparent font-bold uppercase tracking-wide text-center select-none">
+Spacer
+</p>
+</div>
+</div>
+<div class="text-center mt-12">
+<p class="text-sm text-gray-500 flex justify-center items-center gap-2">
+<i data-lucide="lock" class="w-3 h-3"></i> Secure 256-bit Encrypted Payment
+</p>
+</div>
+</div>
+</section>
+<!-- Who This Is For -->
+<section class="py-24 px-6 bg-brand-gray">
+<div class="max-w-5xl mx-auto">
+<h2 class="text-4xl font-extrabold text-center text-brand-black mb-12">Is This For You?</h2>
+<div class="grid md:grid-cols-2 gap-8">
+<!-- IS For You -->
+<div class="bg-white p-8 rounded-3xl border-t-4 border-green-500 shadow-xl shadow-gray-200">
+<h3 class="text-2xl font-bold text-brand-black mb-6 flex items-center gap-2">
+<i data-lucide="check" class="text-green-500"></i> This IS for you if:
+</h3>
+<ul class="space-y-4 text-gray-700">
+<li class="flex gap-3">
+<span class="text-green-500 font-bold shrink-0">✓</span>
+<span>You start strong but fade by Week 3.</span>
+</li>
+<li class="flex gap-3">
+<span class="text-green-500 font-bold shrink-0">✓</span>
+<span>You feel exhausted by 8 PM with nothing left for yourself.</span>
+</li>
+<li class="flex gap-3">
+<span class="text-green-500 font-bold shrink-0">✓</span>
+<span>You know <em>what</em> to do but struggle to consistently <em>do</em> it.</span>
+</li>
+<li class="flex gap-3">
+<span class="text-green-500 font-bold shrink-0">✓</span>
+<span>You want a system that survives your worst weeks.</span>
+</li>
+</ul>
+</div>
+<!-- NOT For You -->
+<div class="bg-white p-8 rounded-3xl border-t-4 border-red-500 shadow-xl shadow-gray-200">
+<h3 class="text-2xl font-bold text-brand-black mb-6 flex items-center gap-2">
+<i data-lucide="x" class="text-red-500"></i> This is NOT for you if:
+</h3>
+<ul class="space-y-4 text-gray-700">
+<li class="flex gap-3">
+<span class="text-red-500 font-bold shrink-0">✗</span>
+<span>You are looking for a quick-fix pill or powder.</span>
+</li>
+<li class="flex gap-3">
+<span class="text-red-500 font-bold shrink-0">✗</span>
+<span>You want to overhaul your entire life overnight (that fails).</span>
+</li>
+<li class="flex gap-3">
+<span class="text-red-500 font-bold shrink-0">✗</span>
+<span>You aren't willing to start small (e.g. 2 minutes a day).</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Guarantee (New Risk Reversal) -->
+<section class="py-20 px-6 bg-white border-y border-gray-100">
+<div class="max-w-3xl mx-auto text-center">
+<div class="inline-block p-4 bg-brand-gray rounded-full mb-6">
+<i data-lucide="award" class="w-12 h-12 text-brand-black"></i>
+</div>
+<h2 class="text-3xl font-extrabold text-brand-black mb-6">The 365-Day "Solid Dad" Guarantee</h2>
+<p class="text-gray-600 mb-8 leading-relaxed text-lg">
+Join the program. Watch the first four modules. Build your initial toolkit. Try the Habit Accelerator for 56 days. If you don't feel like you are developing real, tangible resilience, email us for a <strong>100% refund</strong>. No questions asked.
+</p>
+<a href="https://start.mikeroussell.com/products/copy-of-built-to-handle-it?step=checkout" class="inline-flex items-center justify-center px-8 py-4 bg-brand-accent text-white font-bold rounded-xl hover:bg-brand-accentHover transition-colors shadow-xl shadow-blue-500/20 gap-2">
+Order Now <i data-lucide="arrow-right" class="w-4 h-4"></i>
+</a>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-24 px-6 bg-white">
+<div class="max-w-3xl mx-auto">
+<h2 class="text-4xl font-extrabold text-center text-brand-black mb-12">Frequently Asked Questions</h2>
+<div class="space-y-6">
+<div class="bg-brand-gray rounded-2xl p-8">
+<h3 class="font-bold text-lg text-brand-black mb-2">I really don't have time. Will this work?</h3>
+<p class="text-gray-600">Yes. The core philosophy of this course is "Start Ridiculously Small." We focus on 2-minute habits that you can execute even on your busiest days. We don't ask you to find time; we teach you to hijack existing routines.</p>
+</div>
+<div class="bg-brand-gray rounded-2xl p-8">
+<h3 class="font-bold text-lg text-brand-black mb-2">What if I miss a day?</h3>
+<p class="text-gray-600">You probably will. That's why Module 5 is entirely dedicated to "Surviving the Slips." We teach you the "Never Miss Twice" rule and how to recover quickly without the shame spiral.</p>
+</div>
+<div class="bg-brand-gray rounded-2xl p-8">
+<h3 class="font-bold text-lg text-brand-black mb-2">Do I have to do the 'Power Practices'?</h3>
+<p class="text-gray-600">No. The "Power Practices" (Steps, Sleep, Meditation, etc.) are an optional track for guys who want a done-for-you menu. You can use this exact same framework to build <em>any</em> habit you want.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-20 px-6 bg-brand-black text-white">
+<div class="max-w-3xl mx-auto text-center">
+<h2 class="text-3xl md:text-4xl font-extrabold mb-6">Ready to Build Habits That Actually Stick?</h2>
+<p class="text-gray-400 mb-8 text-lg">Join dads who are finally making progress—without relying on willpower.</p>
+<a href="https://start.mikeroussell.com/products/copy-of-built-to-handle-it?step=checkout" class="inline-flex items-center justify-center px-10 py-5 bg-brand-accent text-white font-bold text-lg rounded-xl hover:bg-brand-accentHover transition-colors shadow-xl shadow-blue-500/20 gap-2">
+Order Now <i data-lucide="arrow-right" class="w-5 h-5"></i>
+</a>
+<p class="mt-6 text-sm text-gray-500">Pre-order price: $97 (increases after Dec 29)</p>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-white border-t border-gray-100 py-12">
+<div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="text-brand-black font-bold text-lg">DR. MIKE ROUSSELL</div>
+<div class="flex flex-wrap justify-center gap-8 text-sm font-medium text-gray-500">
+<a href="mailto:drmike@mikeroussell.com" class="hover:text-brand-black transition-colors">Contact</a>
+<a href="../../legal/medical/" class="hover:text-brand-black transition-colors">Medical Disclaimer</a>
+<a href="../../legal/terms/" class="hover:text-brand-black transition-colors">Terms of Service</a>
+<a href="../../legal/privacy/" class="hover:text-brand-black transition-colors">Privacy Policy</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<a href="https://instagram.com/mikeroussell" target="_blank" rel="noopener" class="text-gray-400 hover:text-pink-500 transition-colors" aria-label="Instagram">
+<i data-lucide="instagram" class="w-5 h-5"></i>
+</a>
+<a href="https://twitter.com/mikeroussell" target="_blank" rel="noopener" class="text-gray-400 hover:text-brand-black transition-colors" aria-label="Twitter">
+<i data-lucide="twitter" class="w-5 h-5"></i>
+</a>
+<a href="https://facebook.com/nutritionphd" target="_blank" rel="noopener" class="text-gray-400 hover:text-blue-600 transition-colors" aria-label="Facebook">
+<i data-lucide="facebook" class="w-5 h-5"></i>
+</a>
+</div>
+<div class="text-sm text-gray-400">© <span id="year"></span> Janus Nutrition, LLC</div>
+</div>
+</div>
+</footer>
+<!-- Interactive Scripts -->
+<script>
+// Initialize Icons & Year
+lucide.createIcons();
+document.getElementById('year').textContent = new Date().getFullYear();
+// Accordion Logic
+function toggleAccordion(button) {
+const content = button.nextElementSibling;
+const isExpanded = button.getAttribute('aria-expanded') === 'true';
+// Close all other accordions
+document.querySelectorAll('.accordion-btn').forEach(btn => {
+if (btn !== button) {
+btn.setAttribute('aria-expanded', 'false');
+btn.nextElementSibling.classList.remove('active');
+}
+});
+// Toggle current
+button.setAttribute('aria-expanded', !isExpanded);
+content.classList.toggle('active');
+}
+</script>
+</body>
+</html>

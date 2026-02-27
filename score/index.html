@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Rebuilder Score — How Strong Is Your Foundation?</title>
+<meta name="description" content="Take the 2-minute Rebuilder Score assessment and find out exactly where your fitness, nutrition, and recovery stand — and where to focus first.">
+<meta property="og:title" content="The Rebuilder Score — How Strong Is Your Foundation?">
+<meta property="og:description" content="A 2-minute assessment for dads who want to feel like athletes again. Find out your score across the 5 Power Practices.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Rebuilder Score">
+<meta name="twitter:description" content="A 2-minute assessment for dads who want to feel like athletes again.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Outfit:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<noscript><style>.app{display:none}.no-js{display:flex!important}</style></noscript>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --color-primary: #0b4c90;
+  --color-primary-dark: #083a6e;
+  --color-primary-darker: #062c54;
+  --color-primary-light: #1a6bc4;
+  --color-accent: #DC3545;
+  --color-accent-hover: #c82333;
+  --color-white: #FFFFFF;
+  --color-off-white: #F8F9FA;
+  --color-text: #E8E8E8;
+  --color-text-muted: #A0AEC0;
+  --color-surface: rgba(255, 255, 255, 0.08);
+  --color-surface-hover: rgba(255, 255, 255, 0.12);
+  --color-border: rgba(255, 255, 255, 0.15);
+  --color-success: #28a745;
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+  --space-xs: 4px; --space-sm: 8px; --space-md: 16px; --space-lg: 24px;
+  --space-xl: 32px; --space-2xl: 48px; --space-3xl: 64px;
+  --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px; --radius-full: 9999px;
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-body);
+  background: linear-gradient(135deg, var(--color-primary-darker) 0%, var(--color-primary-dark) 50%, var(--color-primary) 100%);
+  color: var(--color-text);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.no-js {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: var(--space-xl);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+}
+
+.app { max-width: 680px; margin: 0 auto; padding: 0 var(--space-md); }
+
+.screen {
+  display: none;
+  min-height: 100vh;
+  padding: var(--space-3xl) 0;
+}
+
+.screen.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: fadeSlideUp 400ms ease-out;
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* HERO */
+.hero { text-align: center; }
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xl);
+  letter-spacing: 0.02em;
+}
+
+.hero__badge-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--color-accent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.3); }
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+  line-height: 1.1;
+  color: var(--color-white);
+  margin-bottom: var(--space-lg);
+}
+
+.hero__subhead {
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 520px;
+  margin: 0 auto var(--space-2xl);
+  line-height: 1.5;
+}
+
+.hero__social-proof {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2xl);
+  letter-spacing: 0.01em;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  background: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-xl);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 200ms ease;
+  box-shadow: 0 4px 16px rgba(220, 53, 69, 0.3);
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(220, 53, 69, 0.4);
+}
+
+.btn-primary:active { transform: translateY(0); }
+
+.hero__below-fold {
+  margin-top: var(--space-3xl);
+  padding-top: var(--space-2xl);
+  border-top: 1px solid var(--color-border);
+  text-align: left;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.hero__below-fold p { margin-bottom: var(--space-md); }
+.hero__below-fold em { color: var(--color-text); font-style: italic; }
+
+/* INTRO */
+.intro { text-align: center; }
+
+.intro h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  color: var(--color-white);
+  margin-bottom: var(--space-lg);
+}
+
+.intro__body {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xl);
+  line-height: 1.6;
+}
+
+.intro__features {
+  list-style: none;
+  text-align: left;
+  max-width: 440px;
+  margin: 0 auto var(--space-xl);
+}
+
+.intro__features li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-sm) 0;
+  font-size: 1.05rem;
+  color: var(--color-text);
+}
+
+.intro__features li::before {
+  content: '\2192';
+  color: var(--color-accent);
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.intro__time {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xl);
+  letter-spacing: 0.02em;
+}
+
+/* PROGRESS BAR */
+.progress-container {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: var(--space-md) var(--space-md) var(--space-sm);
+  background: rgba(6, 44, 84, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: none;
+}
+
+.progress-container.visible { display: block; }
+
+.progress-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  margin-bottom: var(--space-xs);
+  text-align: center;
+}
+
+.progress-bar {
+  display: flex;
+  gap: 3px;
+  height: 4px;
+  border-radius: 2px;
+  overflow: hidden;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.progress-segment {
+  flex: 1;
+  background: var(--color-surface);
+  border-radius: 2px;
+  transition: background 400ms ease-out;
+}
+
+.progress-segment.filled { background: var(--color-accent); }
+.progress-segment.current { background: rgba(220, 53, 69, 0.5); }
+
+/* QUESTIONS */
+.questions-screen {
+  padding-top: 80px !important;
+  justify-content: flex-start !important;
+}
+
+.question-card {
+  display: none;
+  animation: fadeSlideUp 300ms ease-out;
+}
+
+.question-card.active { display: block; }
+
+.question__pillar-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-md);
+}
+
+.question__text {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.25rem, 3.5vw, 1.5rem);
+  color: var(--color-white);
+  margin-bottom: var(--space-xl);
+  line-height: 1.35;
+}
+
+.question__options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.option-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  cursor: pointer;
+  transition: all 200ms ease;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.option-card:hover {
+  background: var(--color-surface-hover);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.option-card.selected {
+  background: rgba(220, 53, 69, 0.15);
+  border-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+.option-card.selected::after {
+  content: '\2713';
+  position: absolute;
+  right: var(--space-md);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* CALCULATING */
+.calculating { text-align: center; }
+
+.calculating__spinner {
+  width: 120px; height: 120px;
+  margin: 0 auto var(--space-xl);
+  position: relative;
+}
+
+.calculating__spinner svg {
+  width: 100%; height: 100%;
+  animation: spinnerRotate 3s linear infinite;
+}
+
+@keyframes spinnerRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.calculating__text {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  min-height: 2em;
+  transition: opacity 200ms ease;
+}
+
+/* EMAIL GATE */
+.email-gate { text-align: center; }
+
+.email-gate__teaser {
+  position: relative;
+  margin-bottom: var(--space-xl);
+}
+
+.email-gate__teaser-chart {
+  filter: blur(8px);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.email-gate__score-peek {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.email-gate__score-number {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: clamp(3rem, 10vw, 4.5rem);
+  color: var(--color-white);
+  line-height: 1;
+}
+
+.email-gate__score-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: var(--space-xs);
+}
+
+.email-gate h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 4vw, 2rem);
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+}
+
+.email-gate__sub {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xl);
+  line-height: 1.5;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.email-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  max-width: 400px;
+  margin: 0 auto var(--space-md);
+}
+
+.email-form__input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-white);
+  outline: none;
+  transition: border-color 200ms ease;
+}
+
+.email-form__input::placeholder { color: var(--color-text-muted); }
+.email-form__input:focus { border-color: var(--color-accent); }
+.email-form__input.error { border-color: var(--color-accent); }
+
+.email-form__error {
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  min-height: 1.2em;
+  text-align: left;
+}
+
+.email-form__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.email-gate__privacy {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* RESULTS */
+.results {
+  padding-top: var(--space-2xl) !important;
+  justify-content: flex-start !important;
+}
+
+.results__header {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.results__header h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-lg);
+}
+
+.results__overall-score {
+  position: relative;
+  width: 160px; height: 160px;
+  margin: 0 auto var(--space-md);
+}
+
+.results__overall-score svg {
+  width: 100%; height: 100%;
+  transform: rotate(-90deg);
+}
+
+.results__score-circle-bg {
+  fill: none;
+  stroke: var(--color-surface);
+  stroke-width: 6;
+}
+
+.results__score-circle-fill {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 440;
+  stroke-dashoffset: 440;
+  transition: stroke-dashoffset 1500ms ease-out;
+}
+
+.results__score-value {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 2.8rem;
+  color: var(--color-white);
+  line-height: 1;
+}
+
+.results__band-label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+}
+
+.results__band-desc {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.results__radar {
+  margin: var(--space-2xl) auto;
+  text-align: center;
+}
+
+.radar-chart {
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.radar-chart svg { width: 100%; height: auto; }
+
+.results__pillars {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+}
+
+.pillar-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+}
+
+.pillar-card.visible { opacity: 1; transform: translateY(0); }
+
+.pillar-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+}
+
+.pillar-card__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.pillar-card__icon { font-size: 1.2rem; }
+
+.pillar-card__score {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-accent);
+}
+
+.pillar-card__bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  margin-bottom: var(--space-sm);
+  overflow: hidden;
+}
+
+.pillar-card__bar-fill {
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: 3px;
+  width: 0%;
+  transition: width 800ms ease-out;
+}
+
+.pillar-card__band {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.pillar-card__insight {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* PRIORITY */
+.results__priority {
+  background: linear-gradient(135deg, rgba(220, 53, 69, 0.12), rgba(220, 53, 69, 0.04));
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+}
+
+.results__priority h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+}
+
+.results__priority-body {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+}
+
+.results__priority h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+}
+
+.results__actions {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.results__actions li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.results__actions li strong { color: var(--color-white); }
+
+.action-number {
+  flex-shrink: 0;
+  width: 24px; height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent);
+  color: var(--color-white);
+  border-radius: 50%;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* SHARE */
+.results__share {
+  text-align: center;
+  padding-top: var(--space-2xl);
+  border-top: 1px solid var(--color-border);
+  margin-bottom: var(--space-2xl);
+}
+
+.results__share h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+}
+
+.results__share p {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.share-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-lg);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all 200ms ease;
+  text-decoration: none;
+}
+
+.share-btn:hover {
+  background: var(--color-surface-hover);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.toast {
+  position: fixed;
+  bottom: var(--space-xl);
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--color-success);
+  color: var(--color-white);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-card);
+  transition: transform 300ms ease;
+  z-index: 200;
+  pointer-events: none;
+}
+
+.toast.visible { transform: translateX(-50%) translateY(0); }
+
+@media (max-width: 480px) {
+  .screen { padding: var(--space-2xl) 0; }
+  .results { padding-top: var(--space-lg) !important; }
+  .questions-screen { padding-top: 72px !important; }
+  .results__priority { padding: var(--space-lg); }
+  .option-card { padding: var(--space-md); }
+  .radar-chart { max-width: 300px; }
+  .share-buttons { flex-direction: column; align-items: center; }
+  .share-btn { width: 100%; max-width: 280px; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="no-js">This assessment requires JavaScript to run. Please enable JavaScript and reload the page.</div>
+
+<div class="progress-container" id="progressContainer">
+  <div class="progress-label" id="progressLabel"></div>
+  <div class="progress-bar" id="progressBar"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="app">
+
+  <!-- LANDING / HERO -->
+  <section class="screen active" id="screenHero">
+    <div class="hero">
+      <div class="hero__badge">
+        <span class="hero__badge-dot"></span>
+        Takes ~2 minutes
+      </div>
+      <h1>How Strong Is Your Foundation?</h1>
+      <p class="hero__subhead">Take the 2-minute Rebuilder Score assessment and find out exactly where your fitness, nutrition, and recovery stand — and where to focus first.</p>
+      <p class="hero__social-proof">Join 10,000+ dads rebuilding their health with Dr. Mike Roussell</p>
+      <button class="btn-primary" id="heroStartBtn">
+        Take the Assessment — It's Free
+        <span>&#8594;</span>
+      </button>
+      <div class="hero__below-fold">
+        <p>You're not out of shape because you're lazy. You're stuck because you're trying to fix everything at once — and fixing nothing.</p>
+        <p>The Rebuilder Score evaluates your performance across the 5 Power Practices that separate dads who feel like athletes from dads running on fumes. In about 2 minutes, you'll know exactly which pillar needs your attention first.</p>
+        <p>No generic advice. No 47-page PDF you'll never read. Just a clear, personalized answer to the question every Rebuilder is asking: <em>where do I start?</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="screen" id="screenIntro">
+    <div class="intro">
+      <h2>The Rebuilder Score</h2>
+      <p class="intro__body">This assessment measures your performance across the 5 Power Practices — the daily actions that rebuild your body, your energy, and your identity as an athlete.</p>
+      <p class="intro__body">You'll get:</p>
+      <ul class="intro__features">
+        <li>Your overall Rebuilder Score (0-100)</li>
+        <li>A visual breakdown of all 5 pillars</li>
+        <li>Your #1 priority pillar and a clear action plan</li>
+      </ul>
+      <p class="intro__time">~2 minutes &middot; 12 questions</p>
+      <button class="btn-primary" id="introStartBtn">
+        Start My Assessment
+        <span>&#8594;</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- QUESTIONS -->
+  <section class="screen questions-screen" id="screenQuestions">
+    <div id="questionsContainer"></div>
+  </section>
+
+  <!-- CALCULATING -->
+  <section class="screen" id="screenCalculating">
+    <div class="calculating">
+      <div class="calculating__spinner">
+        <svg viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="50" stroke="rgba(255,255,255,0.1)" stroke-width="2" fill="none"/>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="var(--color-accent)" stroke-width="2.5" stroke-dasharray="300" stroke-dashoffset="200" stroke-linecap="round" opacity="0.4"/>
+        </svg>
+      </div>
+      <p class="calculating__text" id="calculatingText"></p>
+    </div>
+  </section>
+
+  <!-- EMAIL GATE -->
+  <section class="screen" id="screenEmailGate">
+    <div class="email-gate">
+      <div class="email-gate__teaser">
+        <div class="email-gate__teaser-chart" id="teaserChart"></div>
+        <div class="email-gate__score-peek">
+          <div class="email-gate__score-number" id="gateScoreNumber">--</div>
+          <div class="email-gate__score-label">Your Rebuilder Score</div>
+        </div>
+      </div>
+      <h2>Your Rebuilder Score Is Ready</h2>
+      <p class="email-gate__sub">Enter your email to unlock your full results — including your personalized radar chart, pillar-by-pillar breakdown, and a specific action plan for your #1 priority.</p>
+      <form class="email-form" id="emailForm">
+        <input type="email" class="email-form__input" id="emailInput" placeholder="your@email.com" autocomplete="email" required>
+        <div class="email-form__error" id="emailError"></div>
+        <button type="submit" class="btn-primary" id="emailSubmit">Unlock My Results</button>
+      </form>
+      <p class="email-gate__privacy">No spam. Just practical strategies for dads who want to feel like athletes again. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="screen results" id="screenResults">
+    <div class="results__header">
+      <h2>Your Rebuilder Score</h2>
+      <div class="results__overall-score">
+        <svg viewBox="0 0 160 160">
+          <circle class="results__score-circle-bg" cx="80" cy="80" r="70"/>
+          <circle class="results__score-circle-fill" id="scoreCircle" cx="80" cy="80" r="70"/>
+        </svg>
+        <div class="results__score-value" id="resultsScoreValue">0</div>
+      </div>
+      <div class="results__band-label" id="resultsBandLabel"></div>
+      <p class="results__band-desc" id="resultsBandDesc"></p>
+    </div>
+
+    <div class="results__radar">
+      <div class="radar-chart" id="radarChart"></div>
+    </div>
+
+    <div class="results__pillars" id="pillarCards"></div>
+
+    <div class="results__priority" id="prioritySection"></div>
+
+    <div class="results__share">
+      <h3>Know a Dad Who Needs This?</h3>
+      <p>Challenge a friend to take the Rebuilder Score. See who's got the stronger foundation.</p>
+      <div class="share-buttons">
+        <a class="share-btn" id="shareTwitter" href="#" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Share on X
+        </a>
+        <button class="share-btn" id="copyLinkBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy Link
+        </button>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  /* ==== DATA ==== */
+  var QUESTIONS = [
+    {id:'q1',pillar:'strength',pillarLabel:'STRENGTH',questionNum:1,totalInPillar:3,text:'How often do you do resistance training (weights, bands, bodyweight)?',options:[{label:'Rarely or never',score:1},{label:'1\u20132 times per month when I feel motivated',score:2},{label:'1\u20132 times per week, fairly consistently',score:3},{label:'3+ times per week as part of a structured program',score:4}]},
+    {id:'q2',pillar:'strength',pillarLabel:'STRENGTH',questionNum:2,totalInPillar:3,text:'When you strength train, how would you describe your sessions?',options:[{label:'I don\u2019t really have a plan \u2014 I just do whatever feels right',score:1},{label:'I have a rough idea of what to do, but I wing most of it',score:2},{label:'I follow a program, but I skip exercises or cut sessions short when time is tight',score:3},{label:'I follow a structured program and complete the full session almost every time',score:4}]},
+    {id:'q3',pillar:'strength',pillarLabel:'STRENGTH',questionNum:3,totalInPillar:3,text:'When something disrupts your training plan (sick kid, work emergency, travel), what happens?',options:[{label:'I skip it entirely and usually don\u2019t get back on track for weeks',score:1},{label:'I feel guilty about missing and struggle to restart',score:2},{label:'I might miss a day but I get back to it within a couple days',score:3},{label:'I have a backup plan \u2014 even a 5-minute session counts, and I never miss twice',score:4}]},
+    {id:'q4',pillar:'nutrition',pillarLabel:'NUTRITION',questionNum:1,totalInPillar:3,text:'How many of your meals yesterday included at least 30 grams of protein?',options:[{label:'None \u2014 I honestly don\u2019t track protein',score:1},{label:'Maybe one, probably dinner',score:2},{label:'Two meals hit 30g, but breakfast was light',score:3},{label:'Three or more \u2014 I hit 30g+ at every main meal',score:4}]},
+    {id:'q5',pillar:'nutrition',pillarLabel:'NUTRITION',questionNum:2,totalInPillar:3,text:'When it\u2019s 6 PM and you haven\u2019t planned dinner, what typically happens?',options:[{label:'Takeout, delivery, or whatever the kids want',score:1},{label:'I scramble to throw something together \u2014 it\u2019s usually carb-heavy and low on protein',score:2},{label:'I\u2019ve got a few go-to options I can pull together quickly',score:3},{label:'This rarely happens \u2014 I have a system for meals, whether that\u2019s prepped food, a rotation of easy recipes, or go-to restaurant orders',score:4}]},
+    {id:'q6',pillar:'nutrition',pillarLabel:'NUTRITION',questionNum:3,totalInPillar:3,text:'How would you describe your typical breakfast?',options:[{label:'Coffee. Maybe a granola bar if I remember.',score:1},{label:'Toast, cereal, or something quick but not much protein',score:2},{label:'I try to include protein but I\u2019m not sure I\u2019m hitting 30g',score:3},{label:'My breakfast consistently includes 30+ grams of protein \u2014 I have a system for it',score:4}]},
+    {id:'q7',pillar:'recovery',pillarLabel:'RECOVERY',questionNum:1,totalInPillar:2,text:'On a typical weeknight, how many hours of sleep do you actually get?',options:[{label:'Under 5 hours \u2014 between kids and screens, sleep is a disaster',score:1},{label:'5\u20136 hours \u2014 I know it\u2019s not enough but I can\u2019t seem to fix it',score:2},{label:'6\u20137 hours \u2014 decent but not consistent',score:3},{label:'7+ hours most nights \u2014 I prioritize getting to bed',score:4}]},
+    {id:'q8',pillar:'recovery',pillarLabel:'RECOVERY',questionNum:2,totalInPillar:2,text:'Do you have a wind-down routine before bed (screens off, consistent bedtime, relaxation practice)?',options:[{label:'No \u2014 I fall asleep on the couch watching TV and crawl to bed',score:1},{label:'I try, but I usually end up scrolling my phone in bed',score:2},{label:'I have some habits but they\u2019re inconsistent',score:3},{label:'Yes \u2014 I have a consistent routine that helps me fall asleep within 15\u201320 minutes',score:4}]},
+    {id:'q9',pillar:'activity',pillarLabel:'ACTIVITY',questionNum:1,totalInPillar:2,text:'Outside of deliberate workouts, how much do you move during a typical day?',options:[{label:'Barely at all \u2014 I sit at a desk and then sit on the couch',score:1},{label:'I move a bit but I\u2019m definitely under 5,000 steps most days',score:2},{label:'I try to walk when I can \u2014 probably 5,000\u20138,000 steps',score:3},{label:'I consistently hit 8,000\u201310,000+ steps through walks, active commuting, or playing with my kids',score:4}]},
+    {id:'q10',pillar:'activity',pillarLabel:'ACTIVITY',questionNum:2,totalInPillar:2,text:'How often do you take a walk specifically for health or stress relief (not just walking to the car)?',options:[{label:'Almost never',score:1},{label:'Once or twice a week when I think about it',score:2},{label:'Several times a week \u2014 it\u2019s becoming a habit',score:3},{label:'Daily \u2014 it\u2019s a non-negotiable part of my routine',score:4}]},
+    {id:'q11',pillar:'mindfulness',pillarLabel:'MINDFULNESS',questionNum:1,totalInPillar:2,text:'Do you practice any form of meditation, breathwork, or intentional focus training?',options:[{label:'No \u2014 I\u2019ve thought about it but never started',score:1},{label:'I\u2019ve tried apps a few times but it never stuck',score:2},{label:'I practice occasionally \u2014 a few times per week when I remember',score:3},{label:'I have a consistent daily practice, even if it\u2019s just a few minutes',score:4}]},
+    {id:'q12',pillar:'mindfulness',pillarLabel:'MINDFULNESS',questionNum:2,totalInPillar:2,text:'At the end of a typical workday, how would you describe your mental state?',options:[{label:'Fried. I have nothing left for my family.',score:1},{label:'Tired and scattered \u2014 I\u2019m physically there but mentally checked out',score:2},{label:'Tired but functional \u2014 I can engage with my kids if I push through',score:3},{label:'I\u2019ve got enough in the tank to be present and engaged with my family',score:4}]}
+  ];
+
+  var PILLAR_QUESTIONS = {
+    strength:['q1','q2','q3'], nutrition:['q4','q5','q6'],
+    recovery:['q7','q8'], activity:['q9','q10'], mindfulness:['q11','q12']
+  };
+
+  var PILLAR_ICONS = {strength:'\uD83D\uDCAA',nutrition:'\uD83E\uDD66',recovery:'\uD83D\uDE34',activity:'\uD83D\uDEB6',mindfulness:'\uD83E\uDDD8'};
+
+  var SCORE_BANDS = {
+    'starting-line':{label:'Starting Line',desc:'You\u2019re at the beginning \u2014 and that\u2019s exactly where every Rebuilder starts. The gap between where you are and where you want to be isn\u2019t as big as it feels. You just need the right starting point.'},
+    'foundation':{label:'Foundation Phase',desc:'You\u2019ve got pieces of the puzzle, but the foundation isn\u2019t solid yet. The good news? You\u2019re not starting from zero. You\u2019re a Rebuilder \u2014 and the framework below shows you exactly where to focus.'},
+    'momentum':{label:'Building Momentum',desc:'You\u2019re doing more right than you think. But there\u2019s at least one pillar that\u2019s holding the rest back. Fix that weak link and everything else accelerates.'},
+    'rebuilder':{label:'Rebuilder Mode',desc:'You\u2019re executing at a high level across the board. Most dads would kill for this foundation. Your job now is consistency and optimization \u2014 not overhaul.'}
+  };
+
+  var PILLAR_INSIGHTS = {
+    strength:{'starting-line':'You\u2019ve let strength training slip \u2014 and your body knows it. Getting off the floor, carrying the kids, having physical confidence \u2014 it all starts with getting back under the bar. Even 20 minutes, 3 times a week, changes the trajectory.','foundation':'You\u2019re training, but not consistently enough to build real momentum. The difference between sporadic workouts and a system is enormous. You need a program you trust, not motivation you can\u2019t count on.','momentum':'You\u2019re showing up, and it\u2019s working. The opportunity now is dialing in your programming \u2014 making sure your sessions are efficient and progressive, not just \u201Cgetting a workout in.\u201D','rebuilder':'Strength is a pillar you can count on. You\u2019re training consistently with purpose. Keep the system running \u2014 this is the kind of habit that compounds year over year.'},
+    nutrition:{'starting-line':'Your nutrition is working against you. Here\u2019s the thing most dads don\u2019t know: after 40, your body needs roughly 70% more protein per meal to trigger the same muscle-building response you got at 25. That\u2019s not a willpower problem \u2014 it\u2019s a math problem. And the math is fixable.','foundation':'You know protein matters, but you\u2019re not hitting the numbers that actually move the needle. The 30/10 Standard \u2014 30g protein and 10g fiber at every meal \u2014 is the single simplest framework that changes everything. Start at breakfast.','momentum':'Your nutrition foundation is solid. The next level is consistency and timing \u2014 making sure you\u2019re clearing the leucine threshold at every meal and using the 30-90 Punch around your training.','rebuilder':'You\u2019ve got nutrition dialed in. You\u2019re hitting your protein targets, eating intentionally, and your food logistics are working. This is a major competitive advantage \u2014 keep it locked.'},
+    recovery:{'starting-line':'You\u2019re running on fumes and you know it. Sleep isn\u2019t a luxury \u2014 it\u2019s the foundation everything else is built on. Until recovery improves, every other pillar is fighting uphill.','foundation':'You\u2019re getting some sleep, but the quality or consistency isn\u2019t there. The dads who feel like athletes again aren\u2019t sleeping more \u2014 they\u2019re sleeping better. Small changes to your wind-down routine can shift everything.','momentum':'Recovery is in a decent place. Look for the marginal gains \u2014 screen time before bed, consistency of sleep/wake times, and how you manage stress throughout the day.','rebuilder':'You\u2019re prioritizing recovery and it shows. Sleep is your secret weapon. Most dads neglect this pillar entirely \u2014 the fact that you don\u2019t is a serious advantage.'},
+    activity:{'starting-line':'Outside of deliberate workouts (if you\u2019re doing them), your body barely moves. Sitting disease is real \u2014 and it\u2019s quietly undermining everything else you\u2019re doing. Steps are the gateway drug to feeling athletic again.','foundation':'You\u2019re moving, but not enough to unlock the benefits. 10,000 steps isn\u2019t a gimmick \u2014 it\u2019s the threshold where your blood sugar regulation, daily energy expenditure, and mental clarity measurably improve.','momentum':'You\u2019re accumulating solid daily movement. Look for opportunities to add rucking, walking meetings, or family walks to push this pillar from good to great.','rebuilder':'Daily movement is locked in. You\u2019re living an active life beyond the gym, and your body \u2014 and your family \u2014 are better for it.'},
+    mindfulness:{'starting-line':'Your mind is probably your most neglected muscle. Meditation isn\u2019t woo-woo \u2014 it\u2019s neuroscience. Research shows it physically grows gray matter in brain areas that normally shrink with age. Even 3 minutes a day creates measurable change.','foundation':'You\u2019ve dabbled, but it hasn\u2019t stuck as a consistent practice. The dads who maintain their other 4 Power Practices long-term almost always credit mindfulness as the glue. It\u2019s the practice that makes the other practices sustainable.','momentum':'You have a practice \u2014 now it\u2019s about depth and consistency. Aim for 12\u201320 minutes daily. This is where the compound interest really starts to accumulate.','rebuilder':'Mindfulness is a locked-in Power Practice for you. This is rare \u2014 and it\u2019s giving you an edge in focus, patience, and stress resilience that most dads don\u2019t have.'}
+  };
+
+  var ACTION_PLANS = {
+    strength:[
+      '<strong>Start with 2 sessions per week.</strong> Not 5. Not \u201Cdaily.\u201D Two. Schedule them like you\u2019d schedule a meeting \u2014 fixed days, fixed times.',
+      '<strong>Use a program, not your memory.</strong> Follow a structured full-body routine designed for 20\u201330 minutes. Remove the decision of \u201Cwhat should I do today?\u201D entirely.',
+      '<strong>Invoke the Never Miss Twice Protocol.</strong> If you miss Monday, you train Tuesday. No negotiation. Missing once is life. Missing twice is a choice.'
+    ],
+    nutrition:[
+      '<strong>Fix breakfast first.</strong> Get 30+ grams of protein at your first meal. This single change sets the trajectory for your entire day.',
+      '<strong>Learn the 30/10 Standard.</strong> Every meal should target 30g protein and 10g fiber. This isn\u2019t about counting calories \u2014 it\u2019s about building meals that keep you full and feed your muscles.',
+      '<strong>Set up your food logistics.</strong> Know your 3 go-to dinners, your default restaurant order, and your emergency backup meal.'
+    ],
+    recovery:[
+      '<strong>Set a non-negotiable bedtime alarm.</strong> Most dads don\u2019t have a bedtime problem \u2014 they have a \u201Cone more episode\u201D problem. When the alarm goes off, screens go off.',
+      '<strong>Create a 10-minute wind-down.</strong> Phone charging in another room, 5 minutes of reading, lights dimmed. You need consistent signals that tell your brain it\u2019s time to sleep.',
+      '<strong>Protect the 7-hour minimum.</strong> Below 7 hours, your cortisol spikes, your recovery tanks, and your willpower evaporates.'
+    ],
+    activity:[
+      '<strong>Walk before you do anything else.</strong> A 15\u201320 minute morning walk \u2014 before email, before the news, before the chaos starts \u2014 is the highest-ROI habit in the entire Power Practices stack.',
+      '<strong>Aim for 8,000 steps as your floor.</strong> Not 10,000 (yet). 8,000 is where the research shows the strongest health benefits kick in.',
+      '<strong>Make movement a family activity.</strong> Evening walks with the kids. Weekend hikes. Playing at the park instead of watching from the bench.'
+    ],
+    mindfulness:[
+      '<strong>Start with 3 breaths.</strong> Three intentional breaths while your coffee brews. You\u2019re training the ability to notice your thoughts instead of being hijacked by them.',
+      '<strong>Download one app and use it for 5 minutes.</strong> Healthy Minds (free, research-backed from UW-Madison) is the best starting point. Five minutes. Tomorrow morning.',
+      '<strong>Use it as a performance tool, not a spiritual practice.</strong> Meditation trains focus \u2014 your brain\u2019s most valuable resource.'
+    ]
+  };
+
+  var PRIORITY_CTA = {
+    strength:{text:'Get the Power Practices Workout Templates',url:'#'},
+    nutrition:{text:'Get the 30/10 Breakfast Cookbook',url:'#'},
+    recovery:{text:'Get the Recovery Optimization Guide',url:'#'},
+    activity:{text:'Get the Daily Steps Playbook',url:'#'},
+    mindfulness:{text:'Get the 5-Minute Meditation Starter',url:'#'}
+  };
+
+  /* ==== STATE ==== */
+  var state = {
+    currentQuestion: 0,
+    answers: {},
+    pillarScores: {strength:0,nutrition:0,recovery:0,activity:0,mindfulness:0},
+    overallScore: 0,
+    priorityPillar: '',
+    scoreBand: '',
+    email: '',
+    emailSubmitted: false
+  };
+
+  /* ==== HELPERS ==== */
+  function $(id) { return document.getElementById(id); }
+
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.textContent;
+  }
+
+  function getScoreBand(score) {
+    if (score <= 25) return 'starting-line';
+    if (score <= 50) return 'foundation';
+    if (score <= 75) return 'momentum';
+    return 'rebuilder';
+  }
+
+  function capitalize(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+  /* ==== SCREEN MANAGEMENT ==== */
+  function showScreen(screenId) {
+    var screens = document.querySelectorAll('.screen');
+    for (var i = 0; i < screens.length; i++) screens[i].classList.remove('active');
+    $(screenId).classList.add('active');
+    $('progressContainer').classList.toggle('visible', screenId === 'screenQuestions');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  /* ==== QUESTION ENGINE ==== */
+  function buildQuestions() {
+    var container = $('questionsContainer');
+    // Clear existing content safely
+    while (container.firstChild) container.removeChild(container.firstChild);
+
+    for (var i = 0; i < QUESTIONS.length; i++) {
+      var q = QUESTIONS[i];
+      var card = document.createElement('div');
+      card.className = 'question-card' + (i === 0 ? ' active' : '');
+      card.id = 'question-' + i;
+
+      var badge = document.createElement('div');
+      badge.className = 'question__pillar-badge';
+      badge.textContent = q.pillarLabel + ' \u2014 Question ' + q.questionNum + ' of ' + q.totalInPillar;
+      card.appendChild(badge);
+
+      var text = document.createElement('h3');
+      text.className = 'question__text';
+      text.textContent = q.text;
+      card.appendChild(text);
+
+      var optionsDiv = document.createElement('div');
+      optionsDiv.className = 'question__options';
+
+      for (var oi = 0; oi < q.options.length; oi++) {
+        var opt = document.createElement('div');
+        opt.className = 'option-card';
+        opt.dataset.question = String(i);
+        opt.dataset.option = String(oi);
+        opt.dataset.score = String(q.options[oi].score);
+        opt.textContent = q.options[oi].label;
+        opt.addEventListener('click', selectOption);
+        optionsDiv.appendChild(opt);
+      }
+
+      card.appendChild(optionsDiv);
+      container.appendChild(card);
+    }
+
+    // Build progress segments
+    var progressBar = $('progressBar');
+    while (progressBar.firstChild) progressBar.removeChild(progressBar.firstChild);
+    for (var j = 0; j < QUESTIONS.length; j++) {
+      var seg = document.createElement('div');
+      seg.className = 'progress-segment';
+      seg.id = 'progress-' + j;
+      progressBar.appendChild(seg);
+    }
+  }
+
+  function showQuestion(index) {
+    state.currentQuestion = index;
+    var cards = document.querySelectorAll('.question-card');
+    for (var i = 0; i < cards.length; i++) cards[i].classList.remove('active');
+    var target = $('question-' + index);
+    if (target) {
+      target.classList.add('active');
+      target.style.animation = 'none';
+      void target.offsetHeight;
+      target.style.animation = '';
+    }
+    updateProgress(index);
+  }
+
+  function selectOption(e) {
+    var el = e.currentTarget;
+    var qIndex = parseInt(el.dataset.question, 10);
+    var score = parseInt(el.dataset.score, 10);
+    var question = QUESTIONS[qIndex];
+
+    var siblings = el.parentElement.querySelectorAll('.option-card');
+    for (var i = 0; i < siblings.length; i++) siblings[i].classList.remove('selected');
+    el.classList.add('selected');
+
+    state.answers[question.id] = score;
+
+    setTimeout(function() {
+      if (qIndex < QUESTIONS.length - 1) {
+        showQuestion(qIndex + 1);
+      } else {
+        showCalculating();
+      }
+    }, 400);
+  }
+
+  function updateProgress(currentIndex) {
+    var q = QUESTIONS[currentIndex];
+    $('progressLabel').textContent = q.pillarLabel + ' \u2014 Question ' + q.questionNum + ' of ' + q.totalInPillar;
+
+    for (var i = 0; i < QUESTIONS.length; i++) {
+      var seg = $('progress-' + i);
+      if (i < currentIndex) seg.className = 'progress-segment filled';
+      else if (i === currentIndex) seg.className = 'progress-segment current';
+      else seg.className = 'progress-segment';
+    }
+  }
+
+  /* ==== SCORING ==== */
+  function calculateScores() {
+    var pillars = Object.keys(PILLAR_QUESTIONS);
+    for (var p = 0; p < pillars.length; p++) {
+      var pillar = pillars[p];
+      var qIds = PILLAR_QUESTIONS[pillar];
+      var totalPossible = qIds.length * 4;
+      var actual = 0;
+      for (var i = 0; i < qIds.length; i++) actual += (state.answers[qIds[i]] || 0);
+      state.pillarScores[pillar] = Math.round((actual / totalPossible) * 100);
+    }
+
+    var scores = Object.values(state.pillarScores);
+    state.overallScore = Math.round(scores.reduce(function(s,v){return s+v;}, 0) / scores.length);
+
+    var priorityOrder = ['nutrition','strength','recovery','activity','mindfulness'];
+    var entries = Object.entries(state.pillarScores).sort(function(a,b){return a[1]-b[1];});
+    var lowestScore = entries[0][1];
+    var tied = entries.filter(function(e){return e[1]===lowestScore;}).map(function(e){return e[0];});
+    state.priorityPillar = 'nutrition';
+    for (var t = 0; t < priorityOrder.length; t++) {
+      if (tied.indexOf(priorityOrder[t]) !== -1) { state.priorityPillar = priorityOrder[t]; break; }
+    }
+
+    state.scoreBand = getScoreBand(state.overallScore);
+  }
+
+  /* ==== CALCULATING ANIMATION ==== */
+  function showCalculating() {
+    calculateScores();
+    showScreen('screenCalculating');
+
+    var texts = [
+      'Analyzing your Strength...',
+      'Checking your Nutrition...',
+      'Measuring your Recovery...',
+      'Evaluating your Activity...',
+      'Assessing your Mindfulness...',
+      'Calculating your Rebuilder Score...'
+    ];
+
+    var textEl = $('calculatingText');
+    textEl.textContent = texts[0];
+    var i = 0;
+
+    var interval = setInterval(function() {
+      i++;
+      if (i < texts.length) {
+        textEl.style.opacity = '0';
+        setTimeout(function() {
+          textEl.textContent = texts[i];
+          textEl.style.opacity = '1';
+        }, 200);
+      } else {
+        clearInterval(interval);
+        setTimeout(showEmailGate, 300);
+      }
+    }, 350);
+  }
+
+  /* ==== EMAIL GATE ==== */
+  function showEmailGate() {
+    var teaserContainer = $('teaserChart');
+    renderRadarSVG(teaserContainer, state.pillarScores, true);
+    $('gateScoreNumber').textContent = String(state.overallScore);
+    showScreen('screenEmailGate');
+  }
+
+  function handleEmailSubmit(e) {
+    e.preventDefault();
+    var input = $('emailInput');
+    var error = $('emailError');
+    var submit = $('emailSubmit');
+    var email = input.value.trim();
+
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      input.classList.add('error');
+      error.textContent = 'Enter a valid email to see your results';
+      return;
+    }
+
+    input.classList.remove('error');
+    error.textContent = '';
+    state.email = email;
+    state.emailSubmitted = true;
+
+    submit.disabled = true;
+    submit.textContent = 'Unlocking...';
+
+    /*
+     * ============================================================
+     * CONVERTKIT INTEGRATION — PLACEHOLDER
+     * ============================================================
+     *
+     * Replace this section with your ConvertKit form submission.
+     *
+     * OPTION A: ConvertKit Form POST (no API key needed)
+     * -----------------------------------------------------------
+     * var formId = 'YOUR_CONVERTKIT_FORM_ID';
+     * var formData = new FormData();
+     * formData.append('email_address', email);
+     * formData.append('tags[]', 'TAG_ID_FOR_rebuilder-score');
+     * formData.append('tags[]', 'TAG_ID_FOR_priority-' + state.priorityPillar);
+     * formData.append('tags[]', 'TAG_ID_FOR_score-' + state.scoreBand);
+     *
+     * fetch('https://app.convertkit.com/forms/' + formId + '/subscriptions', {
+     *   method: 'POST',
+     *   body: formData
+     * });
+     *
+     * OPTION B: ConvertKit API v3 (public API key)
+     * -----------------------------------------------------------
+     * fetch('https://api.convertkit.com/v3/forms/FORM_ID/subscribe', {
+     *   method: 'POST',
+     *   headers: {'Content-Type': 'application/json'},
+     *   body: JSON.stringify({
+     *     api_key: 'YOUR_API_KEY',
+     *     email: email,
+     *     tags: [TAG_ID_1, TAG_ID_2, TAG_ID_3],
+     *     fields: {
+     *       rebuilder_score: String(state.overallScore),
+     *       priority_pillar: state.priorityPillar,
+     *       score_band: state.scoreBand
+     *     }
+     *   })
+     * });
+     *
+     * TAGS TO CREATE IN CONVERTKIT (10 total):
+     *   Source:   rebuilder-score
+     *   Priority: priority-strength, priority-nutrition, priority-recovery,
+     *             priority-activity, priority-mindfulness
+     *   Band:     score-starting-line, score-foundation,
+     *             score-momentum, score-rebuilder
+     * ============================================================
+     */
+
+    setTimeout(showResults, 600);
+  }
+
+  /* ==== RADAR CHART (SVG via DOM) ==== */
+  function renderRadarSVG(container, scores, isTeaser) {
+    while (container.firstChild) container.removeChild(container.firstChild);
+
+    var size = 460;
+    var cx = size / 2;
+    var cy = size / 2;
+    var maxR = 125;
+    var gridLevels = [25, 50, 75, 100];
+
+    var axes = [
+      {key:'strength',label:'Strength',angle:270},
+      {key:'nutrition',label:'Nutrition',angle:342},
+      {key:'recovery',label:'Recovery',angle:54},
+      {key:'activity',label:'Activity',angle:126},
+      {key:'mindfulness',label:'Mindfulness',angle:198}
+    ];
+
+    var NS = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 ' + size + ' ' + size);
+
+    function polar(angleDeg, radius) {
+      var rad = (angleDeg * Math.PI) / 180;
+      return {x: cx + radius * Math.cos(rad), y: cy + radius * Math.sin(rad)};
+    }
+
+    function makePolygonPoints(radius) {
+      return axes.map(function(a) {
+        var p = polar(a.angle, radius);
+        return p.x + ',' + p.y;
+      }).join(' ');
+    }
+
+    // Grid rings
+    for (var g = 0; g < gridLevels.length; g++) {
+      var r = (gridLevels[g] / 100) * maxR;
+      var poly = document.createElementNS(NS, 'polygon');
+      poly.setAttribute('points', makePolygonPoints(r));
+      poly.setAttribute('fill', 'none');
+      poly.setAttribute('stroke', 'rgba(255,255,255,0.1)');
+      poly.setAttribute('stroke-width', '1');
+      svg.appendChild(poly);
+    }
+
+    // Axis lines
+    for (var a = 0; a < axes.length; a++) {
+      var pt = polar(axes[a].angle, maxR);
+      var line = document.createElementNS(NS, 'line');
+      line.setAttribute('x1', String(cx)); line.setAttribute('y1', String(cy));
+      line.setAttribute('x2', String(pt.x)); line.setAttribute('y2', String(pt.y));
+      line.setAttribute('stroke', 'rgba(255,255,255,0.08)');
+      line.setAttribute('stroke-width', '1');
+      svg.appendChild(line);
+    }
+
+    // Data polygon
+    var dataPoints = axes.map(function(ax) {
+      var val = scores[ax.key] || 0;
+      return polar(ax.angle, (val / 100) * maxR);
+    });
+
+    var pathD = dataPoints.map(function(p, i) {
+      return (i === 0 ? 'M' : 'L') + p.x + ',' + p.y;
+    }).join(' ') + ' Z';
+
+    var dataPath = document.createElementNS(NS, 'path');
+    dataPath.setAttribute('d', pathD);
+
+    if (isTeaser) {
+      dataPath.setAttribute('fill', 'rgba(220,53,69,0.15)');
+      dataPath.setAttribute('stroke', 'rgba(220,53,69,0.3)');
+      dataPath.setAttribute('stroke-width', '2');
+    } else {
+      dataPath.setAttribute('fill', 'rgba(220,53,69,0.2)');
+      dataPath.setAttribute('stroke', '#DC3545');
+      dataPath.setAttribute('stroke-width', '2.5');
+      dataPath.setAttribute('stroke-linejoin', 'round');
+
+      // Add CSS animation for stroke draw
+      var style = document.createElementNS(NS, 'style');
+      style.textContent = '@keyframes radarDraw{to{stroke-dashoffset:0}}@keyframes dotAppear{to{opacity:1}}';
+      svg.appendChild(style);
+
+      dataPath.setAttribute('style', 'stroke-dasharray:2000;stroke-dashoffset:2000;animation:radarDraw 1.2s ease-in-out 0.3s forwards;');
+    }
+
+    svg.appendChild(dataPath);
+
+    // Data points (full results only)
+    if (!isTeaser) {
+      for (var d = 0; d < dataPoints.length; d++) {
+        var dot = document.createElementNS(NS, 'circle');
+        dot.setAttribute('cx', String(dataPoints[d].x));
+        dot.setAttribute('cy', String(dataPoints[d].y));
+        dot.setAttribute('r', '5');
+        dot.setAttribute('fill', '#FFFFFF');
+        dot.setAttribute('stroke', '#DC3545');
+        dot.setAttribute('stroke-width', '2');
+        dot.setAttribute('opacity', '0');
+        dot.setAttribute('style', 'animation:dotAppear 300ms ease-out ' + (0.3 + 1.2 + d * 0.15) + 's forwards;');
+        svg.appendChild(dot);
+      }
+    }
+
+    // Labels
+    for (var l = 0; l < axes.length; l++) {
+      var labelR = maxR + 24;
+      var lp = polar(axes[l].angle, labelR);
+      var anchor = 'middle';
+      if (axes[l].angle > 90 && axes[l].angle < 270) anchor = 'end';
+      else if (axes[l].angle < 90 || axes[l].angle > 270) anchor = 'start';
+      if (axes[l].angle === 270 || axes[l].angle === 90) anchor = 'middle';
+
+      var label = document.createElementNS(NS, 'text');
+      label.setAttribute('x', String(lp.x));
+      label.setAttribute('y', String(lp.y));
+      label.setAttribute('text-anchor', anchor);
+      label.setAttribute('dominant-baseline', 'middle');
+      label.setAttribute('fill', isTeaser ? 'rgba(255,255,255,0.3)' : '#FFFFFF');
+      label.setAttribute('font-family', "'Outfit', sans-serif");
+      label.setAttribute('font-size', '13');
+      label.setAttribute('font-weight', '600');
+      label.textContent = axes[l].label;
+      svg.appendChild(label);
+
+      if (!isTeaser) {
+        var scoreP = polar(axes[l].angle, labelR + 16);
+        var scoreLabel = document.createElementNS(NS, 'text');
+        scoreLabel.setAttribute('x', String(scoreP.x));
+        scoreLabel.setAttribute('y', String(scoreP.y));
+        scoreLabel.setAttribute('text-anchor', anchor);
+        scoreLabel.setAttribute('dominant-baseline', 'middle');
+        scoreLabel.setAttribute('fill', '#A0AEC0');
+        scoreLabel.setAttribute('font-family', "'JetBrains Mono', monospace");
+        scoreLabel.setAttribute('font-size', '11');
+        scoreLabel.textContent = String(scores[axes[l].key]);
+        svg.appendChild(scoreLabel);
+      }
+    }
+
+    container.appendChild(svg);
+  }
+
+  /* ==== RESULTS ==== */
+  function showResults() {
+    showScreen('screenResults');
+
+    // Animate score count-up
+    var scoreEl = $('resultsScoreValue');
+    animateCountUp(scoreEl, state.overallScore, 1500);
+
+    // Animate score circle
+    var circle = $('scoreCircle');
+    var circumference = 2 * Math.PI * 70;
+    var offset = circumference - (state.overallScore / 100) * circumference;
+    setTimeout(function() { circle.style.strokeDashoffset = String(offset); }, 100);
+
+    // Band
+    var band = SCORE_BANDS[state.scoreBand];
+    $('resultsBandLabel').textContent = band.label;
+    $('resultsBandDesc').textContent = band.desc;
+
+    // Radar chart
+    renderRadarSVG($('radarChart'), state.pillarScores, false);
+
+    // Pillar cards
+    buildPillarCards();
+
+    // Priority section
+    buildPrioritySection();
+
+    // Share
+    setupShareLinks();
+
+    showToast('You\u2019re in. Check your inbox for a copy of your results.');
+  }
+
+  function animateCountUp(el, target, duration) {
+    var start = null;
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      var progress = Math.min((timestamp - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = String(Math.round(eased * target));
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* ==== PILLAR CARDS ==== */
+  function buildPillarCards() {
+    var container = $('pillarCards');
+    while (container.firstChild) container.removeChild(container.firstChild);
+    var pillars = ['strength','nutrition','recovery','activity','mindfulness'];
+
+    for (var i = 0; i < pillars.length; i++) {
+      (function(pillar, idx) {
+        var score = state.pillarScores[pillar];
+        var band = getScoreBand(score);
+        var bandLabel = SCORE_BANDS[band].label;
+        var insight = PILLAR_INSIGHTS[pillar][band];
+        var icon = PILLAR_ICONS[pillar];
+
+        var card = document.createElement('div');
+        card.className = 'pillar-card';
+        card.id = 'pillar-card-' + idx;
+        card.style.transitionDelay = (idx * 100) + 'ms';
+
+        // Header
+        var header = document.createElement('div');
+        header.className = 'pillar-card__header';
+
+        var nameDiv = document.createElement('div');
+        nameDiv.className = 'pillar-card__name';
+
+        var iconSpan = document.createElement('span');
+        iconSpan.className = 'pillar-card__icon';
+        iconSpan.textContent = icon;
+        nameDiv.appendChild(iconSpan);
+        nameDiv.appendChild(document.createTextNode(' ' + capitalize(pillar)));
+
+        var scoreDiv = document.createElement('div');
+        scoreDiv.className = 'pillar-card__score';
+        scoreDiv.textContent = score + '/100';
+
+        header.appendChild(nameDiv);
+        header.appendChild(scoreDiv);
+        card.appendChild(header);
+
+        // Bar
+        var barOuter = document.createElement('div');
+        barOuter.className = 'pillar-card__bar';
+        var barFill = document.createElement('div');
+        barFill.className = 'pillar-card__bar-fill';
+        barFill.id = 'pillar-bar-' + idx;
+        barFill.dataset.width = String(score);
+        barOuter.appendChild(barFill);
+        card.appendChild(barOuter);
+
+        // Band
+        var bandDiv = document.createElement('div');
+        bandDiv.className = 'pillar-card__band';
+        bandDiv.textContent = bandLabel;
+        card.appendChild(bandDiv);
+
+        // Insight
+        var insightDiv = document.createElement('div');
+        insightDiv.className = 'pillar-card__insight';
+        insightDiv.textContent = insight;
+        card.appendChild(insightDiv);
+
+        container.appendChild(card);
+      })(pillars[i], i);
+    }
+
+    // Stagger reveal
+    setTimeout(function() {
+      for (var j = 0; j < pillars.length; j++) {
+        (function(idx) {
+          setTimeout(function() {
+            var c = $('pillar-card-' + idx);
+            if (c) c.classList.add('visible');
+            var b = $('pillar-bar-' + idx);
+            if (b) b.style.width = b.dataset.width + '%';
+          }, idx * 150);
+        })(j);
+      }
+    }, 300);
+  }
+
+  /* ==== PRIORITY SECTION ==== */
+  function buildPrioritySection() {
+    var section = $('prioritySection');
+    while (section.firstChild) section.removeChild(section.firstChild);
+
+    var pillar = state.priorityPillar;
+    var pillarName = capitalize(pillar);
+    var actions = ACTION_PLANS[pillar];
+    var cta = PRIORITY_CTA[pillar];
+
+    var h3 = document.createElement('h3');
+    h3.textContent = 'Your #1 Priority: ' + pillarName;
+    section.appendChild(h3);
+
+    var body = document.createElement('p');
+    body.className = 'results__priority-body';
+    body.textContent = 'This is where the biggest opportunity lives. Improving your ' + pillarName + ' score will have a cascade effect on everything else \u2014 because the Power Practices don\u2019t operate in isolation. They compound.';
+    section.appendChild(body);
+
+    var h4 = document.createElement('h4');
+    h4.textContent = 'Here\u2019s your action plan:';
+    section.appendChild(h4);
+
+    var ol = document.createElement('ol');
+    ol.className = 'results__actions';
+
+    for (var i = 0; i < actions.length; i++) {
+      var li = document.createElement('li');
+
+      var numSpan = document.createElement('span');
+      numSpan.className = 'action-number';
+      numSpan.textContent = String(i + 1);
+      li.appendChild(numSpan);
+
+      // Action plans contain trusted, hardcoded HTML (<strong> tags)
+      // so we use a span with innerHTML for formatting only
+      var textSpan = document.createElement('span');
+      textSpan.innerHTML = actions[i]; // safe: hardcoded content only
+      li.appendChild(textSpan);
+
+      ol.appendChild(li);
+    }
+
+    section.appendChild(ol);
+
+    var ctaLink = document.createElement('a');
+    ctaLink.href = cta.url;
+    ctaLink.className = 'btn-primary';
+    ctaLink.target = '_blank';
+    ctaLink.rel = 'noopener';
+    ctaLink.textContent = cta.text + ' \u2192';
+    section.appendChild(ctaLink);
+  }
+
+  /* ==== SHARE ==== */
+  function setupShareLinks() {
+    var shareText = encodeURIComponent(
+      'I just took the Rebuilder Score \u2014 a 2-minute assessment for dads who want to feel like athletes again. My score: ' + state.overallScore + '/100. Take yours:'
+    );
+    var shareUrl = encodeURIComponent(window.location.href);
+    $('shareTwitter').href = 'https://twitter.com/intent/tweet?text=' + shareText + '&url=' + shareUrl;
+  }
+
+  function copyShareLink() {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(window.location.href).then(function() {
+        showToast('Link copied! Share your score with a friend.');
+      });
+    } else {
+      var input = document.createElement('input');
+      input.value = window.location.href;
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+      showToast('Link copied! Share your score with a friend.');
+    }
+  }
+
+  /* ==== TOAST ==== */
+  function showToast(message) {
+    var toast = $('toast');
+    toast.textContent = message;
+    toast.classList.add('visible');
+    setTimeout(function() { toast.classList.remove('visible'); }, 3000);
+  }
+
+  /* ==== EVENT LISTENERS ==== */
+  $('heroStartBtn').addEventListener('click', function() { showScreen('screenIntro'); });
+  $('introStartBtn').addEventListener('click', function() { buildQuestions(); showScreen('screenQuestions'); showQuestion(0); });
+  $('emailForm').addEventListener('submit', handleEmailSubmit);
+  $('copyLinkBtn').addEventListener('click', copyShareLink);
+
+})();
+</script>
+</body>
+</html>
