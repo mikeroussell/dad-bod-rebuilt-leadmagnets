@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What's Your Restart Pattern? — Dad Bod Rebuilt</title>
+<meta name="description" content="Take the 2-minute quiz and discover why you keep starting over. It's not discipline — it's a pattern. Find yours and learn the shift that breaks the cycle.">
+<meta property="og:title" content="What's Your Restart Pattern?">
+<meta property="og:description" content="Every dad who's been stuck in the restart cycle is running one of four patterns. This 2-minute quiz identifies yours.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What's Your Restart Pattern?">
+<meta name="twitter:description" content="It's not discipline. It's a pattern. Find yours in 2 minutes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Outfit:wght@400;500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<noscript><style>.app{display:none}.no-js{display:flex!important}</style></noscript>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --color-primary: #0b4c90;
+  --color-primary-dark: #072e57;
+  --color-primary-light: #1a6bc4;
+  --color-accent: #DC3545;
+  --color-accent-hover: #c82333;
+  --color-white: #FFFFFF;
+  --color-off-white: #F8F9FA;
+  --color-bg: #FFFFFF;
+  --color-text: #1A202C;
+  --color-text-muted: #718096;
+  --color-surface: #F7FAFC;
+  --color-surface-hover: #EDF2F7;
+  --color-border: #E2E8F0;
+
+  --color-pattern-aon: #DC3545;
+  --color-pattern-ic: #1a6bc4;
+  --color-pattern-gsd: #6B46C1;
+  --color-pattern-ev: #059669;
+
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+
+  --space-xs: 4px; --space-sm: 8px; --space-md: 16px; --space-lg: 24px;
+  --space-xl: 32px; --space-2xl: 48px; --space-3xl: 64px;
+
+  --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px; --radius-full: 9999px;
+
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.12);
+  --shadow-selected: 0 0 0 3px var(--color-primary);
+}
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.no-js {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: var(--space-xl);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+}
+
+.app { max-width: 640px; margin: 0 auto; padding: 0 var(--space-md); }
+
+.screen {
+  display: none;
+  min-height: 100vh;
+  padding: var(--space-3xl) 0;
+}
+
+.screen.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: fadeSlideUp 400ms ease-out;
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* HERO */
+.hero { text-align: center; }
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xl);
+  letter-spacing: 0.02em;
+}
+
+.hero__badge-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--color-accent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.3); }
+}
+
+.hero__pattern-icons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.hero__pattern-icon {
+  width: 48px; height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  opacity: 0.7;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+  line-height: 1.1;
+  color: var(--color-text);
+  margin-bottom: var(--space-lg);
+}
+
+.hero__subhead {
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 520px;
+  margin: 0 auto var(--space-2xl);
+  line-height: 1.5;
+}
+
+.hero__social-proof {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2xl);
+  letter-spacing: 0.01em;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-xl);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 200ms ease;
+  box-shadow: 0 4px 16px rgba(11, 76, 144, 0.25);
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(11, 76, 144, 0.35);
+}
+
+.btn-primary:active { transform: translateY(0); }
+
+.hero__below-fold {
+  margin-top: var(--space-3xl);
+  padding-top: var(--space-2xl);
+  border-top: 1px solid var(--color-border);
+  text-align: left;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.hero__below-fold p { margin-bottom: var(--space-md); }
+.hero__below-fold em { color: var(--color-text); font-style: italic; }
+
+/* INTRO */
+.intro { text-align: center; }
+
+.intro h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  color: var(--color-text);
+  margin-bottom: var(--space-lg);
+}
+
+.intro__body {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xl);
+  line-height: 1.6;
+}
+
+.intro__time {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xl);
+  letter-spacing: 0.02em;
+}
+
+/* PROGRESS DOTS */
+.progress-container {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: var(--space-md) var(--space-md) var(--space-sm);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  display: none;
+}
+
+.progress-container.visible { display: block; }
+
+.progress-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  margin-bottom: var(--space-xs);
+  text-align: center;
+}
+
+.progress-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.progress-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--color-border);
+  transition: all 300ms ease;
+  cursor: pointer;
+}
+
+.progress-dot.filled {
+  background: var(--color-primary);
+  transform: scale(1.1);
+}
+
+.progress-dot.current {
+  background: var(--color-primary-light);
+  box-shadow: 0 0 0 3px rgba(26, 107, 196, 0.2);
+  transform: scale(1.2);
+}
+
+@keyframes dotPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+  100% { transform: scale(1.1); }
+}
+
+/* QUESTIONS */
+.questions-screen {
+  padding-top: 72px !important;
+  justify-content: flex-start !important;
+}
+
+.question-card {
+  display: none;
+  animation: fadeSlideUp 350ms ease-out;
+}
+
+.question-card.active { display: block; }
+
+.scenario-block {
+  background: var(--color-surface);
+  border-left: 4px solid var(--color-primary);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: clamp(1.05rem, 2.5vw, 1.15rem);
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.question__options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.option-card {
+  background: var(--color-white);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  cursor: pointer;
+  transition: all 200ms ease;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.option-card:hover {
+  background: var(--color-surface);
+  border-color: var(--color-primary-light);
+  transform: translateX(4px);
+}
+
+.option-card.selected {
+  background: rgba(11, 76, 144, 0.06);
+  border-color: var(--color-primary);
+  border-left-width: 5px;
+  color: var(--color-text);
+  transform: translateX(4px);
+}
+
+.option-card.selected::after {
+  content: '\2713';
+  position: absolute;
+  right: var(--space-md);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* IDENTIFYING / LOADING */
+.identifying { text-align: center; }
+
+.identifying__icons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  height: 64px;
+  align-items: center;
+}
+
+.identifying__icon {
+  width: 48px; height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  opacity: 0.3;
+  transition: all 600ms ease;
+}
+
+.identifying__icon.pulsing {
+  opacity: 0.6;
+  animation: iconPulse 800ms ease-in-out infinite;
+}
+
+.identifying__icon.locked {
+  opacity: 1;
+  transform: scale(1.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  animation: none;
+}
+
+@keyframes iconPulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+.identifying__text {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  min-height: 2em;
+  transition: opacity 200ms ease;
+}
+
+/* EMAIL GATE */
+.email-gate { text-align: center; }
+
+.email-gate__pattern-reveal {
+  margin-bottom: var(--space-lg);
+}
+
+.email-gate__pattern-icon {
+  width: 72px; height: 72px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto var(--space-md);
+  animation: patternReveal 400ms ease-out;
+}
+
+@keyframes patternReveal {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.email-gate__pattern-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  line-height: 1.2;
+  margin-bottom: var(--space-sm);
+}
+
+.email-gate__teaser-line {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xl);
+}
+
+.email-gate__locked {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.email-gate__locked-blur {
+  filter: blur(6px);
+  opacity: 0.4;
+  pointer-events: none;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+
+.email-gate__locked-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+}
+
+.email-gate__locked-overlay svg {
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-muted);
+}
+
+.email-gate__locked-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.email-gate h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+.email-gate__sub {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xl);
+  line-height: 1.5;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.email-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  max-width: 400px;
+  margin: 0 auto var(--space-md);
+}
+
+.email-form__input {
+  background: var(--color-white);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text);
+  outline: none;
+  transition: border-color 200ms ease;
+}
+
+.email-form__input::placeholder { color: var(--color-text-muted); }
+.email-form__input:focus { border-color: var(--color-primary); }
+.email-form__input.error { border-color: var(--color-accent); }
+
+.email-form__error {
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  min-height: 1.2em;
+  text-align: left;
+}
+
+.email-form__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.email-gate__privacy {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* RESULTS */
+.results {
+  padding-top: var(--space-2xl) !important;
+  justify-content: flex-start !important;
+  min-height: auto !important;
+}
+
+.results__header {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.results__pattern-icon {
+  width: 80px; height: 80px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  margin: 0 auto var(--space-md);
+}
+
+.results__pattern-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  line-height: 1.15;
+  margin-bottom: var(--space-sm);
+}
+
+.results__one-liner {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.results__prevalence {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Result sections */
+.results__section {
+  margin-bottom: var(--space-2xl);
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.results__section.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+}
+
+.results__section-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+}
+
+.results__section h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-lg);
+}
+
+.results__section p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+.results__section p:last-child { margin-bottom: 0; }
+
+/* The Shift - action items */
+.results__shift-intro {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+}
+
+.results__shift-actions {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.results__shift-actions li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.action-number {
+  flex-shrink: 0;
+  width: 28px; height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-top: 2px;
+}
+
+/* CTA Section */
+.results__cta {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.results__cta-text {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+}
+
+.results__cta-secondary {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-top: var(--space-md);
+}
+
+.results__cta-secondary a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.results__cta-secondary a:hover { text-decoration: underline; }
+
+/* Other Patterns */
+.results__other-patterns {
+  margin-bottom: var(--space-2xl);
+}
+
+.results__other-patterns h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-lg);
+}
+
+.other-pattern-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-sm);
+  overflow: hidden;
+}
+
+.other-pattern-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  cursor: pointer;
+  transition: background 200ms ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.other-pattern-card__header:hover {
+  background: var(--color-surface-hover);
+}
+
+.other-pattern-card__icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.other-pattern-card__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-text);
+  flex: 1;
+}
+
+.other-pattern-card__chevron {
+  transition: transform 200ms ease;
+  color: var(--color-text-muted);
+}
+
+.other-pattern-card.expanded .other-pattern-card__chevron {
+  transform: rotate(180deg);
+}
+
+.other-pattern-card__body {
+  display: none;
+  padding: 0 var(--space-lg) var(--space-md);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.other-pattern-card.expanded .other-pattern-card__body {
+  display: block;
+}
+
+/* Share */
+.results__share {
+  text-align: center;
+  padding-top: var(--space-2xl);
+  border-top: 1px solid var(--color-border);
+  margin-bottom: var(--space-2xl);
+}
+
+.results__share h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.results__share-sub {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.share-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-lg);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all 200ms ease;
+  text-decoration: none;
+}
+
+.share-btn:hover {
+  background: var(--color-surface);
+  border-color: var(--color-primary-light);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-card);
+}
+
+.toast {
+  position: fixed;
+  bottom: var(--space-xl);
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-hover);
+  transition: transform 300ms ease;
+  z-index: 200;
+  pointer-events: none;
+}
+
+.toast.visible { transform: translateX(-50%) translateY(0); }
+
+@media (max-width: 480px) {
+  .screen { padding: var(--space-2xl) 0; }
+  .results { padding-top: var(--space-lg) !important; }
+  .questions-screen { padding-top: 64px !important; }
+  .option-card { padding: var(--space-md); font-size: 0.95rem; }
+  .results__cta { padding: var(--space-lg); }
+  .share-buttons { flex-direction: column; align-items: center; }
+  .share-btn { width: 100%; max-width: 280px; justify-content: center; }
+  .hero__pattern-icons { gap: var(--space-md); }
+  .hero__pattern-icon { width: 40px; height: 40px; font-size: 1.2rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="no-js">This quiz requires JavaScript to run. Please enable JavaScript and reload the page.</div>
+
+<div class="progress-container" id="progressContainer">
+  <div class="progress-label" id="progressLabel">Scenario 1 of 8</div>
+  <div class="progress-dots" id="progressDots"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="app">
+
+  <!-- LANDING / HERO -->
+  <section class="screen active" id="screenHero">
+    <div class="hero">
+      <div class="hero__badge">
+        <span class="hero__badge-dot"></span>
+        ~2 minutes
+      </div>
+      <div class="hero__pattern-icons">
+        <div class="hero__pattern-icon" style="background:rgba(220,53,69,0.1);">&#x1F504;</div>
+        <div class="hero__pattern-icon" style="background:rgba(26,107,196,0.1);">&#x1F4DA;</div>
+        <div class="hero__pattern-icon" style="background:rgba(107,70,193,0.1);">&#x1F300;</div>
+        <div class="hero__pattern-icon" style="background:rgba(5,150,105,0.1);">&#x1F3E0;</div>
+      </div>
+      <h1>Why Do You Keep Starting Over?</h1>
+      <p class="hero__subhead">It's not discipline. It's not time. It's a pattern &mdash; and once you see it, you can break it. Take the 2-minute quiz.</p>
+      <p class="hero__social-proof">Based on patterns observed across 10,000+ dads rebuilding their health</p>
+      <button class="btn-primary" id="heroStartBtn">
+        Find My Restart Pattern
+        <span>&#8594;</span>
+      </button>
+      <div class="hero__below-fold">
+        <p>You've done this before. Started strong on Monday. Felt great for a week. Maybe two. Then something happened &mdash; a sick kid, a work deadline, one bad meal that turned into a bad week &mdash; and you were back at square one.</p>
+        <p>You blamed yourself. "I just need more discipline." "I'll start again next Monday."</p>
+        <p>But here's what nobody told you: it's not a discipline problem. It's a <em>pattern</em> problem. And there are exactly four patterns that keep dads stuck in the restart cycle.</p>
+        <p>This quiz identifies yours in about 2 minutes. No fluff. No generic advice. Just a clear explanation of why you keep falling off &mdash; and the specific shift that breaks the cycle.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="screen" id="screenIntro">
+    <div class="intro">
+      <h2>There's a Reason You Keep Starting Over</h2>
+      <p class="intro__body">And it's not the reason you think.</p>
+      <p class="intro__body">Every dad who's been stuck in the restart cycle is running one of four patterns. Each pattern has a different trigger, a different emotional signature, and &mdash; most importantly &mdash; a different fix.</p>
+      <p class="intro__body">This quiz uses 8 real-life scenarios to identify your primary Restart Pattern. At the end, you'll understand exactly why you keep falling off and what to do about it.</p>
+      <p class="intro__time">~2 minutes &middot; 8 scenarios</p>
+      <button class="btn-primary" id="introStartBtn">
+        Find My Pattern
+        <span>&#8594;</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- QUESTIONS -->
+  <section class="screen questions-screen" id="screenQuestions">
+    <div id="questionsContainer"></div>
+  </section>
+
+  <!-- IDENTIFYING -->
+  <section class="screen" id="screenIdentifying">
+    <div class="identifying">
+      <div class="identifying__icons" id="identifyingIcons">
+        <div class="identifying__icon" data-pattern="aon" style="background:rgba(220,53,69,0.1);">&#x1F504;</div>
+        <div class="identifying__icon" data-pattern="ic" style="background:rgba(26,107,196,0.1);">&#x1F4DA;</div>
+        <div class="identifying__icon" data-pattern="gsd" style="background:rgba(107,70,193,0.1);">&#x1F300;</div>
+        <div class="identifying__icon" data-pattern="ev" style="background:rgba(5,150,105,0.1);">&#x1F3E0;</div>
+      </div>
+      <p class="identifying__text" id="identifyingText"></p>
+    </div>
+  </section>
+
+  <!-- EMAIL GATE -->
+  <section class="screen" id="screenEmailGate">
+    <div class="email-gate">
+      <div class="email-gate__pattern-reveal">
+        <div class="email-gate__pattern-icon" id="gatePatternIcon"></div>
+        <div class="email-gate__pattern-name" id="gatePatternName"></div>
+        <p class="email-gate__teaser-line" id="gateTeaserLine"></p>
+      </div>
+
+      <div class="email-gate__locked">
+        <div class="email-gate__locked-blur">
+          Here's why this pattern keeps pulling you back into the restart cycle. The mechanism is subtle but powerful, and once you see it clearly, you can't unsee it. The truth is that this has nothing to do with your discipline or character. It's a pattern that served you well in other areas of your life, but it's working against you here. There's a specific shift that breaks the cycle, and it's probably not what you expect.
+        </div>
+        <div class="email-gate__locked-overlay">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span class="email-gate__locked-label">Your Full Pattern Breakdown</span>
+        </div>
+      </div>
+
+      <h2>Your Full Pattern Breakdown Is Ready</h2>
+      <p class="email-gate__sub">Enter your email to unlock your complete pattern analysis &mdash; including why this keeps happening, why it's not your fault, and the one shift that breaks the cycle.</p>
+      <form class="email-form" id="emailForm">
+        <input type="email" class="email-form__input" id="emailInput" placeholder="your@email.com" autocomplete="email" required>
+        <div class="email-form__error" id="emailError"></div>
+        <button type="submit" class="btn-primary" id="emailSubmit">Show Me My Pattern Breakdown</button>
+      </form>
+      <p class="email-gate__privacy">Practical strategies for dads who want to feel like athletes again. No spam. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="screen results" id="screenResults">
+    <div class="results__header" id="resultsHeader"></div>
+    <div id="resultsSections"></div>
+    <div class="results__cta" id="resultsCta"></div>
+    <div class="results__other-patterns" id="otherPatterns"></div>
+    <div class="results__share">
+      <h3>Which Pattern Is Your Buddy Running?</h3>
+      <p class="results__share-sub">Send this to a dad you know. Guarantee he'll recognize himself.</p>
+      <div class="share-buttons">
+        <a class="share-btn" id="shareTwitter" href="#" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Share on X
+        </a>
+        <button class="share-btn" id="copyLinkBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy Link
+        </button>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  /* ==== PATTERN CONFIG ==== */
+  var PATTERNS = {
+    aon: {
+      name: 'The All-or-Nothing Resetter',
+      shortName: 'All-or-Nothing',
+      icon: '\uD83D\uDD04',
+      color: '#DC3545',
+      bgColor: 'rgba(220,53,69,0.1)',
+      prevalence: '~35%',
+      oneLiner: "If it's not perfect, it doesn't count.",
+      teaser: "There's a reason 'all or nothing' always ends in nothing."
+    },
+    ic: {
+      name: 'The Information Collector',
+      shortName: 'Info Collector',
+      icon: '\uD83D\uDCDA',
+      color: '#1a6bc4',
+      bgColor: 'rgba(26,107,196,0.1)',
+      prevalence: '~18%',
+      oneLiner: "Learning feels like progress \u2014 but nothing changes.",
+      teaser: "You already know enough. The problem isn't information."
+    },
+    gsd: {
+      name: 'The Guilt Spiral Dad',
+      shortName: 'Guilt Spiral',
+      icon: '\uD83C\uDF00',
+      color: '#6B46C1',
+      bgColor: 'rgba(107,70,193,0.1)',
+      prevalence: '~22%',
+      oneLiner: "Every slip becomes proof you can't do this.",
+      teaser: "The guilt isn't making you better. It's keeping you stuck."
+    },
+    ev: {
+      name: 'The Environment Victim',
+      shortName: 'Env Victim',
+      icon: '\uD83C\uDFE0',
+      color: '#059669',
+      bgColor: 'rgba(5,150,105,0.1)',
+      prevalence: '~25%',
+      oneLiner: "Your willpower is fine. Your setup is sabotaging you.",
+      teaser: "You're not weak. Your environment is winning."
+    }
+  };
+
+  /* ==== QUESTIONS ==== */
+  var QUESTIONS = [
+    {
+      id: 'q1',
+      scenario: "It\u2019s Wednesday morning. You skipped Monday\u2019s workout because of a work emergency, and yesterday you ate takeout for dinner. What\u2019s your first thought?",
+      options: [
+        { text: "\u201CThe week is already blown. I\u2019ll start fresh Monday.\u201D", pattern: 'aon' },
+        { text: "\u201CI should research a more realistic workout schedule that accounts for busy weeks.\u201D", pattern: 'ic' },
+        { text: "\u201CI promised myself this time would be different. I can\u2019t even make it 3 days.\u201D", pattern: 'gsd' },
+        { text: "\u201CMy schedule this week made it basically impossible. I never had a real window.\u201D", pattern: 'ev' }
+      ]
+    },
+    {
+      id: 'q2',
+      scenario: "You come across a new training program that looks promising. What do you do?",
+      options: [
+        { text: "\u201CIf I\u2019m going to do this, I\u2019m going all in \u2014 I\u2019ll overhaul my entire routine starting this weekend.\u201D", pattern: 'aon' },
+        { text: "\u201CLet me spend this week comparing it to three other programs before I decide.\u201D", pattern: 'ic' },
+        { text: "\u201CI\u2019ve tried so many programs. I don\u2019t even know if I\u2019ll stick with this one either.\u201D", pattern: 'gsd' },
+        { text: "\u201CIt looks great, but I\u2019m not sure I can make it work with my current schedule.\u201D", pattern: 'ev' }
+      ]
+    },
+    {
+      id: 'q3',
+      scenario: "It\u2019s 9 PM. The kids are finally in bed. You know you should go to sleep, but you\u2019re exhausted and this is the first moment of peace all day. What happens?",
+      options: [
+        { text: "\u201CI\u2019ll watch one episode \u2014 but it turns into three and I\u2019m up until midnight.\u201D", pattern: 'aon' },
+        { text: "\u201CI end up reading articles about sleep optimization... while not sleeping.\u201D", pattern: 'ic' },
+        { text: "\u201CI stay up too late, then feel terrible about it the next morning. Again.\u201D", pattern: 'gsd' },
+        { text: "\u201CThere\u2019s nothing set up to help me wind down \u2014 my phone is right there, the TV is on, and there\u2019s no routine pulling me to bed.\u201D", pattern: 'ev' }
+      ]
+    },
+    {
+      id: 'q4',
+      scenario: "You had a solid week of training \u2014 3 workouts, good meals. Then Saturday hits and you eat pizza and wings with the family. How do you feel Sunday morning?",
+      options: [
+        { text: "\u201CSaturday ruined the whole week. What was the point of all that effort?\u201D", pattern: 'aon' },
+        { text: "\u201CI should look into how to calculate cheat meal macros to minimize the damage.\u201D", pattern: 'ic' },
+        { text: "\u201CI feel guilty that I couldn\u2019t even enjoy a meal with my family without overthinking it.\u201D", pattern: 'gsd' },
+        { text: "\u201CThere was nothing else to eat \u2014 the fridge was empty and pizza was the only option that worked for everyone.\u201D", pattern: 'ev' }
+      ]
+    },
+    {
+      id: 'q5',
+      scenario: "A friend asks you to be his workout accountability partner. What\u2019s your honest reaction?",
+      options: [
+        { text: "\u201CI\u2019m either going to go all in or let him down \u2014 there\u2019s no middle ground for me.\u201D", pattern: 'aon' },
+        { text: "\u201CI\u2019d need to figure out the best accountability system first. There\u2019s probably research on what works.\u201D", pattern: 'ic' },
+        { text: "\u201CWhat if I can\u2019t keep up? I don\u2019t want him to see me fail.\u201D", pattern: 'gsd' },
+        { text: "\u201CI\u2019d love to, but our schedules probably won\u2019t line up. It\u2019s hard enough to find time for myself.\u201D", pattern: 'ev' }
+      ]
+    },
+    {
+      id: 'q6',
+      scenario: "You\u2019re at Chipotle for lunch. You know you should get something high in protein, but you\u2019re tired and rushed. What happens?",
+      options: [
+        { text: "\u201CI get the burrito with everything \u2014 if I can\u2019t meal prep perfectly, what\u2019s the difference?\u201D", pattern: 'aon' },
+        { text: "\u201CI spend 5 minutes trying to calculate the macros in my head before ordering.\u201D", pattern: 'ic' },
+        { text: "\u201CI get something decent but feel annoyed at myself for not having brought a packed lunch.\u201D", pattern: 'gsd' },
+        { text: "\u201CI don\u2019t really know what to order that\u2019s high-protein here, so I just get what I always get.\u201D", pattern: 'ev' }
+      ]
+    },
+    {
+      id: 'q7',
+      scenario: "You\u2019re scrolling Instagram and see a fit dad your age posting his workout. What goes through your head?",
+      options: [
+        { text: "\u201CMust be nice to have that kind of time. If I can\u2019t train like that, there\u2019s no point.\u201D", pattern: 'aon' },
+        { text: "\u201CI wonder what program he\u2019s running. Let me check his page for details.\u201D", pattern: 'ic' },
+        { text: "\u201CI used to look like that. What happened to me?\u201D", pattern: 'gsd' },
+        { text: "\u201CHe probably has a home gym, a flexible job, and a partner who handles the morning routine.\u201D", pattern: 'ev' }
+      ]
+    },
+    {
+      id: 'q8',
+      scenario: "Imagine it\u2019s 6 months from now and you\u2019ve finally broken the restart cycle. What changed?",
+      options: [
+        { text: "\u201CI stopped waiting for the perfect plan and just did something imperfect every day.\u201D", pattern: 'aon' },
+        { text: "\u201CI finally stopped researching and committed to one approach long enough to see results.\u201D", pattern: 'ic' },
+        { text: "\u201CI learned to forgive myself after bad days instead of spiraling into guilt.\u201D", pattern: 'gsd' },
+        { text: "\u201CI changed my environment so the healthy choice was the easy choice.\u201D", pattern: 'ev' }
+      ]
+    }
+  ];
+
+  /* ==== RESULTS CONTENT ==== */
+  /* NOTE: All HTML content below is hardcoded and trusted. No user input is rendered. */
+  var RESULTS_CONTENT = {
+    aon: {
+      story: [
+        "You know exactly how this goes.",
+        "Monday hits and you\u2019re locked in. The workout is planned. The meals are prepped. You\u2019re drinking water like it\u2019s your job. You feel like an athlete again \u2014 this time it\u2019s going to stick.",
+        "Then Wednesday happens. A client emergency eats your training slot. You grab Chick-fil-A because there\u2019s no time for the meal you planned. And something shifts inside you. The streak is broken. The plan is ruined.",
+        "So you write off the rest of the week. \u201CI\u2019ll start fresh Monday.\u201D",
+        "You\u2019ve done this cycle so many times you could set your calendar by it. Start strong, hit a bump, abandon the plan, feel bad about it, promise yourself you\u2019ll do it right next time. Rinse and repeat for months. Maybe years.",
+        "The worst part? You know you\u2019re doing it. You can see the pattern in real time. But you can\u2019t seem to stop it."
+      ],
+      truth: [
+        "You don\u2019t have a discipline problem. You have a <em>standards</em> problem.",
+        "Here\u2019s what\u2019s actually happening: you\u2019ve set the bar at perfection, and anything below it registers as failure. There\u2019s no middle ground. No \u201Cgood enough.\u201D It\u2019s either the full 45-minute workout or nothing. Either the clean meal or \u201Cthe day is ruined.\u201D",
+        "This isn\u2019t weakness \u2014 it\u2019s actually a trait that served you well as an athlete. Black-and-white thinking works in competition. You go all-in on game day. You push through pain. You don\u2019t accept \u201Cgood enough.\u201D",
+        "But fitness after 40 isn\u2019t a competition with a clear start and finish. It\u2019s a lifestyle that runs on consistency, not intensity. And your athletic brain hasn\u2019t made that adjustment yet.",
+        "The research backs this up: 70% consistency sustained over months will always beat 100% consistency that lasts two weeks before crashing. Always."
+      ],
+      shiftIntro: "Your one shift: <strong>Redefine success from \u201Cperfect\u201D to \u201Cpresent.\u201D</strong> Did you show up today? Then it counts. A 10-minute workout after a 12-hour day isn\u2019t failure \u2014 it\u2019s the kind of consistency that actually builds a body.",
+      actions: [
+        "<strong>Adopt the Never Miss Twice Protocol.</strong> Missing once is life. Missing twice is a pattern. If you miss Monday, you show up Tuesday \u2014 no negotiation, no \u201Cfresh start Monday,\u201D just the next rep.",
+        "<strong>Create your Comeback Tier.</strong> For every habit, define the absolute minimum version. Can\u2019t do 30 minutes of lifting? Do 5 pushups. Can\u2019t hit 30g protein at breakfast? Hit 20g. The Comeback Tier protects your streak on chaos days.",
+        "<strong>Stop counting streaks. Start counting percentages.</strong> Over the last 30 days, how many days did you show up? 70%+ and you\u2019re winning. Period."
+      ],
+      cta: "The 56-Day Habit Accelerator was built for this exact pattern. Module 1 teaches you to start so small you can\u2019t fail. Module 5 teaches you to survive the slips that used to derail you. In 56 days, you won\u2019t be starting over anymore \u2014 you\u2019ll be building."
+    },
+    ic: {
+      story: [
+        "You\u2019ve read the articles. You\u2019ve watched the YouTube breakdowns. You know the difference between progressive overload and periodization. You can debate the merits of full-body versus push-pull-legs with anyone at the gym \u2014 if you were actually going to the gym.",
+        "Your browser has 14 tabs open right now. At least three of them are fitness-related. You\u2019ve saved more workout programs than you\u2019ve completed. You own supplements you bought after reading a convincing study but never finished a bottle.",
+        "You\u2019re not lazy. You\u2019re the opposite \u2014 you\u2019re engaged, curious, and thorough. You want to get this right. You want the <em>best</em> program, the <em>optimal</em> meal plan, the <em>perfect</em> supplement stack.",
+        "And that\u2019s exactly what\u2019s keeping you stuck."
+      ],
+      truth: [
+        "Research feels productive because it activates the same reward circuits as actual progress. Your brain releases dopamine when you discover a new training method or nutrition hack. It <em>feels</em> like you\u2019re moving forward.",
+        "But you\u2019re not. You\u2019re in a research loop that substitutes knowledge for action.",
+        "The irony is brutal: you have more than enough information to transform your body right now. Today. Without reading another article or watching another video. The knowledge isn\u2019t the bottleneck. The <em>decision</em> is.",
+        "Here\u2019s the deeper truth \u2014 the research habit is often a sophisticated form of avoidance. If you\u2019re still \u201Cfiguring out the best plan,\u201D you don\u2019t have to face the uncomfortable reality of executing imperfectly. Researching keeps you in a safe zone where you can\u2019t fail because you haven\u2019t started."
+      ],
+      shiftIntro: "Your one shift: <strong>Set a decision deadline \u2014 then act on \u201Cgood enough.\u201D</strong> The best program is the one you\u2019ll actually do. Not the one with the optimal rep scheme. Not the one your favorite fitness YouTuber follows. The one that fits your schedule, that you can execute consistently, and that you start <em>this week</em>.",
+      actions: [
+        "<strong>Pick one program and commit for 8 weeks.</strong> Not \u201Ctry.\u201D Commit. No switching after 2 weeks because you found something better. The 8-week commitment removes the decision loop entirely.",
+        "<strong>Unsubscribe from 3 fitness sources today.</strong> You don\u2019t need more input. You need less. Reduce the noise so you can hear your own plan.",
+        "<strong>Apply the 2-Minute Rule.</strong> Before you can research a fitness topic, you must first do 2 minutes of actual exercise. Want to read about the optimal protein timing? Fine \u2014 after 2 minutes of pushups."
+      ],
+      cta: "The 56-Day Habit Accelerator gives you the exact system \u2014 no decisions required. Module 1 eliminates the \u201Cwhat should I do?\u201D problem by shrinking the action to something so simple your brain can\u2019t negotiate. You\u2019ve done enough research. It\u2019s time to execute."
+    },
+    gsd: {
+      story: [
+        "You missed the workout. Fine. That happens.",
+        "But then the voice starts. \u201CYou said you\u2019d be consistent this time.\u201D \u201CYour kids are watching.\u201D \u201CYou\u2019re a terrible example.\u201D \u201CWhat\u2019s wrong with you?\u201D",
+        "By the time the voice is done, you\u2019re not just a dad who missed a workout. You\u2019re a dad who can\u2019t keep promises to himself. A dad whose kids are going to grow up watching their father quit. A dad who\u2019s never going to change.",
+        "One missed workout just became an existential crisis.",
+        "And from that emotional pit, the last thing you want to do is show up tomorrow. So you don\u2019t. And the silence compounds. One missed day becomes three. Three becomes a week. And somewhere around day 10, you quietly decide you\u2019ll \u201Cstart fresh\u201D \u2014 next month, after the holidays, in the new year, when things calm down.",
+        "The guilt didn\u2019t make you better. It made you quit."
+      ],
+      truth: [
+        "Guilt is a useful emotion in small doses \u2014 it signals that you\u2019ve acted against your values. But when guilt spirals, it becomes self-punishment. And self-punishment doesn\u2019t motivate behavior change. It paralyzes it.",
+        "Here\u2019s the research: self-compassion \u2014 not self-criticism \u2014 is what predicts long-term behavior change. People who treat setbacks as normal and respond with kindness toward themselves are significantly more likely to get back on track quickly. People who beat themselves up after every slip take longer to recover and are more likely to quit entirely.",
+        "You\u2019re hard on yourself because you care. That\u2019s clear. But the harshness is backfiring. Every time you weaponize a slip into evidence that you\u2019re failing as a father, you\u2019re making the next attempt harder, not easier.",
+        "And here\u2019s the other thing \u2014 spending time on your health isn\u2019t time stolen from your family. It <em>is</em> taking care of your family. The dad who has energy at 8 PM to play with his kids, who can get off the floor without wincing, who\u2019s modeling consistency for his children \u2014 that\u2019s the dad you\u2019re trying to be. And you can\u2019t be that dad if you feel guilty about the very actions that get you there."
+      ],
+      shiftIntro: "Your one shift: <strong>Talk to yourself like you\u2019d talk to a friend.</strong> If your buddy told you he missed a workout, would you say \u201CYou\u2019re pathetic, you\u2019ll never change\u201D? No. You\u2019d say \u201CIt\u2019s one day, man. Get back at it tomorrow.\u201D Give yourself the same grace.",
+      actions: [
+        "<strong>After every slip, say one sentence out loud: \u201CThat was one day. Tomorrow I show up.\u201D</strong> That\u2019s it. No analysis. No guilt inventory. One sentence, then move on.",
+        "<strong>Reframe self-care as leadership.</strong> Write this somewhere you\u2019ll see it daily: \u201CTaking care of myself IS taking care of my family.\u201D When guilt creeps in about spending 20 minutes on a workout, remember \u2014 your kids learn more from your example than your presence.",
+        "<strong>Track recovery speed, not perfection.</strong> Don\u2019t measure how many days you hit perfectly. Measure how fast you get back after a miss. Going from \u201CI quit for 2 weeks\u201D to \u201CI was back the next day\u201D is massive progress \u2014 even if the streak isn\u2019t perfect."
+      ],
+      cta: "The 56-Day Habit Accelerator was designed with your pattern in mind. Module 7 teaches you to diagnose struggling habits without self-blame. Module 5 builds a \u201Cslip survival\u201D system so you recover in hours, not weeks. It\u2019s built for dads who are tired of the emotional roller coaster."
+    },
+    ev: {
+      story: [
+        "Let\u2019s walk through your typical Tuesday.",
+        "You wake up to a phone alarm \u2014 the same phone that immediately shows you 14 emails and a news notification that triggers a scroll spiral. There go your first 20 minutes. The gym clothes? In a drawer somewhere. The workout plan? On an app you forgot to open.",
+        "Breakfast is whatever the kids are eating \u2014 probably cereal, maybe a granola bar if you grab one on the way out. Protein? Maybe 8 grams.",
+        "Lunch is improvised. Dinner is whatever requires the least decision-making after a day of making 400 decisions for other people. By 9 PM, you\u2019re on the couch with the pantry calling. The chips are eye-level. The protein shake ingredients are in the back of the fridge behind the juice boxes.",
+        "At 10:30 PM, you\u2019re still watching TV. You know you should go to bed. You\u2019ll be wrecked tomorrow. But this is the first time all day that nobody needs anything from you.",
+        "Sound familiar? Here\u2019s the thing: none of that is a willpower failure. That\u2019s an environment operating exactly as designed \u2014 just not designed for <em>you</em>."
+      ],
+      truth: [
+        "Willpower is a finite resource. Every decision you make throughout the day \u2014 what to wear, what to eat, how to respond to that email, whether to lose your temper when your kid spills juice on your laptop \u2014 depletes it.",
+        "By evening, after hundreds of micro-decisions and a few kid-related crises, your willpower tank is empty. You can resist the chips at lunch. You can\u2019t resist them at 9 PM. Not because you\u2019re weak at night. Because you\u2019re <em>depleted</em> at night.",
+        "The dads who maintain habits long-term aren\u2019t more disciplined than you. They\u2019ve stopped relying on discipline. They\u2019ve engineered their environment so the right choice is the easy choice \u2014 and the wrong choice requires effort.",
+        "Think about it: if your running shoes were by the door, your workout clothes were on top of the dresser, your phone was charging in the kitchen, and your protein was front-and-center in the fridge \u2014 how much easier would tomorrow be? Not because you suddenly found discipline. Because you removed the need for it."
+      ],
+      shiftIntro: "Your one shift: <strong>Stop trying to be more disciplined. Start redesigning your environment.</strong> Don\u2019t fight your house. Fix your house. Make the right choice the easy choice and the wrong choice inconvenient.",
+      actions: [
+        "<strong>Make three environment changes today.</strong> One visible cue (gym clothes on the dresser), one obstacle removed (move the chips to a high shelf behind other food), one default redesigned (phone charges in the kitchen, not the bedroom). Three changes. Thirty minutes.",
+        "<strong>Set up your food logistics.</strong> Put protein front-and-center in the fridge. Keep pre-cut vegetables at eye level. Know your 3 default dinners and your go-to restaurant order. When decisions need to be made, the right choice should already be obvious.",
+        "<strong>Create a \u201Claunch sequence\u201D for your morning.</strong> Not a plan \u2014 a physical sequence. Alarm \u2192 clothes visible \u2192 shoes by door \u2192 out the door. Remove every decision between your alarm and your first good choice."
+      ],
+      cta: "The 56-Day Habit Accelerator dedicates an entire module to environment design. Module 2 walks you through a full Environment Audit with a specific worksheet \u2014 three strategic changes that make your house work <em>for</em> you instead of against you. It\u2019s the most transformative module for Environment Victims."
+    }
+  };
+
+  var OTHER_PATTERN_BRIEFS = {
+    aon: "If the plan isn\u2019t perfect, it doesn\u2019t count. One bad meal becomes a bad day, a bad week, a \u201Cfresh start Monday.\u201D The fix: redefine success from perfect to present. 70% consistency beats 100% for two weeks.",
+    ic: "Research feels like progress, but nothing changes. 14 browser tabs open, zero workouts completed. The fix: pick one plan, commit for 8 weeks, and stop consuming until you start executing.",
+    gsd: "Every slip becomes existential proof of failure. Guilt compounds until quitting feels easier than trying. The fix: talk to yourself like you\u2019d talk to a friend, and track recovery speed instead of perfection.",
+    ev: "Willpower is fine; the setup is sabotaging everything. The kitchen, the schedule, the phone \u2014 all designed for failure. The fix: stop fighting the environment and start redesigning it."
+  };
+
+  /* ==== STATE ==== */
+  var state = {
+    currentQuestion: 0,
+    answers: {},
+    patternScores: { aon: 0, ic: 0, gsd: 0, ev: 0 },
+    primaryPattern: '',
+    secondaryPattern: '',
+    email: '',
+    emailSubmitted: false
+  };
+
+  /* ==== HELPERS ==== */
+  function $(id) { return document.getElementById(id); }
+
+  function getPrimaryPattern(scores) {
+    var sorted = Object.entries(scores).sort(function(a, b) { return b[1] - a[1]; });
+    var highestScore = sorted[0][1];
+    var tied = sorted.filter(function(e) { return e[1] === highestScore; }).map(function(e) { return e[0]; });
+    var tieBreakOrder = ['aon', 'ev', 'gsd', 'ic'];
+    for (var i = 0; i < tieBreakOrder.length; i++) {
+      if (tied.indexOf(tieBreakOrder[i]) !== -1) return tieBreakOrder[i];
+    }
+    return sorted[0][0];
+  }
+
+  function getSecondaryPattern(scores, primary) {
+    var remaining = Object.entries(scores)
+      .filter(function(e) { return e[0] !== primary; })
+      .sort(function(a, b) { return b[1] - a[1]; });
+    return remaining[0][0];
+  }
+
+  /* ==== SCREEN MANAGEMENT ==== */
+  function showScreen(screenId) {
+    var screens = document.querySelectorAll('.screen');
+    for (var i = 0; i < screens.length; i++) screens[i].classList.remove('active');
+    $(screenId).classList.add('active');
+    $('progressContainer').classList.toggle('visible', screenId === 'screenQuestions');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* ==== QUESTION ENGINE ==== */
+  function buildQuestions() {
+    var container = $('questionsContainer');
+    while (container.firstChild) container.removeChild(container.firstChild);
+
+    for (var i = 0; i < QUESTIONS.length; i++) {
+      var q = QUESTIONS[i];
+      var card = document.createElement('div');
+      card.className = 'question-card' + (i === 0 ? ' active' : '');
+      card.id = 'question-' + i;
+
+      var scenario = document.createElement('div');
+      scenario.className = 'scenario-block';
+      scenario.textContent = q.scenario;
+      card.appendChild(scenario);
+
+      var optionsDiv = document.createElement('div');
+      optionsDiv.className = 'question__options';
+
+      for (var oi = 0; oi < q.options.length; oi++) {
+        var opt = document.createElement('div');
+        opt.className = 'option-card';
+        opt.dataset.question = String(i);
+        opt.dataset.option = String(oi);
+        opt.dataset.pattern = q.options[oi].pattern;
+        opt.textContent = q.options[oi].text;
+        opt.addEventListener('click', selectOption);
+        optionsDiv.appendChild(opt);
+      }
+
+      card.appendChild(optionsDiv);
+      container.appendChild(card);
+    }
+
+    // Build progress dots
+    var dotsContainer = $('progressDots');
+    while (dotsContainer.firstChild) dotsContainer.removeChild(dotsContainer.firstChild);
+    for (var j = 0; j < QUESTIONS.length; j++) {
+      var dot = document.createElement('div');
+      dot.className = 'progress-dot';
+      dot.id = 'dot-' + j;
+      dot.dataset.index = String(j);
+      dot.addEventListener('click', function(e) {
+        var idx = parseInt(e.currentTarget.dataset.index, 10);
+        if (idx < state.currentQuestion) {
+          showQuestion(idx);
+        }
+      });
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function showQuestion(index) {
+    state.currentQuestion = index;
+    var cards = document.querySelectorAll('.question-card');
+    for (var i = 0; i < cards.length; i++) cards[i].classList.remove('active');
+    var target = $('question-' + index);
+    if (target) {
+      target.classList.add('active');
+      target.style.animation = 'none';
+      void target.offsetHeight;
+      target.style.animation = '';
+    }
+    updateProgress(index);
+  }
+
+  function selectOption(e) {
+    var el = e.currentTarget;
+    var qIndex = parseInt(el.dataset.question, 10);
+    var pattern = el.dataset.pattern;
+
+    var siblings = el.parentElement.querySelectorAll('.option-card');
+    for (var i = 0; i < siblings.length; i++) siblings[i].classList.remove('selected');
+    el.classList.add('selected');
+
+    state.answers[QUESTIONS[qIndex].id] = pattern;
+
+    setTimeout(function() {
+      if (qIndex < QUESTIONS.length - 1) {
+        showQuestion(qIndex + 1);
+      } else {
+        calculateScores();
+        showIdentifying();
+      }
+    }, 500);
+  }
+
+  function updateProgress(currentIndex) {
+    $('progressLabel').textContent = 'Scenario ' + (currentIndex + 1) + ' of 8';
+
+    for (var i = 0; i < QUESTIONS.length; i++) {
+      var dot = $('dot-' + i);
+      dot.className = 'progress-dot';
+      if (i < currentIndex) {
+        dot.classList.add('filled');
+      } else if (i === currentIndex) {
+        dot.classList.add('current');
+      }
+    }
+  }
+
+  /* ==== SCORING ==== */
+  function calculateScores() {
+    state.patternScores = { aon: 0, ic: 0, gsd: 0, ev: 0 };
+    var answers = Object.values(state.answers);
+    for (var i = 0; i < answers.length; i++) {
+      state.patternScores[answers[i]]++;
+    }
+    state.primaryPattern = getPrimaryPattern(state.patternScores);
+    state.secondaryPattern = getSecondaryPattern(state.patternScores, state.primaryPattern);
+  }
+
+  /* ==== IDENTIFYING ANIMATION ==== */
+  function showIdentifying() {
+    showScreen('screenIdentifying');
+
+    var icons = document.querySelectorAll('.identifying__icon');
+    var textEl = $('identifyingText');
+
+    for (var i = 0; i < icons.length; i++) icons[i].className = 'identifying__icon pulsing';
+
+    var texts = ['Analyzing your responses...', 'Identifying your pattern...', 'Found it.'];
+    textEl.textContent = texts[0];
+
+    setTimeout(function() {
+      textEl.style.opacity = '0';
+      setTimeout(function() {
+        textEl.textContent = texts[1];
+        textEl.style.opacity = '1';
+      }, 200);
+    }, 800);
+
+    setTimeout(function() {
+      for (var j = 0; j < icons.length; j++) {
+        var p = icons[j].dataset.pattern;
+        if (p === state.primaryPattern) {
+          icons[j].className = 'identifying__icon locked';
+          icons[j].style.background = PATTERNS[p].bgColor;
+        } else {
+          icons[j].className = 'identifying__icon';
+          icons[j].style.opacity = '0.15';
+        }
+      }
+      textEl.style.opacity = '0';
+      setTimeout(function() {
+        textEl.textContent = texts[2];
+        textEl.style.opacity = '1';
+      }, 200);
+    }, 1600);
+
+    setTimeout(function() {
+      showEmailGate();
+    }, 2400);
+  }
+
+  /* ==== EMAIL GATE ==== */
+  function showEmailGate() {
+    var pattern = PATTERNS[state.primaryPattern];
+
+    var iconEl = $('gatePatternIcon');
+    iconEl.textContent = pattern.icon;
+    iconEl.style.background = pattern.bgColor;
+
+    var nameEl = $('gatePatternName');
+    nameEl.textContent = "You\u2019re " + pattern.name;
+    nameEl.style.color = pattern.color;
+
+    $('gateTeaserLine').textContent = pattern.teaser;
+
+    showScreen('screenEmailGate');
+  }
+
+  function handleEmailSubmit(e) {
+    e.preventDefault();
+    var input = $('emailInput');
+    var error = $('emailError');
+    var submit = $('emailSubmit');
+    var email = input.value.trim();
+
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      input.classList.add('error');
+      error.textContent = 'Enter a valid email to see your results';
+      return;
+    }
+
+    input.classList.remove('error');
+    error.textContent = '';
+    state.email = email;
+    state.emailSubmitted = true;
+
+    submit.disabled = true;
+    submit.textContent = 'Unlocking...';
+
+    /*
+     * ============================================================
+     * CONVERTKIT INTEGRATION — PLACEHOLDER
+     * ============================================================
+     *
+     * Replace this section with your ConvertKit form submission.
+     *
+     * Tag the subscriber with:
+     *   - "restart-pattern" (source tag)
+     *   - "pattern-aon", "pattern-ic", "pattern-gsd", or "pattern-ev"
+     *
+     * These tags enable pattern-specific follow-up sequences:
+     *   - AON subscribers get content about the Never Miss Twice Protocol
+     *   - IC subscribers get content about action over research
+     *   - GSD subscribers get content about self-compassion and reframing
+     *   - EV subscribers get content about environment design
+     *
+     * Example ConvertKit API v3 (public API key):
+     * fetch('https://api.convertkit.com/v3/forms/FORM_ID/subscribe', {
+     *   method: 'POST',
+     *   headers: {'Content-Type': 'application/json'},
+     *   body: JSON.stringify({
+     *     api_key: 'YOUR_API_KEY',
+     *     email: email,
+     *     tags: [TAG_ID_restart_pattern, TAG_ID_pattern_type],
+     *     fields: {
+     *       restart_pattern: state.primaryPattern
+     *     }
+     *   })
+     * });
+     * ============================================================
+     */
+
+    setTimeout(showResults, 600);
+  }
+
+  /* ==== RESULTS ==== */
+  function showResults() {
+    showScreen('screenResults');
+
+    var p = state.primaryPattern;
+    var pattern = PATTERNS[p];
+    var content = RESULTS_CONTENT[p];
+
+    // Header
+    var header = $('resultsHeader');
+    while (header.firstChild) header.removeChild(header.firstChild);
+
+    var iconDiv = document.createElement('div');
+    iconDiv.className = 'results__pattern-icon';
+    iconDiv.style.background = pattern.bgColor;
+    iconDiv.textContent = pattern.icon;
+    header.appendChild(iconDiv);
+
+    var nameDiv = document.createElement('div');
+    nameDiv.className = 'results__pattern-name';
+    nameDiv.style.color = pattern.color;
+    nameDiv.textContent = pattern.name;
+    header.appendChild(nameDiv);
+
+    var oneLiner = document.createElement('div');
+    oneLiner.className = 'results__one-liner';
+    oneLiner.textContent = pattern.oneLiner;
+    header.appendChild(oneLiner);
+
+    var prev = document.createElement('div');
+    prev.className = 'results__prevalence';
+    prev.textContent = pattern.prevalence + ' of dads share this pattern';
+    header.appendChild(prev);
+
+    // Sections
+    var sectionsContainer = $('resultsSections');
+    while (sectionsContainer.firstChild) sectionsContainer.removeChild(sectionsContainer.firstChild);
+
+    // The Story
+    var storySection = createResultSection('THE STORY', 'How This Pattern Works', content.story, pattern.color);
+    sectionsContainer.appendChild(storySection);
+
+    // The Truth
+    var truthSection = createResultSection('THE TRUTH', "Why It\u2019s Not Your Fault", content.truth, pattern.color);
+    sectionsContainer.appendChild(truthSection);
+
+    // The Shift
+    var shiftSection = document.createElement('div');
+    shiftSection.className = 'results__section';
+
+    var shiftLabel = document.createElement('div');
+    shiftLabel.className = 'results__section-label';
+    shiftLabel.style.color = pattern.color;
+    shiftLabel.textContent = 'THE SHIFT';
+    shiftSection.appendChild(shiftLabel);
+
+    var shiftH3 = document.createElement('h3');
+    shiftH3.textContent = 'The One Change That Breaks the Cycle';
+    shiftSection.appendChild(shiftH3);
+
+    var shiftIntroP = document.createElement('p');
+    shiftIntroP.className = 'results__shift-intro';
+    // Safe: hardcoded trusted HTML content only
+    shiftIntroP.innerHTML = content.shiftIntro; // eslint-disable-line
+    shiftSection.appendChild(shiftIntroP);
+
+    var actionsList = document.createElement('ol');
+    actionsList.className = 'results__shift-actions';
+    for (var ai = 0; ai < content.actions.length; ai++) {
+      var li = document.createElement('li');
+
+      var numSpan = document.createElement('span');
+      numSpan.className = 'action-number';
+      numSpan.style.background = pattern.color;
+      numSpan.textContent = String(ai + 1);
+      li.appendChild(numSpan);
+
+      var textSpan = document.createElement('span');
+      // Safe: hardcoded trusted HTML content only
+      textSpan.innerHTML = content.actions[ai]; // eslint-disable-line
+      li.appendChild(textSpan);
+
+      actionsList.appendChild(li);
+    }
+    shiftSection.appendChild(actionsList);
+    sectionsContainer.appendChild(shiftSection);
+
+    // CTA
+    var ctaContainer = $('resultsCta');
+    while (ctaContainer.firstChild) ctaContainer.removeChild(ctaContainer.firstChild);
+
+    var ctaP = document.createElement('p');
+    ctaP.className = 'results__cta-text';
+    // Safe: hardcoded trusted HTML content only
+    ctaP.innerHTML = content.cta; // eslint-disable-line
+    ctaContainer.appendChild(ctaP);
+
+    var ctaBtn = document.createElement('a');
+    ctaBtn.href = '#';
+    ctaBtn.className = 'btn-primary';
+    ctaBtn.textContent = 'Learn About the 56-Day Habit Accelerator \u2192';
+    ctaContainer.appendChild(ctaBtn);
+
+    var secondary = document.createElement('p');
+    secondary.className = 'results__cta-secondary';
+    var secondaryText = document.createTextNode('Not ready for that? ');
+    secondary.appendChild(secondaryText);
+    var secondaryLink = document.createElement('a');
+    secondaryLink.href = 'https://drbodrebuilt.substack.com';
+    secondaryLink.target = '_blank';
+    secondaryLink.rel = 'noopener';
+    secondaryLink.textContent = 'Subscribe to the free newsletter';
+    secondary.appendChild(secondaryLink);
+    ctaContainer.appendChild(secondary);
+
+    // Other patterns
+    buildOtherPatterns();
+
+    // Share links
+    setupShareLinks();
+
+    // Stagger reveal sections
+    var sections = sectionsContainer.querySelectorAll('.results__section');
+    for (var si = 0; si < sections.length; si++) {
+      (function(section, delay) {
+        setTimeout(function() { section.classList.add('visible'); }, delay);
+      })(sections[si], 300 + si * 150);
+    }
+  }
+
+  function createResultSection(label, title, paragraphs, color) {
+    var section = document.createElement('div');
+    section.className = 'results__section';
+
+    var labelEl = document.createElement('div');
+    labelEl.className = 'results__section-label';
+    labelEl.style.color = color;
+    labelEl.textContent = label;
+    section.appendChild(labelEl);
+
+    var h3 = document.createElement('h3');
+    h3.textContent = title;
+    section.appendChild(h3);
+
+    for (var i = 0; i < paragraphs.length; i++) {
+      var p = document.createElement('p');
+      // Safe: hardcoded trusted HTML content only (contains <em> tags)
+      p.innerHTML = paragraphs[i]; // eslint-disable-line
+      section.appendChild(p);
+    }
+
+    return section;
+  }
+
+  function buildOtherPatterns() {
+    var container = $('otherPatterns');
+    while (container.firstChild) container.removeChild(container.firstChild);
+
+    var h3 = document.createElement('h3');
+    h3.textContent = 'The Other Restart Patterns';
+    container.appendChild(h3);
+
+    var patternKeys = ['aon', 'ic', 'gsd', 'ev'];
+    for (var i = 0; i < patternKeys.length; i++) {
+      var key = patternKeys[i];
+      if (key === state.primaryPattern) continue;
+
+      var pattern = PATTERNS[key];
+      var card = document.createElement('div');
+      card.className = 'other-pattern-card';
+
+      var header = document.createElement('div');
+      header.className = 'other-pattern-card__header';
+
+      var icon = document.createElement('span');
+      icon.className = 'other-pattern-card__icon';
+      icon.textContent = pattern.icon;
+      header.appendChild(icon);
+
+      var name = document.createElement('span');
+      name.className = 'other-pattern-card__name';
+      name.textContent = pattern.name;
+      header.appendChild(name);
+
+      var chevron = document.createElement('span');
+      chevron.className = 'other-pattern-card__chevron';
+      var chevronSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      chevronSvg.setAttribute('width', '16');
+      chevronSvg.setAttribute('height', '16');
+      chevronSvg.setAttribute('viewBox', '0 0 24 24');
+      chevronSvg.setAttribute('fill', 'none');
+      chevronSvg.setAttribute('stroke', 'currentColor');
+      chevronSvg.setAttribute('stroke-width', '2');
+      var polyline = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+      polyline.setAttribute('points', '6 9 12 15 18 9');
+      chevronSvg.appendChild(polyline);
+      chevron.appendChild(chevronSvg);
+      header.appendChild(chevron);
+
+      var body = document.createElement('div');
+      body.className = 'other-pattern-card__body';
+      body.textContent = OTHER_PATTERN_BRIEFS[key];
+
+      header.addEventListener('click', (function(cardEl) {
+        return function() { cardEl.classList.toggle('expanded'); };
+      })(card));
+
+      card.appendChild(header);
+      card.appendChild(body);
+      container.appendChild(card);
+    }
+  }
+
+  /* ==== SHARE ==== */
+  function setupShareLinks() {
+    var pattern = PATTERNS[state.primaryPattern];
+    var shareText = encodeURIComponent(
+      'I just found out I\u2019m "' + pattern.name + '" \u2014 one of 4 restart patterns that keep dads stuck in fitness cycles. Which one are you?'
+    );
+    var shareUrl = encodeURIComponent(window.location.href);
+    $('shareTwitter').href = 'https://twitter.com/intent/tweet?text=' + shareText + '&url=' + shareUrl;
+  }
+
+  function copyShareLink() {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(window.location.href).then(function() {
+        showToast('Link copied! Challenge a friend to find their pattern.');
+      });
+    } else {
+      var input = document.createElement('input');
+      input.value = window.location.href;
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+      showToast('Link copied! Challenge a friend to find their pattern.');
+    }
+  }
+
+  /* ==== TOAST ==== */
+  function showToast(message) {
+    var toast = $('toast');
+    toast.textContent = message;
+    toast.classList.add('visible');
+    setTimeout(function() { toast.classList.remove('visible'); }, 3000);
+  }
+
+  /* ==== EVENT LISTENERS ==== */
+  $('heroStartBtn').addEventListener('click', function() { showScreen('screenIntro'); });
+  $('introStartBtn').addEventListener('click', function() { buildQuestions(); showScreen('screenQuestions'); showQuestion(0); });
+  $('emailForm').addEventListener('submit', handleEmailSubmit);
+  $('copyLinkBtn').addEventListener('click', copyShareLink);
+
+})();
+</script>
+</body>
+</html>

@@ -22,6 +22,10 @@
       {
         "source": "/score",
         "destination": "/score/index.html"
+      },
+      {
+        "source": "/quiz",
+        "destination": "/quiz/index.html"
       }
     ]
   }
