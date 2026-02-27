@@ -1,0 +1,2021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Protein Gap Calculator — Dad Bod Rebuilt</title>
+<meta name="description" content="You're probably not eating enough protein. Put in your numbers, see the gap, and get a personalized plan to close it. Takes 30 seconds.">
+<meta property="og:title" content="The Protein Gap Calculator">
+<meta property="og:description" content="After 40, your body needs 70% more protein per meal. Calculate your gap in 30 seconds.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Protein Gap Calculator">
+<meta name="twitter:description" content="Calculate your protein gap in 30 seconds. The number might surprise you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<noscript><style>.app{display:none}.no-js{display:flex!important}</style></noscript>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --color-primary: #0b4c90;
+  --color-primary-dark: #0d3d73;
+  --color-primary-darker: #061f3a;
+  --color-primary-light: #1a6bc4;
+  --color-accent: #DC3545;
+  --color-accent-hover: #c82333;
+  --color-accent-glow: rgba(220, 53, 69, 0.3);
+  --color-success: #10B981;
+  --color-white: #FFFFFF;
+  --color-off-white: #F8F9FA;
+  --color-text: #E8E8E8;
+  --color-text-muted: #94A3B8;
+  --color-surface: rgba(255, 255, 255, 0.06);
+  --color-surface-hover: rgba(255, 255, 255, 0.10);
+  --color-surface-meals: rgba(255, 255, 255, 0.04);
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-current-bar: #4A5568;
+  --color-target-bar: var(--color-accent);
+  --color-gap-highlight: var(--color-accent);
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+  --space-xs: 4px; --space-sm: 8px; --space-md: 16px; --space-lg: 24px;
+  --space-xl: 32px; --space-2xl: 48px; --space-3xl: 64px;
+  --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px; --radius-full: 9999px;
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 30px var(--color-accent-glow);
+}
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-body);
+  background: linear-gradient(135deg, var(--color-primary-darker) 0%, var(--color-primary-dark) 50%, var(--color-primary) 100%);
+  color: var(--color-text);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.no-js {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: var(--space-xl);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+}
+
+.app { max-width: 720px; margin: 0 auto; padding: 0 var(--space-md); }
+
+.screen {
+  display: none;
+  min-height: 100vh;
+  padding: var(--space-3xl) 0;
+}
+
+.screen.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: fadeSlideUp 400ms ease-out;
+}
+
+.screen--results.active {
+  justify-content: flex-start;
+  padding-top: var(--space-2xl);
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px var(--color-accent-glow); }
+  50% { box-shadow: 0 0 40px var(--color-accent-glow), 0 0 60px rgba(220, 53, 69, 0.15); }
+}
+
+@keyframes numberCrunch {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+/* HERO */
+.hero { text-align: center; }
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+  letter-spacing: 0.02em;
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  font-weight: 800;
+  color: var(--color-white);
+  line-height: 1.1;
+  margin-bottom: var(--space-md);
+}
+
+.hero__subtitle {
+  font-size: 1.15rem;
+  color: var(--color-text-muted);
+  max-width: 540px;
+  margin: 0 auto var(--space-lg);
+  line-height: 1.5;
+}
+
+.hero__social-proof {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2xl);
+  font-style: italic;
+}
+
+.hero__credibility {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  opacity: 0.7;
+  margin-top: var(--space-lg);
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-white);
+  background: var(--color-accent);
+  border: none;
+  border-radius: var(--radius-full);
+  padding: var(--space-md) var(--space-xl);
+  cursor: pointer;
+  transition: background 200ms, transform 200ms, box-shadow 200ms;
+  text-decoration: none;
+  min-height: 52px;
+}
+
+.btn:hover { background: var(--color-accent-hover); transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.btn:active { transform: translateY(0); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+.btn--pulse:not(:disabled) {
+  animation: pulse 1500ms ease-in-out infinite;
+}
+
+.btn--secondary {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+.btn--secondary:hover { background: var(--color-surface-hover); }
+
+.btn--block { width: 100%; }
+
+/* BELOW-FOLD COPY */
+.below-fold {
+  margin-top: var(--space-3xl);
+  text-align: left;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.below-fold p {
+  margin-bottom: var(--space-md);
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.below-fold em { color: var(--color-text); font-style: italic; }
+.below-fold strong { color: var(--color-white); }
+
+/* INPUT SECTION */
+.inputs { text-align: center; }
+
+.inputs__heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: var(--space-2xl);
+}
+
+.input-group {
+  margin-bottom: var(--space-xl);
+  text-align: left;
+}
+
+.input-group__label {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+}
+
+.input-group__sublabel {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+
+/* Age Slider */
+.age-display {
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+.age-number {
+  font-family: var(--font-mono);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1;
+}
+
+.age-unit {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  margin-left: var(--space-xs);
+}
+
+.slider-container {
+  position: relative;
+  padding: var(--space-sm) 0;
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: var(--color-surface);
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  cursor: pointer;
+  border: 3px solid var(--color-white);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: transform 150ms;
+}
+
+.slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
+
+.slider::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  cursor: pointer;
+  border: 3px solid var(--color-white);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-top: var(--space-xs);
+}
+
+/* Weight Input */
+.weight-input-wrap {
+  position: relative;
+  max-width: 200px;
+}
+
+.weight-input {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-white);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  padding-right: 50px;
+  width: 100%;
+  outline: none;
+  transition: border-color 200ms;
+  -moz-appearance: textfield;
+}
+
+.weight-input::-webkit-inner-spin-button,
+.weight-input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+.weight-input:focus { border-color: var(--color-primary-light); }
+
+.weight-unit {
+  position: absolute;
+  right: var(--space-md);
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.weight-error {
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  margin-top: var(--space-xs);
+  display: none;
+}
+
+.weight-error.visible { display: block; }
+
+/* Protein Habit Cards */
+.habit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+@media (max-width: 480px) {
+  .habit-grid { grid-template-columns: 1fr; }
+}
+
+.habit-card {
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  cursor: pointer;
+  transition: border-color 200ms, background 200ms, transform 200ms;
+  text-align: left;
+  position: relative;
+}
+
+.habit-card:hover { background: var(--color-surface-hover); transform: translateY(-2px); }
+
+.habit-card.selected {
+  border-color: var(--color-accent);
+  background: rgba(220, 53, 69, 0.08);
+}
+
+.habit-card__check {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.habit-card.selected .habit-card__check { display: flex; }
+
+.habit-card__check svg { width: 14px; height: 14px; fill: none; stroke: white; stroke-width: 3; }
+
+.habit-card__icon {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-sm);
+}
+
+.habit-card__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-white);
+  margin-bottom: var(--space-xs);
+}
+
+.habit-card__desc {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+/* CALCULATING SCREEN */
+.calculating {
+  text-align: center;
+}
+
+.calculating__text {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: var(--space-lg);
+}
+
+.calculating__numbers {
+  font-family: var(--font-mono);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  animation: numberCrunch 600ms ease-in-out infinite;
+}
+
+/* GAP REVEAL */
+.gap-reveal { text-align: center; }
+
+.gap-reveal.active {
+  justify-content: flex-start;
+  padding-top: var(--space-2xl);
+}
+
+.your-numbers {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-2xl);
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+}
+
+.your-numbers__item {
+  text-align: center;
+}
+
+.your-numbers__value {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.your-numbers__label {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.your-numbers__edit {
+  color: var(--color-primary-light);
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-decoration: underline;
+  align-self: center;
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+}
+
+/* Gap Bars */
+.gap-bars {
+  margin-bottom: var(--space-xl);
+}
+
+.bar-row {
+  margin-bottom: var(--space-lg);
+}
+
+.bar-label {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+  text-align: left;
+}
+
+.bar-label strong {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.bar-track {
+  width: 100%;
+  height: 32px;
+  background: rgba(255,255,255,0.04);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  position: relative;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: var(--radius-sm);
+  transition: width 1000ms ease-out;
+  width: 0;
+  display: flex;
+  align-items: center;
+  padding-left: var(--space-md);
+}
+
+.bar-fill--current {
+  background: var(--color-current-bar);
+}
+
+.bar-fill--target {
+  background: var(--color-accent);
+}
+
+.bar-fill__value {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-white);
+  white-space: nowrap;
+}
+
+/* Gap Highlight */
+.gap-highlight {
+  background: rgba(220, 53, 69, 0.08);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-xl);
+  animation: glowPulse 2000ms ease-in-out infinite;
+}
+
+.gap-highlight__label {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-sm);
+}
+
+.gap-highlight__number {
+  font-family: var(--font-mono);
+  font-size: clamp(3rem, 10vw, 4.5rem);
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1;
+  margin-bottom: var(--space-sm);
+}
+
+.gap-highlight__unit {
+  font-size: 0.4em;
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.gap-highlight__context {
+  font-size: 1rem;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+/* Per-Meal Targets */
+.per-meal {
+  margin-bottom: var(--space-xl);
+}
+
+.per-meal__heading {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+}
+
+.meal-slots {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-sm);
+}
+
+@media (max-width: 480px) {
+  .meal-slots { grid-template-columns: repeat(2, 1fr); }
+}
+
+.meal-slot {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  text-align: center;
+}
+
+.meal-slot__name {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.meal-slot__target {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.meal-slot__unit {
+  font-size: 0.6em;
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+/* Anabolic Resistance Callout */
+.callout {
+  background: var(--color-surface);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  text-align: left;
+}
+
+.callout__heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+}
+
+.callout__body {
+  font-size: 0.95rem;
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.callout__body em { color: var(--color-white); font-style: italic; }
+
+.callout__multiplier {
+  display: inline-block;
+  background: rgba(220, 53, 69, 0.15);
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs) var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-top: var(--space-sm);
+}
+
+/* Cost Cards */
+.costs {
+  margin-bottom: var(--space-xl);
+}
+
+.costs__heading {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+  text-align: left;
+}
+
+.cost-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-md);
+  text-align: left;
+  display: flex;
+  gap: var(--space-md);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+}
+
+.cost-card.visible { opacity: 1; transform: translateY(0); }
+
+.cost-card__icon { font-size: 1.5rem; flex-shrink: 0; }
+
+.cost-card__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-white);
+  margin-bottom: var(--space-xs);
+}
+
+.cost-card__desc {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* EMAIL GATE */
+.email-gate {
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-2xl);
+  margin-top: var(--space-xl);
+}
+
+.email-gate__heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+}
+
+.email-gate__body {
+  font-size: 1rem;
+  color: var(--color-text);
+  max-width: 520px;
+  margin: 0 auto var(--space-lg);
+  line-height: 1.6;
+}
+
+.email-gate__list {
+  list-style: none;
+  text-align: left;
+  max-width: 480px;
+  margin: 0 auto var(--space-xl);
+}
+
+.email-gate__list li {
+  padding: var(--space-sm) 0;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.email-gate__list li::before {
+  content: '✓';
+  color: var(--color-success);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.email-form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.email-input {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: var(--space-md) var(--space-lg);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-white);
+  outline: none;
+  margin-bottom: var(--space-md);
+  transition: border-color 200ms;
+}
+
+.email-input::placeholder { color: var(--color-text-muted); }
+.email-input:focus { border-color: var(--color-primary-light); }
+
+.email-error {
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+  display: none;
+}
+
+.email-error.visible { display: block; }
+
+.email-privacy {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: var(--space-md);
+}
+
+.email-toast {
+  display: none;
+  background: var(--color-success);
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-weight: 600;
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  margin-top: var(--space-md);
+}
+
+.email-toast.visible { display: block; animation: fadeSlideUp 300ms ease-out; }
+
+/* FULL RESULTS */
+.results-section {
+  margin-bottom: var(--space-2xl);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 400ms ease-out, transform 400ms ease-out;
+}
+
+.results-section.visible { opacity: 1; transform: translateY(0); }
+
+.section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3.5vw, 1.6rem);
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: var(--space-lg);
+}
+
+.section-body {
+  font-size: 1rem;
+  color: var(--color-text);
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+}
+
+.section-body em { color: var(--color-white); font-style: italic; }
+.section-body strong { color: var(--color-white); }
+
+/* Meal Target Table */
+.target-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--space-lg);
+  font-size: 0.95rem;
+}
+
+.target-table th {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+}
+
+.target-table td {
+  padding: var(--space-md);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  color: var(--color-text);
+}
+
+.target-table td:first-child {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.target-table td:not(:first-child) {
+  font-family: var(--font-mono);
+  text-align: center;
+}
+
+.target-table tr:last-child td {
+  border-top: 2px solid var(--color-border);
+  font-weight: 700;
+  color: var(--color-white);
+  border-bottom: none;
+}
+
+/* Meal Examples */
+.meal-examples {
+  background: var(--color-surface-meals);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+}
+
+.meal-category {
+  margin-bottom: var(--space-xl);
+}
+
+.meal-category:last-child { margin-bottom: 0; }
+
+.meal-category__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-md);
+}
+
+.meal-example {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
+.meal-example:last-child { margin-bottom: 0; }
+
+.meal-example__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+}
+
+.meal-example__desc {
+  font-size: 0.9rem;
+  color: var(--color-text);
+  line-height: 1.5;
+  margin-bottom: var(--space-sm);
+}
+
+.meal-example__stats {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-success);
+}
+
+/* Quick Wins */
+.swap-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
+.swap-card__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+}
+
+.swap-card__before, .swap-card__after {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  padding: var(--space-xs) 0;
+}
+
+.swap-card__before {
+  color: var(--color-text-muted);
+}
+
+.swap-card__after {
+  color: var(--color-text);
+}
+
+.swap-card__delta {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--color-success);
+  margin-top: var(--space-sm);
+}
+
+.swap-impact {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-success);
+  text-align: center;
+  margin-top: var(--space-lg);
+}
+
+/* CTA Section */
+.cta-block {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.cta-block--primary {
+  border-color: var(--color-accent);
+  background: rgba(220, 53, 69, 0.06);
+}
+
+.cta-block__heading {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+}
+
+.cta-block__body {
+  font-size: 0.95rem;
+  color: var(--color-text);
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+}
+
+.cta-inline {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-top: var(--space-md);
+}
+
+.cta-inline a {
+  color: var(--color-primary-light);
+  text-decoration: underline;
+}
+
+/* Share Section */
+.share {
+  text-align: center;
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--color-border);
+}
+
+.share__heading {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+}
+
+.share__body {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.share__buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 200ms, opacity 200ms;
+  border: none;
+}
+
+.share-btn:hover { transform: translateY(-1px); opacity: 0.9; }
+
+.share-btn--x {
+  background: #000;
+  color: #fff;
+}
+
+.share-btn--copy {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.share-toast {
+  font-size: 0.85rem;
+  color: var(--color-success);
+  margin-top: var(--space-md);
+  display: none;
+}
+
+.share-toast.visible { display: block; }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: var(--space-2xl) 0;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.footer a { color: var(--color-primary-light); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="no-js">This calculator requires JavaScript to run. Please enable JavaScript and refresh.</div>
+
+<div class="app">
+
+  <!-- SCREEN 1: HERO / LANDING -->
+  <div id="screen-hero" class="screen active hero">
+    <div class="hero__badge">Takes ~30 seconds</div>
+    <h1 class="hero__title">You're Probably Not Eating Enough Protein. Here's the Proof.</h1>
+    <p class="hero__subtitle">Put in your numbers. See the gap. It takes 30 seconds — and it'll change how you think about every meal.</p>
+    <p class="hero__social-proof">The science behind this calculator is based on research from McMaster University and 25+ years of nutrition practice.</p>
+    <button class="btn" id="btn-start">Calculate My Protein Gap</button>
+
+    <div class="below-fold">
+      <p>Here's something nobody told you: after 40, your body needs roughly <strong>70% more protein per meal</strong> to trigger the same muscle-building response you got at 25.</p>
+      <p>It's called <em>anabolic resistance</em>. Your muscles become less responsive to protein signals as you age — so the amount of protein that used to build muscle now barely maintains it.</p>
+      <p>Most dads are eating for a 25-year-old body while living in a 40-year-old one. And they're wondering why nothing is working.</p>
+      <p>This calculator does the math for you. Three inputs, 30 seconds, and you'll see exactly how big the gap is between what you're eating and what your body actually needs.</p>
+      <p><strong>Fair warning: the number might surprise you.</strong></p>
+    </div>
+
+    <p class="hero__credibility">Based on research from McMaster University and the American Journal of Clinical Nutrition</p>
+  </div>
+
+  <!-- SCREEN 2: INPUTS -->
+  <div id="screen-inputs" class="screen inputs">
+    <h2 class="inputs__heading">Let's Find Your Gap</h2>
+
+    <!-- Age -->
+    <div class="input-group">
+      <label class="input-group__label">Your Age</label>
+      <div class="age-display">
+        <span class="age-number" id="age-value">40</span>
+        <span class="age-unit">years old</span>
+      </div>
+      <div class="slider-container">
+        <input type="range" class="slider" id="age-slider" min="25" max="65" value="40" step="1">
+        <div class="slider-labels">
+          <span>25</span>
+          <span>65</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Weight -->
+    <div class="input-group">
+      <label class="input-group__label" for="weight-input">Your Weight (lbs)</label>
+      <div class="weight-input-wrap">
+        <input type="number" class="weight-input" id="weight-input" min="120" max="350" value="195" step="1">
+        <span class="weight-unit">lbs</span>
+      </div>
+      <div class="weight-error" id="weight-error">Please enter a weight between 120 and 350 lbs</div>
+    </div>
+
+    <!-- Protein Habits -->
+    <div class="input-group">
+      <label class="input-group__label">How would you describe your current protein habits?</label>
+      <div class="input-group__sublabel">Be honest — this helps us estimate your current intake accurately.</div>
+      <div class="habit-grid" id="habit-grid">
+        <div class="habit-card" data-habit="none">
+          <div class="habit-card__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="habit-card__icon">☕</div>
+          <div class="habit-card__title">I Don't Really Think About It</div>
+          <div class="habit-card__desc">Coffee for breakfast, whatever's convenient for lunch, normal dinner. Protein isn't a priority.</div>
+        </div>
+        <div class="habit-card" data-habit="inconsistent">
+          <div class="habit-card__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="habit-card__icon">🤷</div>
+          <div class="habit-card__title">I Try, But I'm Inconsistent</div>
+          <div class="habit-card__desc">Some protein at dinner. Sporadic at other meals. I know I should eat more but I don't track it.</div>
+        </div>
+        <div class="habit-card" data-habit="dinner-heavy">
+          <div class="habit-card__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="habit-card__icon">🍽️</div>
+          <div class="habit-card__title">Dinner Is Solid, But Other Meals Are Weak</div>
+          <div class="habit-card__desc">I eat a high-protein dinner most nights, but breakfast and lunch are usually carb-heavy or skipped.</div>
+        </div>
+        <div class="habit-card" data-habit="intentional">
+          <div class="habit-card__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="habit-card__icon">💪</div>
+          <div class="habit-card__title">I Actively Try at Every Meal</div>
+          <div class="habit-card__desc">Protein shakes, eggs at breakfast, intentional choices. I'm making an effort across the day.</div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn--block" id="btn-calculate" disabled>Calculate My Gap</button>
+  </div>
+
+  <!-- SCREEN 3: CALCULATING -->
+  <div id="screen-calculating" class="screen calculating">
+    <div class="calculating__text">Crunching your numbers...</div>
+    <div class="calculating__numbers" id="calc-number">0g</div>
+  </div>
+
+  <!-- SCREEN 4: GAP REVEAL + EMAIL GATE + RESULTS (single scrollable page) -->
+  <div id="screen-results" class="screen screen--results gap-reveal">
+
+    <!-- Your Numbers Header -->
+    <div class="your-numbers" id="your-numbers">
+      <div class="your-numbers__item">
+        <div class="your-numbers__value" id="result-age">40</div>
+        <div class="your-numbers__label">Age</div>
+      </div>
+      <div class="your-numbers__item">
+        <div class="your-numbers__value" id="result-weight">195</div>
+        <div class="your-numbers__label">Weight</div>
+      </div>
+      <div class="your-numbers__item">
+        <div class="your-numbers__value" id="result-current">~78g/day</div>
+        <div class="your-numbers__label">Estimated Intake</div>
+      </div>
+      <button class="your-numbers__edit" id="btn-edit">Edit</button>
+    </div>
+
+    <!-- Gap Bars -->
+    <div class="gap-bars">
+      <div class="bar-row">
+        <div class="bar-label">You're eating: <strong id="bar-current-label">~78g/day</strong></div>
+        <div class="bar-track">
+          <div class="bar-fill bar-fill--current" id="bar-current">
+            <span class="bar-fill__value" id="bar-current-value"></span>
+          </div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Your body needs: <strong id="bar-target-label">195g/day</strong></div>
+        <div class="bar-track">
+          <div class="bar-fill bar-fill--target" id="bar-target">
+            <span class="bar-fill__value" id="bar-target-value"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gap Highlight -->
+    <div class="gap-highlight" id="gap-highlight">
+      <div class="gap-highlight__label">Your Protein Gap</div>
+      <div class="gap-highlight__number">+<span id="gap-number">0</span><span class="gap-highlight__unit">g/day</span></div>
+      <div class="gap-highlight__context" id="gap-context"></div>
+    </div>
+
+    <!-- Per-Meal Breakdown -->
+    <div class="per-meal">
+      <div class="per-meal__heading">Your Per-Meal Target: <span id="per-meal-display" style="font-family:var(--font-mono);color:var(--color-accent)"></span></div>
+      <div class="meal-slots" id="meal-slots">
+        <div class="meal-slot"><div class="meal-slot__name">Breakfast</div><div class="meal-slot__target"><span class="meal-target-value"></span><span class="meal-slot__unit">g</span></div></div>
+        <div class="meal-slot"><div class="meal-slot__name">Lunch</div><div class="meal-slot__target"><span class="meal-target-value"></span><span class="meal-slot__unit">g</span></div></div>
+        <div class="meal-slot"><div class="meal-slot__name">Snack</div><div class="meal-slot__target"><span class="snack-target-value"></span><span class="meal-slot__unit">g</span></div></div>
+        <div class="meal-slot"><div class="meal-slot__name">Dinner</div><div class="meal-slot__target"><span class="meal-target-value"></span><span class="meal-slot__unit">g</span></div></div>
+      </div>
+    </div>
+
+    <!-- Anabolic Resistance Callout -->
+    <div class="callout" id="anabolic-callout">
+      <div class="callout__heading">Why Your Body Needs More Now</div>
+      <div class="callout__body" id="anabolic-body"></div>
+      <div class="callout__multiplier" id="anabolic-multiplier"></div>
+    </div>
+
+    <!-- Gap Cost Cards -->
+    <div class="costs" id="costs-section">
+      <div class="costs__heading" id="costs-heading"></div>
+      <div id="costs-container"></div>
+    </div>
+
+    <!-- EMAIL GATE -->
+    <div class="email-gate" id="email-gate">
+      <h2 class="email-gate__heading">Close the Gap</h2>
+      <p class="email-gate__body" id="email-gate-body"></p>
+      <ul class="email-gate__list">
+        <li>Your personalized daily and per-meal targets, saved for reference</li>
+        <li>30/10 meal examples for breakfast, lunch, dinner, and snacks — real food, not bodybuilder meals</li>
+        <li>Quick-win protein swaps you can implement at your next meal</li>
+        <li>A simple weekly framework you can repeat on autopilot</li>
+      </ul>
+
+      <!--
+        EMAIL INTEGRATION: Connect this form to ConvertKit.
+
+        ConvertKit Setup:
+        - Create form in ConvertKit
+        - Replace the form action URL with your ConvertKit form's action URL
+        - Add hidden input for ConvertKit form ID
+
+        Tag the subscriber with:
+        - "protein-gap" (source tag)
+        - "gap-size-[band]" based on gap:
+          - "gap-small" (< 30g gap)
+          - "gap-moderate" (30-60g gap)
+          - "gap-large" (60-100g gap)
+          - "gap-critical" (100g+ gap)
+        - "age-[range]":
+          - "age-under-40"
+          - "age-40-45"
+          - "age-45-plus"
+
+        These tags enable targeted follow-up:
+        - Large/critical gap: more urgency, focus on breakfast first
+        - Small gap: optimization-focused, timing and distribution
+        - 40+ age tags: anabolic resistance content emphasis
+      -->
+      <form class="email-form" id="email-form">
+        <input type="email" class="email-input" id="email-input" placeholder="your@email.com" required autocomplete="email">
+        <div class="email-error" id="email-error">Enter a valid email to see your results</div>
+        <button type="submit" class="btn btn--block" id="btn-email">Send Me My Meal Framework</button>
+        <p class="email-privacy">Science-based nutrition for dads who want to feel like athletes again. No spam. Unsubscribe anytime.</p>
+      </form>
+      <div class="email-toast" id="email-toast">You're in. Your personalized meal framework is below.</div>
+    </div>
+
+    <!-- FULL RESULTS (hidden until email) -->
+    <div id="full-results" style="display:none">
+
+      <!-- The 30/10 Standard -->
+      <div class="results-section" id="section-3010">
+        <h3 class="section-heading">The 30/10 Standard: Your New Baseline</h3>
+        <div class="section-body">
+          <p>Every meal you eat is a chance to close the gap. The 30/10 Standard makes it simple: aim for <strong>30 grams of protein</strong> and <strong>10 grams of fiber</strong> at every main meal.</p>
+          <p>Why 30g protein? Because that's the amount research shows is needed to clear the <em>leucine threshold</em> — the minimum level of the amino acid leucine required to trigger muscle protein synthesis. Below 30g, and your muscles barely register the meal. Above it, and the muscle-building machinery turns on.</p>
+          <p>Why 10g fiber? Because fiber creates volume and satiety without calories. It's the "vegetable loophole" — you can eat massive, filling meals that keep you satisfied while still being in a calorie range that supports fat loss. Fiber makes the math work without hunger.</p>
+          <p><strong>30g protein + 10g fiber. Every meal. That's the framework.</strong></p>
+        </div>
+      </div>
+
+      <!-- Personalized Targets Table -->
+      <div class="results-section" id="section-targets">
+        <h3 class="section-heading">Your Daily Blueprint</h3>
+        <table class="target-table">
+          <thead>
+            <tr><th>Meal</th><th>Protein Target</th><th>Fiber Target</th></tr>
+          </thead>
+          <tbody id="target-table-body">
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Real Meal Examples -->
+      <div class="results-section" id="section-meals">
+        <h3 class="section-heading" id="meals-heading"></h3>
+        <div class="meal-examples">
+
+          <div class="meal-category">
+            <div class="meal-category__title">Breakfast Options</div>
+            <div class="meal-example">
+              <div class="meal-example__name">The Greek Yogurt Power Bowl</div>
+              <div class="meal-example__desc">1 cup plain Greek yogurt (20g protein) + 1 scoop whey protein mixed in (25g) + 1/2 cup mixed berries + 2 tbsp ground flaxseed (3g fiber)</div>
+              <div class="meal-example__stats">~45g protein · ~10g fiber · 5 min prep</div>
+            </div>
+            <div class="meal-example">
+              <div class="meal-example__name">The Egg &amp; Turkey Stack</div>
+              <div class="meal-example__desc">3 whole eggs (18g protein) + 3 oz turkey sausage (15g) + 1 cup spinach sauteed + 1 slice whole grain toast</div>
+              <div class="meal-example__stats">~33g protein · ~8g fiber · 10 min prep</div>
+            </div>
+            <div class="meal-example">
+              <div class="meal-example__name">The Shake (When Time Is Zero)</div>
+              <div class="meal-example__desc">1.5 scoops whey protein (38g) + 1 cup frozen spinach + 1 banana + 2 tbsp peanut butter + 1 tbsp chia seeds</div>
+              <div class="meal-example__stats">~45g protein · ~9g fiber · 3 min prep</div>
+            </div>
+          </div>
+
+          <div class="meal-category">
+            <div class="meal-category__title">Lunch Options</div>
+            <div class="meal-example">
+              <div class="meal-example__name">The Chipotle Order</div>
+              <div class="meal-example__desc">Burrito bowl: double chicken (56g protein) + black beans + fajita veggies + pico + lettuce + half serving rice</div>
+              <div class="meal-example__stats">~62g protein · ~14g fiber · 0 min prep</div>
+            </div>
+            <div class="meal-example">
+              <div class="meal-example__name">The Deli Upgrade</div>
+              <div class="meal-example__desc">6 oz deli turkey (30g protein) + 2 slices whole grain bread + hummus + big side of raw veggies (peppers, carrots, snap peas)</div>
+              <div class="meal-example__stats">~38g protein · ~12g fiber · 5 min prep</div>
+            </div>
+            <div class="meal-example">
+              <div class="meal-example__name">The Leftover Play</div>
+              <div class="meal-example__desc">Last night's protein (chicken, ground beef, fish — 6 oz = ~35-42g) + microwaved bag of steamable vegetables + quinoa or sweet potato</div>
+              <div class="meal-example__stats">~40g protein · ~10g fiber · 5 min prep</div>
+            </div>
+          </div>
+
+          <div class="meal-category">
+            <div class="meal-category__title">Dinner Options</div>
+            <div class="meal-example">
+              <div class="meal-example__name">The Sheet Pan Dad Special</div>
+              <div class="meal-example__desc">6 oz chicken thighs (38g protein) + roasted broccoli and bell peppers + roasted sweet potato</div>
+              <div class="meal-example__stats">~38g protein · ~10g fiber · 30 min (mostly hands-off)</div>
+            </div>
+            <div class="meal-example">
+              <div class="meal-example__name">The Taco Night Upgrade</div>
+              <div class="meal-example__desc">6 oz ground turkey (42g) + corn tortillas + shredded cabbage + black beans + pico de gallo + avocado</div>
+              <div class="meal-example__stats">~48g protein · ~14g fiber · 15 min prep</div>
+            </div>
+            <div class="meal-example">
+              <div class="meal-example__name">The Steak Night</div>
+              <div class="meal-example__desc">6 oz sirloin steak (42g) + big mixed salad with chickpeas + olive oil dressing</div>
+              <div class="meal-example__stats">~48g protein · ~10g fiber · 20 min prep</div>
+            </div>
+          </div>
+
+          <div class="meal-category">
+            <div class="meal-category__title">Snack Options</div>
+            <div class="meal-example">
+              <div class="meal-example__name">The Grab-and-Go</div>
+              <div class="meal-example__desc">1 cup Oikos Triple Zero Greek yogurt (15g protein) + handful of almonds</div>
+              <div class="meal-example__stats">~21g protein · ~4g fiber</div>
+            </div>
+            <div class="meal-example">
+              <div class="meal-example__name">The Office Snack</div>
+              <div class="meal-example__desc">2 string cheese sticks (14g) + apple + 2 tbsp peanut butter</div>
+              <div class="meal-example__stats">~22g protein · ~5g fiber</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Quick Wins -->
+      <div class="results-section" id="section-swaps">
+        <h3 class="section-heading">3 Protein Swaps You Can Make Today</h3>
+        <div class="swap-card">
+          <div class="swap-card__title">Swap 1: Breakfast Cereal &rarr; Greek Yogurt Bowl</div>
+          <div class="swap-card__before">Before: Bowl of cereal with milk &rarr; ~8g protein</div>
+          <div class="swap-card__after">After: Greek yogurt with granola and berries &rarr; ~30g protein</div>
+          <div class="swap-card__delta">That's +22g in one swap.</div>
+        </div>
+        <div class="swap-card">
+          <div class="swap-card__title">Swap 2: Regular Snack &rarr; Protein Snack</div>
+          <div class="swap-card__before">Before: Granola bar &rarr; ~3g protein</div>
+          <div class="swap-card__after">After: String cheese + apple + handful of nuts &rarr; ~20g protein</div>
+          <div class="swap-card__delta">That's +17g with no extra prep time.</div>
+        </div>
+        <div class="swap-card">
+          <div class="swap-card__title">Swap 3: Carb-Heavy Lunch &rarr; Protein-First Lunch</div>
+          <div class="swap-card__before">Before: Sandwich with 2 slices of deli meat &rarr; ~12g protein</div>
+          <div class="swap-card__after">After: Same sandwich with 4-5 slices + side of Greek yogurt &rarr; ~35g protein</div>
+          <div class="swap-card__delta">That's +23g by just adding more.</div>
+        </div>
+        <div class="swap-impact">Combined impact: These three swaps close your gap by ~62g/day. For most dads, that's the majority of the fix — without a single new recipe.</div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="results-section" id="section-ctas">
+        <div class="cta-block cta-block--primary">
+          <div class="cta-block__heading">Ready to Close the Gap for Good?</div>
+          <div class="cta-block__body">The 30/10 Breakfast Cookbook gives you 30+ high-protein breakfast recipes designed for dads — each one hitting the 30/10 Standard with less than 15 minutes of prep. Because breakfast is where most dads leave the most protein on the table.</div>
+          <a href="#" class="btn">Get the 30/10 Breakfast Cookbook &rarr;</a>
+        </div>
+        <div class="cta-block">
+          <div class="cta-block__heading">Want the Full Nutrition Education?</div>
+          <div class="cta-block__body">The Muscle Switch Protocol is a 12-week course that teaches you everything about protein timing, the leucine threshold, meal distribution, and how to build a nutrition system that works inside dad life. If this calculator gave you the "what," the Muscle Switch Protocol gives you the "why and how."</div>
+          <a href="#" class="btn btn--secondary">Learn About the Muscle Switch Protocol &rarr;</a>
+        </div>
+        <p class="cta-inline">Not ready for a course? Subscribe to Dad Bod Rebuilt — a free weekly newsletter with protein strategies, 30/10 meals, and practical nutrition for dads who want to feel like athletes again. <a href="https://dadbodrebuilt.substack.com" target="_blank" rel="noopener">Subscribe Free on Substack &rarr;</a></p>
+      </div>
+
+      <!-- Share Section -->
+      <div class="results-section" id="section-share">
+        <div class="share">
+          <div class="share__heading">Think Your Buddy Is Eating Enough Protein?</div>
+          <div class="share__body">He's probably not. Send him the calculator — the gap is usually bigger than anyone expects.</div>
+          <div class="share__buttons">
+            <a class="share-btn share-btn--x" id="btn-share-x" href="#" target="_blank" rel="noopener">Share on X</a>
+            <button class="share-btn share-btn--copy" id="btn-copy-link">Copy Link</button>
+          </div>
+          <div class="share-toast" id="share-toast">Link copied! Send it to a buddy.</div>
+        </div>
+      </div>
+
+    </div><!-- /full-results -->
+
+    <div class="footer">
+      <p>&copy; 2026 Dr. Mike Roussell · <a href="/about">About</a> · <a href="/legal/privacy">Privacy</a> · <a href="/legal/terms">Terms</a></p>
+    </div>
+
+  </div><!-- /screen-results -->
+
+</div><!-- /app -->
+
+<script>
+(function() {
+  'use strict';
+
+  // --- STATE ---
+  var state = {
+    age: 40,
+    weightLbs: 195,
+    proteinHabitLevel: '',
+    currentIntake: 0,
+    dailyTarget: 0,
+    perMealTarget: 0,
+    gapGrams: 0,
+    gapPercentage: 0,
+    gapInMeals: 0,
+    anabolicContext: null,
+    gapCosts: [],
+    inputsComplete: false,
+    calculated: false,
+    emailSubmitted: false,
+    email: ''
+  };
+
+  // --- CALCULATION ENGINE ---
+
+  function adjustTargetForHighWeight(weightLbs) {
+    if (weightLbs > 250) {
+      var adjustedTarget = Math.round(200 + (weightLbs - 250) * 0.3);
+      return {
+        adjusted: true,
+        target: adjustedTarget,
+        note: 'For your current weight, we\u2019re targeting ' + adjustedTarget + 'g \u2014 based on a lean body mass estimate rather than total weight. This is a more realistic and effective target.'
+      };
+    }
+    return { adjusted: false, target: weightLbs, note: null };
+  }
+
+  function calculateProteinTarget(age, weightLbs) {
+    var adjustment = adjustTargetForHighWeight(weightLbs);
+    var baseTarget = adjustment.target * 1.0;
+    var mealsPerDay = 4;
+    var perMealTarget = Math.round(baseTarget / mealsPerDay);
+    var adjustedPerMeal = Math.max(perMealTarget, 30);
+
+    return {
+      dailyTarget: Math.round(baseTarget),
+      perMealTarget: adjustedPerMeal,
+      mealsPerDay: mealsPerDay,
+      weightAdjusted: adjustment.adjusted,
+      weightNote: adjustment.note
+    };
+  }
+
+  function estimateCurrentIntake(weightLbs, proteinHabitLevel) {
+    var multipliers = {
+      'none': 0.4,
+      'inconsistent': 0.55,
+      'dinner-heavy': 0.65,
+      'intentional': 0.8
+    };
+    return Math.round(weightLbs * (multipliers[proteinHabitLevel] || 0.5));
+  }
+
+  function calculateGap(currentIntake, dailyTarget) {
+    var gap = dailyTarget - currentIntake;
+    var gapPercentage = Math.round((gap / dailyTarget) * 100);
+    var gapInMeals = Math.round(gap / 30);
+    return {
+      gapGrams: Math.max(gap, 0),
+      gapPercentage: Math.max(gapPercentage, 0),
+      gapInMeals: Math.max(gapInMeals, 0)
+    };
+  }
+
+  function getAnabolicResistanceContext(age) {
+    if (age < 35) {
+      return {
+        level: 'minimal',
+        message: 'At your age, your muscles are still fairly responsive to protein. But building the 30/10 habit now sets you up for the decade ahead when it becomes critical.',
+        multiplierNote: null
+      };
+    }
+    if (age < 40) {
+      return {
+        level: 'emerging',
+        message: 'Anabolic resistance is starting to set in. Your muscles are becoming less responsive to protein signals \u2014 meaning you need more protein per meal to trigger the same muscle-building response you got in your 20s.',
+        multiplierNote: 'Your body now needs roughly 40-50% more protein per meal compared to your 20s.'
+      };
+    }
+    if (age < 50) {
+      return {
+        level: 'significant',
+        message: 'At your age, anabolic resistance is a real factor. Research from McMaster University shows that men over 40 require roughly 70% more protein per meal to trigger the same muscle-building response. This isn\u2019t aging \u2014 it\u2019s biology that\u2019s fixable with the right approach.',
+        multiplierNote: 'Your body now needs roughly 70% more protein per meal compared to your 20s.'
+      };
+    }
+    return {
+      level: 'advanced',
+      message: 'Anabolic resistance is fully established. The protein strategy that worked even 10 years ago isn\u2019t enough anymore. But here\u2019s the good news: research shows that when you hit the right protein targets consistently, your muscles still respond. The switch still flips \u2014 it just requires a bigger push.',
+      multiplierNote: 'Your body now needs roughly 70-100% more protein per meal compared to your 20s.'
+    };
+  }
+
+  function getGapCosts(gapGrams) {
+    var costs = [];
+
+    if (gapGrams > 60) {
+      costs.push({
+        icon: '\uD83D\uDCAA',
+        title: 'Muscle Loss',
+        description: 'Without adequate protein, you\u2019re likely losing muscle mass every year \u2014 research suggests 3-8% per decade after 30, accelerating without proper nutrition.'
+      });
+    }
+
+    if (gapGrams > 40) {
+      costs.push({
+        icon: '\uD83D\uDD04',
+        title: 'Slower Recovery',
+        description: 'Your body can\u2019t repair muscle efficiently with a ' + gapGrams + 'g daily gap. Workouts are less effective because you\u2019re not giving your body the raw materials to rebuild.'
+      });
+    }
+
+    if (gapGrams > 20) {
+      costs.push({
+        icon: '\uD83C\uDF7D\uFE0F',
+        title: 'Increased Hunger',
+        description: 'Protein is the most satiating macronutrient. Undereating protein by ' + gapGrams + 'g means you\u2019re likely overeating carbs and fats to compensate \u2014 which drives the weight gain you\u2019re trying to reverse.'
+      });
+    }
+
+    costs.push({
+      icon: '\u26A1',
+      title: 'Missed Muscle-Building Windows',
+      description: 'With ' + Math.round(gapGrams / 30) + ' fewer protein-rich meals than optimal, you\u2019re missing ' + Math.round(gapGrams / 30) + ' opportunities per day to trigger muscle protein synthesis. Each missed window is a lost chance to rebuild.'
+    });
+
+    return costs;
+  }
+
+  function getGapSizeBand(gapGrams) {
+    if (gapGrams < 30) return 'small';
+    if (gapGrams <= 60) return 'moderate';
+    if (gapGrams <= 100) return 'large';
+    return 'critical';
+  }
+
+  function getAgeBand(age) {
+    if (age < 40) return 'under-40';
+    if (age <= 45) return '40-45';
+    return '45-plus';
+  }
+
+  // --- DOM HELPERS ---
+
+  function $(id) { return document.getElementById(id); }
+
+  function showScreen(id) {
+    var screens = document.querySelectorAll('.screen');
+    for (var i = 0; i < screens.length; i++) {
+      screens[i].classList.remove('active');
+    }
+    $(id).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function animateNumber(el, target, duration, suffix) {
+    suffix = suffix || '';
+    var start = 0;
+    var startTime = null;
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var progress = Math.min((timestamp - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = Math.round(start + (target - start) * eased);
+      el.textContent = current + suffix;
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  // --- UI SETUP ---
+
+  var ageSlider = $('age-slider');
+  var ageValue = $('age-value');
+  var weightInput = $('weight-input');
+  var weightError = $('weight-error');
+  var habitGrid = $('habit-grid');
+  var btnCalculate = $('btn-calculate');
+  var habitCards = habitGrid.querySelectorAll('.habit-card');
+
+  // Age slider
+  ageSlider.addEventListener('input', function() {
+    state.age = parseInt(this.value, 10);
+    ageValue.textContent = state.age;
+    checkInputsComplete();
+  });
+
+  // Weight input
+  weightInput.addEventListener('input', function() {
+    var val = parseInt(this.value, 10);
+    if (isNaN(val) || val < 120 || val > 350) {
+      if (this.value !== '') {
+        weightError.classList.add('visible');
+      }
+      state.weightLbs = 0;
+    } else {
+      weightError.classList.remove('visible');
+      state.weightLbs = val;
+    }
+    checkInputsComplete();
+  });
+
+  // Habit cards
+  for (var i = 0; i < habitCards.length; i++) {
+    habitCards[i].addEventListener('click', function() {
+      for (var j = 0; j < habitCards.length; j++) {
+        habitCards[j].classList.remove('selected');
+      }
+      this.classList.add('selected');
+      state.proteinHabitLevel = this.getAttribute('data-habit');
+      checkInputsComplete();
+    });
+  }
+
+  function checkInputsComplete() {
+    state.inputsComplete = state.age > 0 && state.weightLbs >= 120 && state.weightLbs <= 350 && state.proteinHabitLevel !== '';
+    btnCalculate.disabled = !state.inputsComplete;
+    if (state.inputsComplete) {
+      btnCalculate.classList.add('btn--pulse');
+    } else {
+      btnCalculate.classList.remove('btn--pulse');
+    }
+  }
+
+  // --- SCREEN NAVIGATION ---
+
+  $('btn-start').addEventListener('click', function() {
+    showScreen('screen-inputs');
+  });
+
+  btnCalculate.addEventListener('click', function() {
+    if (!state.inputsComplete) return;
+    runCalculation();
+  });
+
+  $('btn-edit').addEventListener('click', function() {
+    showScreen('screen-inputs');
+  });
+
+  // --- CALCULATION + RENDERING ---
+
+  function runCalculation() {
+    showScreen('screen-calculating');
+
+    // Animate the calculating number
+    var calcNum = $('calc-number');
+    var count = 0;
+    var calcInterval = setInterval(function() {
+      count += Math.floor(Math.random() * 30) + 5;
+      calcNum.textContent = count + 'g';
+    }, 100);
+
+    setTimeout(function() {
+      clearInterval(calcInterval);
+
+      // Run actual calculations
+      var targets = calculateProteinTarget(state.age, state.weightLbs);
+      state.dailyTarget = targets.dailyTarget;
+      state.perMealTarget = targets.perMealTarget;
+
+      state.currentIntake = estimateCurrentIntake(state.weightLbs, state.proteinHabitLevel);
+
+      var gap = calculateGap(state.currentIntake, state.dailyTarget);
+      state.gapGrams = gap.gapGrams;
+      state.gapPercentage = gap.gapPercentage;
+      state.gapInMeals = gap.gapInMeals;
+
+      state.anabolicContext = getAnabolicResistanceContext(state.age);
+      state.gapCosts = getGapCosts(state.gapGrams);
+
+      state.calculated = true;
+      renderResults(targets);
+    }, 1200);
+  }
+
+  function renderResults(targets) {
+    showScreen('screen-results');
+
+    // Your Numbers header
+    $('result-age').textContent = state.age;
+    $('result-weight').textContent = state.weightLbs + ' lbs';
+    $('result-current').textContent = '~' + state.currentIntake + 'g/day';
+
+    // Gap Bars
+    var maxValue = state.dailyTarget;
+    var currentPct = Math.min((state.currentIntake / maxValue) * 100, 100);
+    var targetPct = 100;
+
+    $('bar-current-label').textContent = '~' + state.currentIntake + 'g/day';
+    $('bar-target-label').textContent = state.dailyTarget + 'g/day';
+
+    // Animate bars after a short delay
+    setTimeout(function() {
+      var barCurrent = $('bar-current');
+      barCurrent.style.width = currentPct + '%';
+      $('bar-current-value').textContent = state.currentIntake + 'g';
+    }, 200);
+
+    setTimeout(function() {
+      var barTarget = $('bar-target');
+      barTarget.style.width = targetPct + '%';
+      $('bar-target-value').textContent = state.dailyTarget + 'g';
+    }, 500);
+
+    // Gap Highlight
+    setTimeout(function() {
+      animateNumber($('gap-number'), state.gapGrams, 1200);
+    }, 800);
+
+    if (state.gapGrams === 0) {
+      $('gap-context').textContent = 'You\u2019re hitting your target! Focus on meal timing and distribution to optimize results.';
+    } else {
+      $('gap-context').textContent = 'That\u2019s roughly ' + state.gapInMeals + ' missed protein meals every day \u2014 ' + state.gapInMeals + ' opportunities your body isn\u2019t getting to build and repair muscle.';
+    }
+
+    // Per-Meal Targets
+    $('per-meal-display').textContent = state.perMealTarget + 'g';
+    var mealTargetValues = document.querySelectorAll('.meal-target-value');
+    for (var m = 0; m < mealTargetValues.length; m++) {
+      mealTargetValues[m].textContent = state.perMealTarget;
+    }
+    var snackTarget = document.querySelector('.snack-target-value');
+    if (snackTarget) {
+      snackTarget.textContent = '15-20';
+    }
+
+    // Anabolic Resistance Callout
+    var anabolicBody = $('anabolic-body');
+    anabolicBody.textContent = state.anabolicContext.message;
+    var multiplierEl = $('anabolic-multiplier');
+    if (state.anabolicContext.multiplierNote) {
+      multiplierEl.textContent = state.anabolicContext.multiplierNote;
+      multiplierEl.style.display = 'inline-block';
+    } else {
+      multiplierEl.style.display = 'none';
+    }
+
+    // Weight adjustment note
+    if (targets.weightAdjusted && targets.weightNote) {
+      var noteDiv = document.createElement('div');
+      noteDiv.className = 'callout';
+      noteDiv.style.marginBottom = 'var(--space-xl)';
+      var noteHeading = document.createElement('div');
+      noteHeading.className = 'callout__heading';
+      noteHeading.textContent = 'Adjusted Target';
+      var noteBody = document.createElement('div');
+      noteBody.className = 'callout__body';
+      noteBody.textContent = targets.weightNote;
+      noteDiv.appendChild(noteHeading);
+      noteDiv.appendChild(noteBody);
+      $('anabolic-callout').parentNode.insertBefore(noteDiv, $('anabolic-callout'));
+    }
+
+    // Gap Costs
+    $('costs-heading').textContent = 'What a ' + state.gapGrams + 'g Daily Gap Actually Means';
+    var costsContainer = $('costs-container');
+    costsContainer.textContent = '';
+    for (var c = 0; c < state.gapCosts.length; c++) {
+      var cost = state.gapCosts[c];
+      var card = document.createElement('div');
+      card.className = 'cost-card';
+
+      var iconDiv = document.createElement('div');
+      iconDiv.className = 'cost-card__icon';
+      iconDiv.textContent = cost.icon;
+
+      var contentDiv = document.createElement('div');
+      var titleDiv = document.createElement('div');
+      titleDiv.className = 'cost-card__title';
+      titleDiv.textContent = cost.title;
+      var descDiv = document.createElement('div');
+      descDiv.className = 'cost-card__desc';
+      descDiv.textContent = cost.description;
+      contentDiv.appendChild(titleDiv);
+      contentDiv.appendChild(descDiv);
+
+      card.appendChild(iconDiv);
+      card.appendChild(contentDiv);
+      costsContainer.appendChild(card);
+
+      // Stagger animation
+      (function(cardEl, delay) {
+        setTimeout(function() { cardEl.classList.add('visible'); }, delay);
+      })(card, 1200 + (c * 150));
+    }
+
+    // Email gate body
+    $('email-gate-body').textContent = 'Your numbers are clear. Now let\u2019s fix them. Get your personalized 30/10 Meal Framework \u2014 the exact system for hitting ' + state.perMealTarget + 'g of protein at every meal without complicated meal prep.';
+
+    // Meals heading
+    $('meals-heading').textContent = 'What ' + state.perMealTarget + 'g of Protein Actually Looks Like';
+
+    // Target table
+    renderTargetTable();
+
+    // Share link
+    updateShareLinks();
+  }
+
+  function renderTargetTable() {
+    var tbody = $('target-table-body');
+    tbody.textContent = '';
+
+    var meals = [
+      { name: 'Breakfast', protein: state.perMealTarget + 'g', fiber: '10g' },
+      { name: 'Lunch', protein: state.perMealTarget + 'g', fiber: '10g' },
+      { name: 'Afternoon Snack', protein: '15-20g', fiber: '5g' },
+      { name: 'Dinner', protein: state.perMealTarget + 'g', fiber: '10g' },
+      { name: 'Daily Total', protein: state.dailyTarget + 'g', fiber: '35g' }
+    ];
+
+    for (var i = 0; i < meals.length; i++) {
+      var tr = document.createElement('tr');
+      var td1 = document.createElement('td');
+      td1.textContent = meals[i].name;
+      var td2 = document.createElement('td');
+      td2.textContent = meals[i].protein;
+      var td3 = document.createElement('td');
+      td3.textContent = meals[i].fiber;
+      tr.appendChild(td1);
+      tr.appendChild(td2);
+      tr.appendChild(td3);
+      tbody.appendChild(tr);
+    }
+  }
+
+  function updateShareLinks() {
+    var shareText = 'I just calculated my protein gap \u2014 I\u2019m ' + state.gapGrams + 'g short EVERY DAY. No wonder nothing was working. Find yours:';
+    var shareUrl = window.location.origin + '/protein';
+    var xUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText + ' ' + shareUrl);
+    $('btn-share-x').href = xUrl;
+
+    $('btn-copy-link').addEventListener('click', function() {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(shareUrl).then(function() {
+          $('share-toast').classList.add('visible');
+          setTimeout(function() { $('share-toast').classList.remove('visible'); }, 3000);
+        });
+      }
+    });
+  }
+
+  // --- EMAIL FORM ---
+
+  $('email-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var emailVal = $('email-input').value.trim();
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(emailVal)) {
+      $('email-error').classList.add('visible');
+      return;
+    }
+
+    $('email-error').classList.remove('visible');
+    state.email = emailVal;
+    state.emailSubmitted = true;
+
+    // Disable form
+    $('email-input').disabled = true;
+    $('btn-email').disabled = true;
+    $('btn-email').textContent = 'Sent!';
+
+    // Show toast
+    $('email-toast').classList.add('visible');
+
+    // Show full results
+    $('full-results').style.display = 'block';
+
+    // Hide the email gate form area (keep toast visible)
+    $('email-form').style.display = 'none';
+
+    // Animate results sections in
+    var sections = document.querySelectorAll('.results-section');
+    for (var s = 0; s < sections.length; s++) {
+      (function(section, delay) {
+        setTimeout(function() { section.classList.add('visible'); }, delay);
+      })(sections[s], 300 + (s * 200));
+    }
+
+    // Log tags for ConvertKit integration
+    var gapBand = getGapSizeBand(state.gapGrams);
+    var ageBand = getAgeBand(state.age);
+    if (window.console) {
+      console.log('[ConvertKit Tags]', {
+        source: 'protein-gap',
+        gapSize: 'gap-' + gapBand,
+        age: 'age-' + ageBand,
+        email: state.email,
+        gapGrams: state.gapGrams,
+        dailyTarget: state.dailyTarget
+      });
+    }
+  });
+
+})();
+</script>
+</body>
+</html>

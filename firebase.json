@@ -26,6 +26,10 @@
       {
         "source": "/quiz",
         "destination": "/quiz/index.html"
+      },
+      {
+        "source": "/protein",
+        "destination": "/protein/index.html"
       }
     ]
   }
